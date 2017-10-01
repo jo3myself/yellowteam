@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YELLOW</title>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- bootstrap pooper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <!-- bootstrap javascript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css" type="text/css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Yellow Team</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link open-account-modal" href="#register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link open-account-modal" href="#sign-in">Sign In</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div><!-- /.collapse-->
+    </div><!-- /.container-->
+  </nav><!-- /.navbar-->
+
+  <header class="page-header bg-secondary">
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="h4 text-uppercase">User Page</h1>
+          </div><!-- /.col-->
+        </div><!-- /.row-->
+    </div><!-- /.container-->
+  </header><!-- /.page-header -->
+
+  <section class="section section-featured-products">
+    <div class="container">
+    
+      <div class="row">
+
+        <div class="col-sm-12 col-lg-4">
+          <h3 class="h5 text-uppercase">Edit Products</h3>
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Product Name</h6>
+              <a href="#">Edit Product &rarr;</a>
+            </div><!-- /.card-body -->
+          </div><!-- /.card -->
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Product Name</h6>
+              <a href="#">Edit Product &rarr;</a>
+            </div><!-- /.card-body -->
+          </div><!-- /.card -->
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Product Name</h6>
+              <a href="#">Edit Product &rarr;</a>
+            </div><!-- /.card-body -->
+          </div><!-- /.card -->
+
+          <button type="button" class="btn btn-primary">View Your Store</button>
+        </div><!-- /.col -->
+
+        <div class="col-sm-12 col-lg-8">
+          <h2 class="h5 text-uppercase">Edit User Profile</h2>
+          <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus. </p>
+
+          <form id="register-form">
+            <div class="form-group">
+              <label for="first-name" class="form-control-label">First Name:</label>
+              <input type="text" class="form-control" id="first-name">
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-control-label">Email:</label>
+              <input type="text" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="phone-number" class="form-control-label">Phone Number:</label>
+              <input type="text" class="form-control" id="phone-number">
+            </div>
+            <div class="form-group">
+              <label for="username" class="form-control-label">Username/Storename:</label>
+              <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+              <label for="profile-imge" class="form-control-label">Profile Image:</label>
+              <input type="text" class="form-control" id="profile-imge">
+            </div>
+            <div class="form-group">
+              <label for="location" class="form-control-label">Location:</label>
+              <input type="text" class="form-control" id="location">
+            </div>
+            <button type="button" class="btn btn-primary">Update Profile</button>
+          </form>
+        </div><!-- /.col -->
+
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </section><!-- /.section -->
+
+  <div class="modal fade" id="account-modal" tabindex="-1" role="dialog" aria-labelledby="accountModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-expanded="true">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="sign-in-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in">Sign In</a>
+            </li>
+           </ul>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div><!--/.modal-header -->
+        <div class="modal-body">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+              <form id="register-form">
+                <div class="form-group">
+                  <label for="name" class="form-control-label">Name:</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-control-label">Email:</label>
+                  <input type="text" class="form-control" id="email">
+                </div>
+                <button type="button" class="btn btn-primary">Register</button>
+              </form>
+            </div><!--/.tab-pane -->
+            <div class="tab-pane fade" id="sign-in" role="tabpanel" aria-labelledby="sign-in-tab">
+              <form id="sign-in-form">
+                <div class="form-group">
+                  <label for="username" class="form-control-label">Username:</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                  <label for="password" class="form-control-label">Password:</label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+                <button type="button" class="btn btn-primary">Login</button>
+              </form>
+            </div><!--/.tab-pane -->
+          </div><!--/.tab-content -->
+        </div><!--/.modal-body -->
+      </div><!--/.modal-content -->
+    </div><!--/.modal-dialog -->
+  </div><!--/.modal -->
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        &copy; All Rights Reserved. Yellow Team.
+      </div><!--/.row -->
+      <div class="col-6 text-right">
+        Developed By:  Brendan, Jake, Johan, Mario
+      </div><!--/.row -->
+    </div><!--/.row -->
+  </div><!--/.container -->
+</footer><!--/.site-footer -->
+<script type="text/javascript" src="js/javascript.js"></script>
+</body>
+</html>
