@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS `yellow_db`;
+CREATE DATABASE `yellow_db`;
