@@ -7,6 +7,8 @@
 
 // Requiring our models
 var db = require("../models");
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // Routes
 // =============================================================
@@ -19,19 +21,23 @@ module.exports = function(app) {
 
   // Add a New user
   app.post("/user/new", function(req, res) {
-    console.log("User Data:");
-    console.log(req.body);
+    // console.log("User Data:");
+    // console.log(req.body);
+    const password = req.body.password;
 
-    db.User.create({
-      name: req.body.first_name,
-      email: req.body.email,
-      phone: req.body.phone_number,
-      userName: req.body.user_name,
-      password: req.body.password,
-      profileImage: req.body.profile_image,
-      location: req.body.location,
-    }).then(function(dbUser) {
-      res.json(dbUser);
+    // Hash the password then save to DB
+    bcrypt.hash(password, saltRounds).then(function(hash) {
+      db.User.create({
+        name: req.body.first_name,
+        email: req.body.email,
+        phone: req.body.phone_number,
+        userName: req.body.user_name,
+        password: hash,
+        profileImage: req.body.profile_image,
+        location: req.body.location,
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
     });
   });
   
