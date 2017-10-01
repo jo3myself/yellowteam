@@ -1,0 +1,13 @@
+.section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.grey-bg {
+  background: #f7f7f9;
+}
+.site-footer {
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #343a40;
+}
