@@ -6,8 +6,9 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
-.grey-bg {
-  background: #f7f7f9;
+.card-product,
+.media-category {
+  margin-bottom: 15px;
 }
 .site-footer {
   color: #fff;
