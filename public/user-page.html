@@ -82,37 +82,54 @@
 
         <div class="col-sm-12 col-lg-8">
           <h2 class="h5 text-uppercase">Edit User Profile</h2>
-          <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus. </p>
+          <p class="lead">Edit your user profile Settings.</p>
 
           <form id="register-form" method="POST" action="/user?_method=PUT">
-            <div class="form-group">
-              <label for="first-name" class="form-control-label">First Name:</label>
-              <input type="text" class="form-control" name="first_name" id="first_name">
-            </div>
-            <div class="form-group">
-              <label for="email" class="form-control-label">Email:</label>
-              <input type="text" class="form-control" name="email" id="email">
-            </div>
-            <div class="form-group">
-              <label for="password" class="form-control-label">Password:</label>
-              <input type="password" class="form-control" name="password" id="password">
-            </div>
-            <div class="form-group">
-              <label for="phone-number" class="form-control-label">Phone Number:</label>
-              <input type="text" class="form-control" nam="phone_number" id="phone_number">
-            </div>
-            <div class="form-group">
-              <label for="username" class="form-control-label">Username/Storename:</label>
-              <input type="text" class="form-control" name="user_name" id="user_name">
-            </div>
-            <div class="form-group">
-              <label for="profile-imge" class="form-control-label">Profile Image:</label>
-              <input type="text" class="form-control" name="profile_image" id="profile_image">
-            </div>
-            <div class="form-group">
-              <label for="location" class="form-control-label">Location:</label>
-              <input type="text" class="form-control" name="location" id="location">
-            </div>
+
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="first-name" class="form-control-label">First Name:</label>
+                  <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Name">
+                </div><!-- /.form-group -->  
+              </div><!-- /.col -->
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="email" class="form-control-label">Email:</label>
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                </div><!-- /.form-group -->
+              </div><!-- /.col -->
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="phone-number" class="form-control-label">Phone Number:</label>
+                  <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555">
+                </div><!-- /.form-group -->
+              </div><!-- /.col -->
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="location" class="form-control-label">Location:</label>
+                  <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA">
+                </div><!-- /.form-group -->
+              </div><!-- /.col -->
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="profile-imge" class="form-control-label">Profile Image:</label>
+                  <input type="text" class="form-control" name="profile_image" id="profile_image" placeholder="http://myimageurl.jpg">
+                </div><!-- /.form-group -->
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="username" class="form-control-label">Username/Storename:</label>
+                  <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username">
+                </div><!-- /.form-group -->        
+              </div><!-- /.col -->
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="password" class="form-control-label">Password:</label>
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div><!-- /.form-group -->
+              </div><!-- /.col -->
+            </div><!-- /.row -->
             <button type="button" class="btn btn-primary">Update Profile</button>
           </form>
         </div><!-- /.col -->
