@@ -7,7 +7,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 
 // Sets up the Express App
 // =============================================================
@@ -27,8 +27,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(methodOverride("_method"));
 
 // Sets up the Express app to handle handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static("public"));
