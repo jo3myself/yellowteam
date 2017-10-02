@@ -14,7 +14,11 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.render('index', {});
   });
   
+  app.get("/user", function(req, res) {
+    res.render('user', {});
+  });
+
 };
