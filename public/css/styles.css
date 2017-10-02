@@ -1,0 +1,29 @@
+html {
+	position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 55px;
+}
+.page-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.card-product,
+.media-category {
+  margin-bottom: 15px;
+}
+.site-footer {
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+  background-color: #343a40;
+}
