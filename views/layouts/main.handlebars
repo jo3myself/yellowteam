@@ -14,119 +14,14 @@
   <link rel="stylesheet" href="css/styles.css" type="text/css" />
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container">
-			<a class="navbar-brand" href="#">Yellow Team</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
+  {{> nav }}
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-				<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-				<a class="nav-link open-account-modal" href="#register">Register</a>
-				</li>
-				<li class="nav-item">
-				<a class="nav-link open-account-modal" href="#sign-in">Sign In</a>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Product Search" aria-label="Search">
-				<button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-			</form>
-			</div><!-- /.collapse-->
-		</div><!-- /.container-->
-	</nav><!-- /.navbar-->
+  {{{ body }}}
 
-    {{{ body }}}
+  {{> account-modal }}
 
-  <div class="modal fade" id="account-modal" tabindex="-1" role="dialog" aria-labelledby="accountModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-expanded="true">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="sign-in-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in">Sign In</a>
-            </li>
-           </ul>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div><!--/.modal-header -->
-        <div class="modal-body">
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-              <form id="register-form">
-                <div class="row">
-                  <div class="col-sm-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="first-name" class="form-control-label">First Name:</label>
-                      <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Name">
-                    </div><!-- /.form-group -->  
-                  </div><!-- /.col -->
-                  <div class="col-sm-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="email" class="form-control-label">Email:</label>
-                      <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-                    </div><!-- /.form-group -->
-                  </div><!-- /.col -->
-                  <div class="col-sm-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="username" class="form-control-label">Username/Storename:</label>
-                      <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username">
-                    </div><!-- /.form-group -->        
-                  </div><!-- /.col -->
-                  <div class="col-sm-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="password" class="form-control-label">Password:</label>
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                    </div><!-- /.form-group -->
-                  </div><!-- /.col -->
-                </div><!-- /.row -->
-                <button type="button" class="btn btn-primary">Register</button>
-              </form>
-            </div><!--/.tab-pane -->
-            <div class="tab-pane fade" id="sign-in" role="tabpanel" aria-labelledby="sign-in-tab">
-              <form id="sign-in-form">
-                <div class="row">
-                  <div class="col-sm-12 col-lg-12">
-                    <div class="form-group">
-                      <label for="email" class="form-control-label">Email:</label>
-                      <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-                    </div><!-- /.form-group -->
-                  </div><!-- /.col -->
-                  <div class="col-sm-12 col-lg-12">
-                    <div class="form-group">
-                      <label for="password" class="form-control-label">Password:</label>
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                    </div><!-- /.form-group -->
-                  </div><!-- /.col -->
-                </div><!-- /.row -->
-                <button type="button" class="btn btn-primary">Login</button>
-              </form>
-            </div><!--/.tab-pane -->
-          </div><!--/.tab-content -->
-        </div><!--/.modal-body -->
-      </div><!--/.modal-content -->
-    </div><!--/.modal-dialog -->
-  </div><!--/.modal -->
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        &copy; All Rights Reserved. Yellow Team.
-      </div><!--/.row -->
-      <div class="col-6 text-right">
-        Developed By:  Brendan, Jake, Johan, Mario
-      </div><!--/.row -->
-    </div><!--/.row -->
-  </div><!--/.container -->
-</footer><!--/.site-footer -->
+  {{> footer }}
+  
 <script type="text/javascript" src="js/javascript.js"></script>
 </body>
 </html>
