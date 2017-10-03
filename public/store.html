@@ -37,11 +37,11 @@
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
-                            <form class="navbar-form navbar-right">
+                            <form class="navbar-form navbar-right" id="navBarSearchForm">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" placeholder="Search Items, Categories, or Stores">
                                 </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" class="btn btn-info">Search</button>
                             </form>
                     </div>
                 </div>
@@ -50,9 +50,9 @@
 		<!-- Jumbotron
     ================================================== -->
 
-        <div class="jumbotron text-center">
+        <div class="jumbotron text-center" id="storeJumbotron">
             <div class="container">
-                <h1>Welcome to my store</h1>
+                <h1 id="storeTitle">Welcome to My Store</h1>
                 <p><a class="btn btn-info btn-lg" href="#" role="button">Contact Me</a></p>
             </div>
             
@@ -61,67 +61,84 @@
 		<!-- /.jumbotron -->
 		<!-- Marketing messaging and featurettes
     ================================================== -->
+
 		<!-- Wrap the rest of the page in another container to center all the content. -->
 		<div class="container marketing">
-			<!-- Three columns of text below the carousel -->
-			<div class="row">
-				<div class="col-md-3 col-sm-6">
+                <div class="row">
+                        <div class="col-md-4 brand-logo">
+                            <img class="img-square" src="images/temp-logo.jpeg" alt="Generic placeholder image" width="300" height="300">
+                        </div>
+                        <div class="col-md-8" id="about">
+                            <h2 class="text-center">Header</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, neque? Tempora, non, quia blanditiis ipsum reprehenderit illo rem maxime amet, dignissimos corporis molestiae! Facere illo sapiente iure, dolorum quasi pariatur.
+                            Veritatis inventore recusandae sunt voluptatem tempora fugiat pariatur odio harum illo perferendis dolor nobis tempore architecto aliquam modi, repellendus iste molestias placeat? Dolor sapiente nesciunt odit mollitia voluptate eos numquam!
+                            Dicta neque porro praesentium quas dolore, nostrum consequuntur quisquam. Alias doloribus natus voluptate dolores amet officiis, tempore fuga. Tempore odit nostrum quidem modi. Praesentium reiciendis dicta tenetur repellat ducimus esse!
+                            Possimus quaerat labore, eius blanditiis consequatur nostrum odit? Delectus quis, at laudantium dolores ab recusandae laborum reprehenderit. Cum facilis velit et inventore sequi, ipsam vero culpa deserunt omnis quo modi!</p>
+                        </div>
+                    </div>
+            
+            <!-- Three columns of text below the carousel -->
+            <div class="row text-center">
+                <h1 id="productsHeader">Products</h1>
+            </div>
+			<div class="row" id="productContent">
+				<div class="col-md-3 col-xs-6 text-center center-block">
 					<img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-					<h2>Heading</h2>
+					<h3>Product Name</h3>
 					<p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
 					</p>
 				</div>
 				<!-- /.col-lg-3 -->
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-3 col-xs-6 text-center center-block">
 					<img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-					<h2>Heading</h2>
+					<h3>Product Name</h3>
 					<p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
 					</p>
 				</div>
 				<!-- /.col-lg-3 -->
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-3 col-xs-6 text-center center-block">
 					<img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-					<h2>Heading</h2>
+					<h3>Product Name</h3>
 					<p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
 					</p>
                 </div>
                 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-xs-6 text-center center-block">
                         <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-                        <h2>Heading</h2>
+                        <h3>Product Name</h3>
                         <p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
                         </p>
                     </div>
                     <!-- /.col-lg-3 -->
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-xs-6 text-center center-block">
                         <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-                        <h2>Heading</h2>
+                        <h3>Product Name</h3>
                         <p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
                         </p>
                     </div>
                     <!-- /.col-lg-3 -->
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-xs-6 text-center center-block">
                         <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-                        <h2>Heading</h2>
+                        <h3>Product Name</h3>
                         <p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
                         </p>
                     </div>
                 <!-- /.col-lg-3 -->
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-xs-6 text-center center-block">
                         <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-                        <h2>Heading</h2>
+                        <h3>Product Name</h3>
                         <p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
                         </p>
                     </div>
                     <!-- /.col-lg-3 -->
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-xs-6 text-center center-block">
                         <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-                        <h2>Heading</h2>
+                        <h3>Product Name</h3>
                         <p>	<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
                         </p>
                     </div>
 			</div>
-			<!-- /.row -->
+            <!-- /.row -->
 			
 			<!-- FOOTER -->
 			<footer>

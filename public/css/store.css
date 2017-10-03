@@ -11,15 +11,6 @@ body {
   /* CUSTOMIZE THE NAVBAR
   -------------------------------------------------- */
   
-  /* Special class on .container surrounding .navbar, used for positioning it into place. */
-  /* .navbar-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 20;
-  }
-   */
   /* Flip around the padding for proper display in narrow viewports */
   .navbar-wrapper > .container {
     padding-right: 0;
@@ -28,11 +19,52 @@ body {
   .navbar-wrapper .navbar {
     padding-right: 15px;
     padding-left: 15px;
+    margin-bottom: 0;
   }
   .navbar-wrapper .navbar .container {
     width: auto;
   }
+
+  #navBarSearchForm input[type=text]{
+      width:300px !important;
+  }
+
+  #storeJumbotron {
+      margin-top: 0;
+  }
+
+  #storeTitle {
+      padding-bottom: 20px;
+  }
+
+  #productsHeader {
+      position: relative;
+      padding-bottom: 20px;
+      font-size: calc(1vw + 2vh + 1vmin);
+  }
   
+  #productsHeader:after {
+    content: '';
+    position:absolute;
+    bottom:0;
+    left: 35%;
+    right: 35%;
+    height: 3px;
+    background:#302F2F;
+    display:block;
+  }
+  
+  #productContent {
+      padding-top: 20px;
+  }
+
+  #about {
+      border: 1px solid #302F2F;
+  }
+  
+  footer {
+      padding-top: 30px;
+  }
   
   /* RESPONSIVE CSS
   -------------------------------------------------- */
@@ -52,4 +84,4 @@ body {
     .navbar-wrapper .navbar {
       border-radius: 4px;
     }
-  
+}
