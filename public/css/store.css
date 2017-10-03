@@ -61,6 +61,16 @@ body {
   #about {
       border: 1px solid #302F2F;
   }
+/* USED FOR PRODUCT VIEW */
+  .selected img {
+    opacity:0.5;
+  }
+  
+  #slider-thumbs {
+      padding-top: 20px;
+  }
+
+  /********************* END PRODUCT VIEW */ 
   
   footer {
       padding-top: 30px;
