@@ -68,6 +68,29 @@ body {
   
   #slider-thumbs {
       padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+  #myCarousel {
+    margin-top: 20px;
+  }
+
+  #item-main {
+    background-color: #DFDFDF;
+    border: 1px solid #eee;
+  }
+
+  .center{
+    width: 120px;
+    padding-bottom: 10px;    
+  }
+
+  #quantity {
+    padding-top: 10px;
+  }
+
+  #contactBtn {
+    margin-top: 20px !important;
   }
 
   /********************* END PRODUCT VIEW */ 
