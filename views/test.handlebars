@@ -1,0 +1,39 @@
+<div class="jumbotron text-center" id="storeJumbotron">
+    <div class="container">
+        <h1 id="storeTitle"></h1>
+        <hr>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Contact Me</a></p>
+    </div>
+    
+</div>
+
+<!-- /.jumbotron -->
+    
+    <!-- Logo Placement and info section
+================================================== -->
+
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="container">
+    <!-- Product Grid -->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 id="productsHeader">Products</h1>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="row" id="productContent">
+    {{#each product}}
+        <div class="col-md-3 col-xs-6 text-center center-block">
+            <img class="img-square" src="{{this.imageURL}}" alt="Generic placeholder image" width="200" height="200">
+            <h3>{{this.productName}}</h3>
+            <p> <a class="btn btn-secondary" href="/product/{{this.id}}" role="button">View details &raquo;</a>
+            </p>
+            <input type="hidden" id="hiddenName" value="{{this.User.userName}}">
+        </div>        
+    {{/each}}  
+    </div>
+   
+    <!-- /.row -->
+</div> 
+<!-- /.container -->

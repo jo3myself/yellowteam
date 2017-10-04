@@ -8,7 +8,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
-var session = require("express-session");
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -22,10 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(session({
-	secret: "yellow",
-	cookie: {}
-}));
+
 // Sets up the Express app to handle method-override
 app.use(methodOverride("_method"));
 

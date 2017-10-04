@@ -31,6 +31,7 @@ $('#carousel').on('slid', function (e) {
 
 });
 
+<<<<<<< HEAD
 
 $.get("/api/products", function(data) {
 	var categories=[];
@@ -69,18 +70,27 @@ function dropdownList(cat) {
     });
   }
 
+=======
+// when search button click, search for it
+>>>>>>> master
 $("#searchButton").click(function(event) {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
 	 window.location.href="/search/"+searchProduct;
 });
 
+<<<<<<< HEAD
 $("#contactBtn").click(function(event) {
 	event.preventDefault();
 	var quantity = $("#quantity").val();
 	var price = $("#price").val();
 })
 
+=======
+// get the store title from the input
+var hiddenUser=$("#hiddenName").val();
+$("#storeTitle").html(hiddenUser)
+>>>>>>> master
 
 // Used for the quantity selector on product view
 //-----------------------------------------------
@@ -157,4 +167,5 @@ $(".input-number").keydown(function (e) {
 					e.preventDefault();
 			}
 	});
+
 
