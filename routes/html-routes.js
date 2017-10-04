@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
-
+var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -21,8 +21,29 @@ module.exports = function(app) {
     res.render('user', {});
   });
 
+  
+  // do the search and pass the data to search handlebars
+  app.get("/search/:search", function(req, res) {
+    if (req.params.search) {
+      db.Product.findAll({
+        where: {
+          $or: [
+            {productName: { like: '%' + req.params.search + '%' } },
+            {category: { like: '%' + req.params.search + '%' } },
+            {description: { like: '%' + req.params.search + '%' } }
+          ]
+        }
+      }).then(function(results) {
+        res.render("search", { productsSearched: results });
+      });
+    };
+  });
+};
+
+
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
   });
 
 };
+
