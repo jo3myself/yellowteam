@@ -21,4 +21,12 @@ module.exports = function(app) {
     res.render('user', {});
   });
 
+  app.get("/store", function(req, res) {
+    res.render('store', {});
+  });
+
+  app.get("/product-view", function(req, res) {
+    res.render('product-view', {});
+  })
+
 };
