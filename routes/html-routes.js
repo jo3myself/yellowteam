@@ -41,7 +41,8 @@ module.exports = function(app) {
             {category: { like: '%' + req.params.search + '%' } },
             {description: { like: '%' + req.params.search + '%' } }
           ]
-        }
+        },
+        include: [db.User]
       }).then(function(results) {
         res.render("search", { productsSearched: results });
       });
@@ -52,6 +53,7 @@ module.exports = function(app) {
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
   });
+
 
 };
 
