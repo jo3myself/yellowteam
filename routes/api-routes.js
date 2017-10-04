@@ -43,6 +43,7 @@ module.exports = function(app) {
     };
   });
 
+
   // Add a New user
   app.post("/user", function(req, res) {
     // console.log("User Data:");
