@@ -31,13 +31,16 @@ $('#carousel').on('slid', function (e) {
 
 });
 
-
+// when search button click, search for it
 $("#searchButton").click(function(event) {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
 	 window.location.href="/search/"+searchProduct;
 });
 
+// get the store title from the input
+var hiddenUser=$("#hiddenName").val();
+$("#storeTitle").html(hiddenUser)
 
 // Used for the quantity selector on product view
 //-----------------------------------------------
