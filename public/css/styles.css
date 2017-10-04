@@ -46,3 +46,13 @@ color: darkblue;
 .searched {
 margin: 5px;
 }
+
+
+.textArea {
+  max-width: 100%;
+}
+
+#addProductsCard {
+  margin: auto;
+}
+
