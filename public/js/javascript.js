@@ -32,6 +32,9 @@ $('#myCarousel').on('slid', function (e) {
   $('[id=carousel-selector-'+id+']').addClass('selected');
 });
 
+  $('.carousel').carousel();
+
+
 
 $.get("/api/products", function(data) {
 	var categories=[];
@@ -83,6 +86,7 @@ $("#searchButton").click(function() {
 		// }
 	});
 });
+
 
 // Used for the quantity selector on product view
 //-----------------------------------------------
@@ -159,6 +163,7 @@ $(".input-number").keydown(function (e) {
 					e.preventDefault();
 			}
 	});
+
 
 
 
