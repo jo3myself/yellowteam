@@ -74,7 +74,7 @@ function dropdownList(cat) {
     });
   }
 
-$("#searchButton").click(function() {
+$("#searchButton").click(function(event) {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
 	 window.location.href="/search/"+searchProduct;
