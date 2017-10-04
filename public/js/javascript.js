@@ -69,11 +69,17 @@ function dropdownList(cat) {
     });
   }
 
-$("#searchButton").click(function() {
+$("#searchButton").click(function(event) {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
 	 window.location.href="/search/"+searchProduct;
 });
+
+$("#contactBtn").click(function(event) {
+	event.preventDefault();
+	var quantity = $("#quantity").val();
+	var price = $("#price").val();
+})
 
 
 // Used for the quantity selector on product view

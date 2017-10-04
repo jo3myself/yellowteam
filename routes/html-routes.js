@@ -22,13 +22,28 @@ module.exports = function(app) {
   });
 
 
-  app.get("/store", function(req, res) {
-    res.render('store', {});
-  });
+  app.get("/store/:store", function(req, res) {
+
+    if (req.params.store) {
+      db.User.findOne({
+        where: {userName: req.params.store},
+        include: [
+            db.Product
+        ]
+      }).then(function(results) {
+        console.log(results.Products);
+        res.render('store', {userInfo: results});
+        });
+      }
+    });
 
   app.get("/product-view", function(req, res) {
     res.render('product-view', {});
-  })
+  });
+
+  app.get("/store", function(req, res) {
+        res.render('store', {});
+  });
 
   
   // do the search and pass the data to search handlebars
