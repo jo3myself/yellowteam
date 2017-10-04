@@ -28,6 +28,10 @@ $('#carousel').on('slid', function (e) {
   $('[id=carousel-selector-'+id+']').addClass('selected');
 });
 
+
+});
+
+
 $.get("/api/products", function(data) {
 	var categories=[];
 	var category = [];
@@ -61,22 +65,14 @@ function dropdownList(cat) {
       ProductCategory = "/?category_search=" + ProductCategory;
     }
     $.get("/api/products" + ProductCategory, function(data) {
-    	console.log(data);
-      	// for (var i = 0; i < data.length; i++) {
-      	// 	$("#test1").append("<p>" + data[i].productName + "</p>");
-      	// }    
+    	console.log(data);   
     });
   }
 
 $("#searchButton").click(function() {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
-	$.get("/api/search/" + searchProduct, function(data) {
-		console.log(data);
-		// for (var i = 0; i < data.length; i++) {
-		// 	$("#test1").append('<div class="col-sm-12 col-xl-5"><div class="media media-category"> <img class="d-flex align-self-center mr-3" src="http:' + data[i].imageURL + '" alt="Generic placeholder image"><div class="media-body"><h5 class="mt-0">' + data[i].productName + '</h5><p>Category: ' + data[i].category + '</p> <p>Price: ' + data[i].price + '</p> <a href="/' + data[i].id + '">More Info &rarr;</a></div></div>');  	
-		// }
-	});
+	 window.location.href="/search/"+searchProduct;
 });
 
 
@@ -156,8 +152,3 @@ $(".input-number").keydown(function (e) {
 			}
 	});
 
-
-
-
-
-});
