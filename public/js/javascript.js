@@ -34,6 +34,9 @@ $('#myCarousel').on('slid', function (e) {
 
   $('.carousel').carousel();
 
+});
+=======
+
 
 
 $.get("/api/products", function(data) {
@@ -169,3 +172,4 @@ $(".input-number").keydown(function (e) {
 
 
 });
+
