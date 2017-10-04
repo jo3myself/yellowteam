@@ -27,3 +27,12 @@ body {
 	width: 100%;
   background-color: #343a40;
 }
+
+
+.textArea {
+  max-width: 100%;
+}
+
+#addProductsCard {
+  margin: auto;
+}

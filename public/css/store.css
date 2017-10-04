@@ -1,0 +1,120 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+  }
+  
+  
+  /* CUSTOMIZE THE NAVBAR
+  -------------------------------------------------- */
+  
+  /* Flip around the padding for proper display in narrow viewports */
+  .navbar-wrapper > .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 0;
+  }
+  .navbar-wrapper .navbar .container {
+    width: auto;
+  }
+
+  #navBarSearchForm input[type=text]{
+      width:300px !important;
+  }
+
+  #storeJumbotron {
+      margin-top: 0;
+  }
+
+  #storeTitle {
+      padding-bottom: 20px;
+  }
+
+  #productsHeader {
+      position: relative;
+      padding-bottom: 20px;
+      font-size: calc(1vw + 2vh + 1vmin);
+  }
+  
+  #productsHeader:after {
+    content: '';
+    position:absolute;
+    bottom:0;
+    left: 35%;
+    right: 35%;
+    height: 3px;
+    background:#302F2F;
+    display:block;
+  }
+  
+  #productContent {
+      padding-top: 20px;
+  }
+
+  #about {
+      border: 1px solid #302F2F;
+  }
+/* USED FOR PRODUCT VIEW */
+  .selected img {
+    opacity:0.5;
+  }
+  
+  #slider-thumbs {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+  #myCarousel {
+    margin-top: 20px;
+  }
+
+  #item-main {
+    background-color: #DFDFDF;
+    border: 1px solid #eee;
+  }
+
+  .center{
+    width: 120px;
+    padding-bottom: 10px;    
+  }
+
+  #quantity {
+    padding-top: 10px;
+  }
+
+  #contactBtn {
+    margin-top: 20px !important;
+  }
+
+  /********************* END PRODUCT VIEW */ 
+  
+  footer {
+      padding-top: 30px;
+  }
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  
+  @media (min-width: 768px) {
+
+    .navbar-wrapper .container {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .navbar-wrapper .navbar {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+      border-radius: 4px;
+    }
+}
