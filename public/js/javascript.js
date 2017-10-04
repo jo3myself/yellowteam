@@ -53,8 +53,8 @@ function dropdownList(cat) {
 $("#searchButton").click(function() {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
-	$.get("/api/search/" + searchProduct, function(data) {
-		console.log(data);
+	 window.location.href="/search/"+searchProduct;
+   
 		// for (var i = 0; i < data.length; i++) {
 		// 	$("#test1").append('<div class="col-sm-12 col-xl-5"><div class="media media-category"> <img class="d-flex align-self-center mr-3" src="http:' + data[i].imageURL + '" alt="Generic placeholder image"><div class="media-body"><h5 class="mt-0">' + data[i].productName + '</h5><p>Category: ' + data[i].category + '</p> <p>Price: ' + data[i].price + '</p> <a href="/' + data[i].id + '">More Info &rarr;</a></div></div>');  	
 		// }
@@ -65,4 +65,3 @@ $("#searchButton").click(function() {
 
 
 
-});

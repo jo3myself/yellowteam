@@ -1,0 +1,32 @@
+{{#each productsSearched}}
+
+<div class="container">
+<div class="row searched">
+
+  <div class="col-10 largeDIV">
+	<div class="row">
+	<div class="col-5">
+	<img src="{{this.imageURL}}" class="sm-picture img-fluid rounded" alt="Smiley face" height="205" width="305">
+
+	</div>
+	<div class="col-7 productText">
+	<h5> {{this.productName}} </h5>
+	<p> {{this.description}} </p>
+
+	</div>
+	</div>
+  </div>
+
+  <div class="col-2 smallDIV">
+	<p>By Frank Aiello</p>
+	<hr>
+	<p>Category : {{this.category}}</p>
+	<p>Price : {{this.price}}</p>
+	<hr>
+	<button type="button" class="btn btn-primary btn-sm">Contact Seller</button>
+  </div>
+
+</div>
+
+</div>
+{{/each}}
