@@ -95,3 +95,10 @@ body {
       border-radius: 4px;
     }
 }
+
+.hr {
+    height: 0;
+    background-color: lightgrey;
+    width: auto;
+}
+
