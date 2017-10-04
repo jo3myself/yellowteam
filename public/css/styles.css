@@ -31,3 +31,7 @@ body {
 .textArea {
   max-width: 100%;
 }
+
+#addProductsCard {
+  margin: auto;
+}
