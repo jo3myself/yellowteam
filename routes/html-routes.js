@@ -16,9 +16,13 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render('index', {});
   });
-  
+
   app.get("/user", function(req, res) {
     res.render('user', {});
+  });
+
+  app.get('/addProducts' , function (req, res) {
+    res.render('addProducts', {});
   });
 
 };
