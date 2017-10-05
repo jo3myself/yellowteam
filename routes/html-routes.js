@@ -32,16 +32,16 @@ module.exports = function(app) {
       }).then(function(results) {
         console.log(results.Products);
         res.render('store', {userInfo: results});
-        });
-      }
-    });
+      });
+    }
+  });
 
   app.get("/product-view", function(req, res) {
     res.render('product-view', {});
   });
 
   app.get("/store", function(req, res) {
-        res.render('store', {});
+    res.render('store', {});
   });
 
   // do the search and pass the data to search handlebars
@@ -61,13 +61,12 @@ module.exports = function(app) {
       });
     };
   });
-};
 
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
   });
 
-// search for product with this Id and pass it to handlebars
+  // search for product with this Id and pass it to handlebars
   app.get("/product/:id", function(req, res) {
     db.Product.findOne({
       where: {
@@ -79,7 +78,7 @@ module.exports = function(app) {
     });
   });
 
-// search for product category and pass it to handlebars
+  // search for product category and pass it to handlebars
   app.get("/category/:category", function(req, res) {
     db.Product.findAll({
       where: {
@@ -90,6 +89,5 @@ module.exports = function(app) {
       res.render("search", { productsSearched: results });
     });
   });
-
 
 };
