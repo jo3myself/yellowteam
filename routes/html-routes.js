@@ -21,10 +21,30 @@ module.exports = function(app) {
     res.render('user', {});
   });
 
-  app.get('/addProducts' , function (req, res) {
-    res.render('addProducts', {});
+  // search for stores by the store username and populate the store page with the results
+  app.get("/store/:store", function(req, res) {
+    if (req.params.store) {
+      db.User.findOne({
+        where: {userName: req.params.store},
+        include: [
+            db.Product
+        ]
+      }).then(function(results) {
+        console.log(results.Products);
+        res.render('store', {userInfo: results});
+      });
+    }
   });
 
+  app.get("/product-view", function(req, res) {
+    res.render('product-view', {});
+  });
+
+  app.get("/store", function(req, res) {
+    res.render('store', {});
+  });
+
+<<<<<<< HEAD
   app.get("/store", function(req, res) {
        res.render('store', {});
     });
@@ -34,6 +54,8 @@ module.exports = function(app) {
     });
 
   
+=======
+>>>>>>> c8fb5fda20fd2da9f41f2e8cab9dc3ffbe44d55a
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
     if (req.params.search) {
@@ -52,4 +74,36 @@ module.exports = function(app) {
     };
   });
 
+<<<<<<< HEAD
 };
+=======
+  app.get('/addProducts' , function (req, res) {
+    res.render('addProducts', {});
+  });
+
+  // search for product with this Id and pass it to handlebars
+  app.get("/product/:id", function(req, res) {
+    db.Product.findOne({
+      where: {
+        Id: req.params.id
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render("product-view", { product: results });
+    });
+  });
+
+  // search for product category and pass it to handlebars
+  app.get("/category/:category", function(req, res) {
+    db.Product.findAll({
+      where: {
+        category: req.params.category
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render("search", { productsSearched: results });
+    });
+  });
+
+};
+>>>>>>> c8fb5fda20fd2da9f41f2e8cab9dc3ffbe44d55a
