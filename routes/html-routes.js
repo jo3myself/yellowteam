@@ -25,6 +25,13 @@ module.exports = function(app) {
     res.render('addProducts', {});
   });
 
+  app.get("/store", function(req, res) {
+      res.render('store', {});
+   });
+    
+  app.get("/product-view", function(req, res) {
+    res.render('product-view', {});
+   });
   
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
@@ -43,4 +50,5 @@ module.exports = function(app) {
       });
     };
   });
+};
 
