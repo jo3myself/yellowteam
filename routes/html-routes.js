@@ -21,16 +21,29 @@ module.exports = function(app) {
     res.render('user', {});
   });
 
-
-  app.get("/store", function(req, res) {
-    res.render('store', {});
-  });
+  // search for stores by the store username and populate the store page with the results
+  app.get("/store/:store", function(req, res) {
+    if (req.params.store) {
+      db.User.findOne({
+        where: {userName: req.params.store},
+        include: [
+            db.Product
+        ]
+      }).then(function(results) {
+        console.log(results.Products);
+        res.render('store', {userInfo: results});
+        });
+      }
+    });
 
   app.get("/product-view", function(req, res) {
     res.render('product-view', {});
-  })
+  });
 
-  
+  app.get("/store", function(req, res) {
+        res.render('store', {});
+  });
+
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
     if (req.params.search) {
@@ -48,22 +61,10 @@ module.exports = function(app) {
       });
     };
   });
-
+};
 
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
-  });
-
-// search for products with this userId and pass it to handlebars
-  app.get("/users/:id", function(req, res) {
-    db.Product.findAll({
-      where: {
-        UserId: req.params.id
-      },
-      include: [db.User]
-    }).then(function(results) {
-      res.render("test", { product: results });
-    });
   });
 
 // search for product with this Id and pass it to handlebars
@@ -74,7 +75,7 @@ module.exports = function(app) {
       },
       include: [db.User]
     }).then(function(results) {
-      res.render("testview", { product: results });
+      res.render("product-view", { product: results });
     });
   });
 
@@ -92,4 +93,3 @@ module.exports = function(app) {
 
 
 };
-

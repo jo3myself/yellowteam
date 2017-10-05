@@ -4,11 +4,10 @@
 
 <div class="jumbotron text-center" id="storeJumbotron">
     <div class="container">
-        <h1 id="storeTitle">Store Name</h1>
+        <h1 id="storeTitle">{{{userInfo.userName}}}'s Store</h1>
         <hr>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Contact Me</a></p>
-    </div>
-    
+        <p><a class="btn btn-info btn-lg" id="main-contact" href="#" role="button">Contact Me</a></p>
+    </div>    
 </div>
 
 <!-- /.jumbotron -->
@@ -22,65 +21,18 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <h1 id="productsHeader">Products</h1>
-            <hr>
         </div>
     </div>
     <div class="row" id="productContent">
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
+        {{#each userInfo.Products}}
+        <div class="card center-block" style="width: 20rem;">
+            <img class="card-img-top img-fluid" src="{{{imageURL}}}" alt="Card image cap">
+            <div class="card-block">
+                <h3 class="card-title">{{{productName}}}</h3>
+                <a href="../product/{{{id}}}" class="btn btn-info view-det">View details &raquo;</a>
+            </div>
         </div>
-        <!-- /.col-lg-3 -->
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
-        </div>
-        <!-- /.col-lg-3 -->
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
-        </div>
-        
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
-        </div>
-        <!-- /.col-lg-3 -->
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
-        </div>
-        <!-- /.col-lg-3 -->
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
-        </div>
-        <!-- /.col-lg-3 -->
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
-        </div>
-        <!-- /.col-lg-3 -->
-        <div class="col-md-3 col-xs-6 text-center center-block">
-            <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-            <h3>Product Name</h3>
-            <p>	<a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-            </p>
-        </div>
+        {{/each}}
     </div>
     <!-- /.row -->
 </div> 

@@ -64,9 +64,11 @@ $("#searchButton").click(function(event) {
 	 window.location.href="/search/"+searchProduct;
 });
 
-// get the store title from the input
-var hiddenUser=$("#hiddenName").val();
-$("#storeTitle").html(hiddenUser)
+$("#contactBtn").click(function(event) {
+	event.preventDefault();
+	var quantity = $("#quantity").val();
+	var price = $("#price").val();
+});
 
 // Used for the quantity selector on product view
 //-----------------------------------------------
