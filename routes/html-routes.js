@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
-
+var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -16,9 +16,80 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render('index', {});
   });
-  
+
   app.get("/user", function(req, res) {
     res.render('user', {});
   });
 
+
+  app.get("/store", function(req, res) {
+    res.render('store', {});
+  });
+
+  app.get("/product-view", function(req, res) {
+    res.render('product-view', {});
+  })
+
+  
+  // do the search and pass the data to search handlebars
+  app.get("/search/:search", function(req, res) {
+    if (req.params.search) {
+      db.Product.findAll({
+        where: {
+          $or: [
+            {productName: { like: '%' + req.params.search + '%' } },
+            {category: { like: '%' + req.params.search + '%' } },
+            {description: { like: '%' + req.params.search + '%' } }
+          ]
+        },
+        include: [db.User]
+      }).then(function(results) {
+        res.render("search", { productsSearched: results });
+      });
+    };
+  });
+
+
+  app.get('/addProducts' , function (req, res) {
+    res.render('addProducts', {});
+  });
+
+// search for products with this userId and pass it to handlebars
+  app.get("/users/:id", function(req, res) {
+    db.Product.findAll({
+      where: {
+        UserId: req.params.id
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render("test", { product: results });
+    });
+  });
+
+// search for product with this Id and pass it to handlebars
+  app.get("/product/:id", function(req, res) {
+    db.Product.findOne({
+      where: {
+        Id: req.params.id
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render("testview", { product: results });
+    });
+  });
+
+// search for product category and pass it to handlebars
+  app.get("/category/:category", function(req, res) {
+    db.Product.findAll({
+      where: {
+        category: req.params.category
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render("search", { productsSearched: results });
+    });
+  });
+
+
 };
+
