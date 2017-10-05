@@ -25,7 +25,7 @@ body {
   }
 
   .card {
-    padding: 10px 10px 30px 10px;
+    padding: 10px 10px 40px 10px;
     margin: 2%;
   }
 
@@ -49,8 +49,8 @@ body {
   .view-det {
     position: absolute;
     clear: both;
-    bottom: 0;
-    left: 30%;
+    bottom: 2%;
+    left: 25%;
 
   }
   
@@ -94,6 +94,26 @@ body {
 
   #product-title {
     font-size: 45px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  .modal-title { 
+   margin: 0 auto;
+  }
+
+  .modal-titles {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .modal-results {
+    font-weight: normal!important;
+  }
+
+  .contact-title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 35px;
+    border-top: 2px solid black;
   }
 
   .center{
@@ -103,6 +123,8 @@ body {
 
   #details {
     border: 3px solid #343a40;
+    font-size: 25px;
+    
   }
 
   #quantity {
@@ -111,6 +133,10 @@ body {
 
   #contactBtn {
     margin-top: 20px !important;
+  }
+
+  #message-text {
+    height: 200px;
   }
 
 
