@@ -19,7 +19,7 @@ module.exports = function(app) {
     if (req.query.category_search) {
       query.Category = req.query.category_search;
     }
-    db.Product.findAll({
+    app.Product.findAll({
       where: query,
       include: [db.User]
     }).then(function(dbProduct) {

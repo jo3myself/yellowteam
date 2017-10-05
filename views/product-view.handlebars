@@ -1,13 +1,14 @@
-    <!-- Jumbotron
+   <!-- Jumbotron
 ================================================== -->
 
 <div class="jumbotron text-center" id="storeJumbotron">
     <div class="container">
-        <h1 id="storeTitle">Store Name</h1>
+        <h1 id="storeTitle">{{{product.User.userName}}}'s Store</h1>
     </div>
         
 </div>
-
+{{!-- Product Title --}}
+<h1 class="text-center" id="product-title">{{product.productName}}'s Store</h1>
 <!-- /.jumbotron -->
 <div class="container">    
     <!-- main slider carousel -->
@@ -17,23 +18,13 @@
                 <div id="carousel" class="carousel slide" data-ride="carousel">
                     <!-- main slider carousel items -->
                     <div class="carousel-inner">
-                        <div class="active carousel-item" data-slide-number="0">
-                            <img src="http://placehold.it/1200x480&amp;text=one" class="img-fluid">
-                        </div>
-                        <div class="carousel-item" data-slide-number="1">
-                            <img src="http://placehold.it/1200x480&amp;text=two" class="img-fluid">
-                        </div>
-                        <div class="carousel-item" data-slide-number="2">
-                            <img src="http://placehold.it/1200x480&amp;text=three" class="img-fluid">
-                        </div>
-                        <div class="carousel-item" data-slide-number="3">
-                            <img src="http://placehold.it/1200x480&amp;text=four" class="img-fluid">
-                        </div>
-                        <div class="carousel-item" data-slide-number="4">
-                            <img src="http://placehold.it/1200x480&amp;text=five" class="img-fluid">
+                        <div class="active carousel-item text-center" data-slide-number="0">
+                            <img src="{{product.imageURL}}" class="img-fluid" id="main-img">
                         </div>
                     </div>
-                    <!-- main slider carousel nav controls --> 
+
+                    {{!-- For Carousel which will be functioning at a later time... For now we are just going with one image --}}
+                    {{!-- <!-- main slider carousel nav controls --> 
 
                     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -42,20 +33,23 @@
                     <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
 
         </div>
     </div>   
     <!-- thumb navigation carousel -->
-    <div class="col-md-12 center-block text-center" id="slider-thumbs">
+
+    {{!-- THumbnails used for the carousel may be implemented at a later time --}}
+
+    {{!-- <div class="col-md-12 center-block text-center" id="slider-thumbs">
         
         <!-- thumb navigation carousel items -->
         <ul class="list-inline">
 
             <li><a id="carousel-selector-0" class="selected">
-            <img src="http://placehold.it/80x60&amp;text=one" class="img-responsive">
+            <img src="{{product.imageURL}}" class="img-responsive">
             </a></li>
 
             <li> <a id="carousel-selector-1">
@@ -71,11 +65,10 @@
             </a></li>
         </ul>
         
-    </div>    
+    </div>     --}}
     <div class="row">
         <div class="col-md-6 center-block" id="item-main">
-            <h2 class="text-center" id="product-title">Product Title</h2>
-            <h3 id="price">Price: $--</h3>
+            <h3 id="price-header">Price: ${{product.price}}</h3>
             <div class="center">
                 <h4 id="quantity">Quantity</h4>
                 <p></p>
@@ -95,13 +88,11 @@
                 <p></p>
             </div>
             <h4>Condition: New</h4>
-            <p><a class="btn btn-primary btn-lg" id="contactBtn" href="#" role="button">Contact This Seller</a></p>
+            <p><a class="btn btn-info btn-lg" id="contactBtn" href="#" role="button">Contact This Seller</a></p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" id="details">
             <h2 class="text-center">Details</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ducimus dolores veritatis. Officia nesciunt eaque iusto dignissimos ut necessitatibus sed, quisquam velit molestiae. Ab ad provident expedita explicabo labore temporibus?
-            Aut, quae quod nam earum magnam exercitationem quibusdam fugit dolor doloribus consectetur nemo qui iure architecto alias aliquam error. Tempora, tenetur! Sed ipsum excepturi similique modi iure quam facilis eos!
-            Modi minus enim cum ipsa dolore aspernatur magni natus, esse reprehenderit consectetur ex et, deserunt quas labore suscipit vitae. Fugit iure alias sit aliquid unde nemo ipsam consequatur enim voluptatum?</p>
+            <p>{{product.description}}</p>
         </div>
     </div>
 </div>

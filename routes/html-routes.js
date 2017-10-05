@@ -21,9 +21,8 @@ module.exports = function(app) {
     res.render('user', {});
   });
 
-
+  // search for stores by the store username and populate the store page with the results
   app.get("/store/:store", function(req, res) {
-
     if (req.params.store) {
       db.User.findOne({
         where: {userName: req.params.store},
@@ -69,18 +68,6 @@ module.exports = function(app) {
     res.render('addProducts', {});
   });
 
-// search for products with this userId and pass it to handlebars
-  app.get("/users/:id", function(req, res) {
-    db.Product.findAll({
-      where: {
-        UserId: req.params.id
-      },
-      include: [db.User]
-    }).then(function(results) {
-      res.render("test", { product: results });
-    });
-  });
-
 // search for product with this Id and pass it to handlebars
   app.get("/product/:id", function(req, res) {
     db.Product.findOne({
@@ -89,7 +76,7 @@ module.exports = function(app) {
       },
       include: [db.User]
     }).then(function(results) {
-      res.render("testview", { product: results });
+      res.render("product-view", { product: results });
     });
   });
 

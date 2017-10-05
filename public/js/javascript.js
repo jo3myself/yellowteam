@@ -31,66 +31,18 @@ $('#carousel').on('slid', function (e) {
 
 });
 
-<<<<<<< HEAD
-
-$.get("/api/products", function(data) {
-	var categories=[];
-	var category = [];
-	for (let i = 0; i < data.length; i++) {
-		categories.push(data[i].category); 
-	}
-    $.each(categories, function(i, elm){
-        if($.inArray(elm, category) === -1) category.push(elm);
-    });
-    console.log(category);
-	for (var l = 0; l < category.length; l++) {
-		var cat = $('<a class="dropdown-item" id="dropDownCategory" name="category" href="/?category_search=' + category[l] + '">' + category[l] + '</a>');
-		$(".searchDropDown").append(cat);
-	}
-});
-
-var url = window.location.search;
-var ProductCategory;
-if (url.indexOf("?category_search=") !== -1) {
-	ProductCategory = url.split("=")[1];
-	dropdownList(ProductCategory);
-}
-else {
-	dropdownList();
-}
-
-
-function dropdownList(cat) {
-    ProductCategory = cat || "";
-    if (ProductCategory) {
-      ProductCategory = "/?category_search=" + ProductCategory;
-    }
-    $.get("/api/products" + ProductCategory, function(data) {
-    	console.log(data);   
-    });
-  }
-
-=======
 // when search button click, search for it
->>>>>>> master
 $("#searchButton").click(function(event) {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
 	 window.location.href="/search/"+searchProduct;
 });
 
-<<<<<<< HEAD
 $("#contactBtn").click(function(event) {
 	event.preventDefault();
 	var quantity = $("#quantity").val();
 	var price = $("#price").val();
-})
-
-=======
-// get the store title from the input
-var hiddenUser=$("#hiddenName").val();
-$("#storeTitle").html(hiddenUser)
->>>>>>> master
+});
 
 // Used for the quantity selector on product view
 //-----------------------------------------------
