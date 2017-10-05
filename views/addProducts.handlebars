@@ -9,29 +9,29 @@
                     <div class="card-body">
                         <form action="" method="post">
                                 <div class="form-group">
-                                    <label for="product-name">Product Name</label>
-                                    <input type="text" class="form-control form-control-sm" id="product-name" placeholder="Product Name">
+                                    <label for="productName">Product Name</label>
+                                    <input type="text" class="form-control form-control-sm" name="productName" id="product-name" placeholder="Product Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="category">Category</label>
-                                    <select class="custom-select">
+                                    <select class="custom-select" name="category">
                                         <option selected>Choose a Category</option>
-                                        <option value="art">Arts, Crafts, Sewing</option>
-                                        <option value="auto">Automotive</option>
-                                        <option value="beauty">Beauty & Personal Care</option>
-                                        <option value="clothing">Clothing, Jewelry, Shoes</option>
-                                        <option value="collectibles">Collectibles & Fine Art</option>
-                                        <option value="electronics">Appliances</option>
-                                        <option value="home">Home & Kitchen</option>
-                                        <option value="pets">Pet Supplies</option>
-                                        <option value="sports">Sports & Outdoors</option>
-                                        <option value="toys">Toys & Games</option>
+                                        <option value="Arts, Crafts, Sewing">Arts, Crafts, Sewing</option>
+                                        <option value="Automotive">Automotive</option>
+                                        <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                                        <option value="Clothing, Jewelry, Shoes">Clothing, Jewelry, Shoes</option>
+                                        <option value="Collectibles & Fine Art">Collectibles & Fine Art</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Home & Kitchen">Home & Kitchen</option>
+                                        <option value="Pet Supplies">Pet Supplies</option>
+                                        <option value="Sports & Outdoors">Sports & Outdoors</option>
+                                        <option value="Toys & Games">Toys & Games</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                         <label for="email">Email address</label>
-                                        <input type="email" class="form-control form-control-sm" id="email" placeholder="Email">
+                                        <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-check">
                                     <p>User can also contact me: </p>
@@ -46,21 +46,21 @@
                                 </div>
                                 <div class="form-group form-inline" >
                                     <label class="sr-only" for="price">Price</label>
-                                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0 form-control-sm" id="product-price" placeholder="Enter Price">
+                                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0 form-control-sm" id="product-price" placeholder="Enter Price" name="price">
 
                                     <label class="sr-only" for="location">Location</label>
-                                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0 form-control-sm" id="product-location" placeholder="Enter Location">
+                                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0 form-control-sm" id="product-location" placeholder="Enter Location" name="location">
 
                                     <label class="sr-only" for="number">Contact Number</label>
-                                    <input type="tel" class="form-control mb-2 mr-sm-2 mb-sm-0 form-control-sm" id="contact-number" placeholder="1-(555)-555-5555">
+                                    <input type="tel" class="form-control mb-2 mr-sm-2 mb-sm-0 form-control-sm" id="contact-number" placeholder="1-(555)-555-5555" name="phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Product Description</label>
-                                    <textarea name="description" id="product-description form-control-sm" cols="80" rows="10" class="textArea"></textarea>
+                                    <textarea name="description" id="product-description form-control-sm" cols="80" rows="10" class="textArea" name="description"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <p>Product Image (Required)</p>
-                                
+                                    <input type="file" name="imageURL">
                                 </div>
                                 <button class="btn btn-primary float-right" id="addProduct">Add Product</button>
                         </form>
