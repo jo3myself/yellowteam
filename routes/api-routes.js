@@ -19,28 +19,11 @@ module.exports = function(app) {
     if (req.query.category_search) {
       query.Category = req.query.category_search;
     }
-    app.Product.findAll({
+    db.Product.findAll({
       where: query,
       include: [db.User]
     }).then(function(dbProduct) {
       res.json(dbProduct);
-    });
-  });
-
-  app.post("/addProducts", function(req, res) {
-    console.log(req.body.category)
-    console.log(req.body.price);
-    console.log(req.body.productName);
-    console.log(req.body.description);
-    db.Product.create({
-      productName: req.body.productName,
-      category: req.body.category,
-      price: req.body.price,
-      description: req.body.description,
-      imageURL: req.body.imageURL
-    }).then(function(result) {
-  
-      res.json(result);
     });
   });
   
@@ -59,6 +42,7 @@ module.exports = function(app) {
       });
     };
   });
+
 
   // Add a New user
   app.post("/user", function(req, res) {
@@ -131,5 +115,4 @@ module.exports = function(app) {
       res.json("");
     }); 
   });
-
 };
