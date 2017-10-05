@@ -44,7 +44,6 @@ module.exports = function(app) {
     });
   });
   
-<<<<<<< HEAD
   app.get("/api/search/:search", function(req, res) {
     if (req.params.search) {
       db.Product.findAll({
@@ -62,10 +61,9 @@ module.exports = function(app) {
   });
 
 
-  // Add a New user
-=======
+
     // Add a New user
->>>>>>> master
+
   app.post("/user", function(req, res) {
     // console.log("User Data:");
     // console.log(req.body);
