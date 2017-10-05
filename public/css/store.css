@@ -6,27 +6,11 @@ body {
     padding-bottom: 40px;
     color: #5a5a5a;
   }
-  
-  
-  /* CUSTOMIZE THE NAVBAR
-  -------------------------------------------------- */
-  
-  /* Flip around the padding for proper display in narrow viewports */
-  .navbar-wrapper > .container {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  .navbar-wrapper .navbar {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-bottom: 0;
-  }
-  .navbar-wrapper .navbar .container {
-    width: auto;
-  }
-
-  #navBarSearchForm input[type=text]{
-      width:300px !important;
+  hr {
+    height: 1px;
+    background-color: #aaa;
+    width: 60%;
+    
   }
 
   #storeJumbotron {
@@ -38,20 +22,8 @@ body {
   }
 
   #productsHeader {
-      position: relative;
       padding-bottom: 20px;
-      font-size: calc(1vw + 2vh + 1vmin);
-  }
-  
-  #productsHeader:after {
-    content: '';
-    position:absolute;
-    bottom:0;
-    left: 35%;
-    right: 35%;
-    height: 3px;
-    background:#302F2F;
-    display:block;
+      font-size: calc(2vw + 2vh + 1vmin);
   }
   
   #productContent {
@@ -71,6 +43,10 @@ body {
       padding-bottom: 20px;
   }
 
+  #slider-thumbs li {
+    display: inline;
+  }
+
   #myCarousel {
     margin-top: 20px;
   }
@@ -81,7 +57,7 @@ body {
   }
 
   .center{
-    width: 120px;
+    width: 115px;
     padding-bottom: 10px;    
   }
 
@@ -92,6 +68,7 @@ body {
   #contactBtn {
     margin-top: 20px !important;
   }
+
 
   /********************* END PRODUCT VIEW */ 
   
@@ -118,3 +95,10 @@ body {
       border-radius: 4px;
     }
 }
+
+.hr {
+    height: 0;
+    background-color: lightgrey;
+    width: auto;
+}
+

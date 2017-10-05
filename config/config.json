@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "root",
+=======
+    "password": "aaa",
+>>>>>>> d39b6ba9189eec532d994744481d20cd46ae4ded
     "database": "yellow_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
