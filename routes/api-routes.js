@@ -44,7 +44,28 @@ module.exports = function(app) {
     });
   });
   
+<<<<<<< HEAD
+  app.get("/api/search/:search", function(req, res) {
+    if (req.params.search) {
+      db.Product.findAll({
+        where: {
+          $or: [
+            {productName: { like: '%' + req.params.search + '%' } },
+            {category: { like: '%' + req.params.search + '%' } }
+          ]
+        }
+      }).then(function(results) {
+        res.json(results);
+        // res.render("search", { productsSearched: data });
+      });
+    };
+  });
+
+
+  // Add a New user
+=======
     // Add a New user
+>>>>>>> master
   app.post("/user", function(req, res) {
     // console.log("User Data:");
     // console.log(req.body);

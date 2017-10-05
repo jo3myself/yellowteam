@@ -43,7 +43,7 @@ module.exports = function(app) {
   app.get("/store", function(req, res) {
         res.render('store', {});
   });
-  
+
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
     if (req.params.search) {
@@ -61,6 +61,7 @@ module.exports = function(app) {
       });
     };
   });
+};
 
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
