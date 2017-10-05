@@ -33,7 +33,6 @@ module.exports = function(app) {
     res.render('product-view', {});
    });
   
-  
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
     if (req.params.search) {
@@ -44,12 +43,12 @@ module.exports = function(app) {
             {category: { like: '%' + req.params.search + '%' } },
             {description: { like: '%' + req.params.search + '%' } }
           ]
-        }
+        },
+        include: [db.User]
       }).then(function(results) {
         res.render("search", { productsSearched: results });
       });
     };
   });
 };
-
 

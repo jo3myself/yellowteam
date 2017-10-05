@@ -9,77 +9,38 @@
 
   // Activates Carousel
 	$('.carousel').carousel();
-	
-	$('#myCarousel').carousel({
-    interval: 4000
-});
 
 // handles the carousel thumbnails
 $('[id^=carousel-selector-]').click( function(){
   var id_selector = $(this).attr("id");
   var id = id_selector.substr(id_selector.length -1);
   id = parseInt(id);
-  $('#myCarousel').carousel(id);
+  $('#carousel').carousel(id);
   $('[id^=carousel-selector-]').removeClass('selected');
   $(this).addClass('selected');
 });
 
 // when the carousel slides, auto update
-$('#myCarousel').on('slid', function (e) {
+$('#carousel').on('slid', function (e) {
   var id = $('.item.active').data('slide-number');
   id = parseInt(id);
   $('[id^=carousel-selector-]').removeClass('selected');
   $('[id=carousel-selector-'+id+']').addClass('selected');
 });
 
-  $('.carousel').carousel();
 
 });
 
-
-$.get("/api/products", function(data) {
-	var categories=[];
-	var category = [];
-	for (let i = 0; i < data.length; i++) {
-		categories.push(data[i].category); 
-	}
-    $.each(categories, function(i, elm){
-        if($.inArray(elm, category) === -1) category.push(elm);
-    });
-    console.log(category);
-	for (var l = 0; l < category.length; l++) {
-		var cat = $('<a class="dropdown-item" id="dropDownCategory" name="category" href="/?category_search=' + category[l] + '">' + category[l] + '</a>');
-		$(".searchDropDown").append(cat);
-	}
-});
-
-var url = window.location.search;
-var ProductCategory;
-if (url.indexOf("?category_search=") !== -1) {
-	ProductCategory = url.split("=")[1];
-	dropdownList(ProductCategory);
-}
-else {
-	dropdownList();
-}
-
-
-function dropdownList(cat) {
-    ProductCategory = cat || "";
-    if (ProductCategory) {
-      ProductCategory = "/?category_search=" + ProductCategory;
-    }
-    $.get("/api/products" + ProductCategory, function(data) {
-    	console.log(data);   
-    });
-  }
-
-$("#searchButton").click(function() {
+// when search button click, search for it
+$("#searchButton").click(function(event) {
 	event.preventDefault();
 	var searchProduct = $("#searchInput").val();
 	 window.location.href="/search/"+searchProduct;
 });
 
+// get the store title from the input
+var hiddenUser=$("#hiddenName").val();
+$("#storeTitle").html(hiddenUser)
 
 // Used for the quantity selector on product view
 //-----------------------------------------------
@@ -156,4 +117,5 @@ $(".input-number").keydown(function (e) {
 					e.preventDefault();
 			}
 	});
+
 
