@@ -22,50 +22,49 @@
             </ul>          
           </div><!-- /.card -->
 
-          <button type="button" class="btn btn-block btn-primary">Add Products</button>
-          <button type="button" class="btn btn-block btn-secondary">View Your Store</button>
+          <a href="/addproducts" class="btn btn-block btn-primary">Add Products</a>
+          <a href="#" type="button" class="btn btn-block btn-secondary">View Your Store</a>
         </div><!-- /.col -->
 
         <div class="col-sm-12 col-lg-8">
           <h2 class="h5 text-uppercase">Edit User Profile</h2>
-          <p class="lead">Edit your user profile Settings.</p>
 
           <form id="register-form" method="POST" action="/user?_method=PUT">
             <div class="row">
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="first-name" class="form-control-label">First Name:</label>
-                  <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Name">
+                  <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Name" required>
                 </div><!-- /.form-group -->  
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="email" class="form-control-label">Email:</label>
-                  <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="phone-number" class="form-control-label">Phone Number:</label>
-                  <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555">
+                  <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555" required>
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="location" class="form-control-label">Location:</label>
-                  <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA">
+                  <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA" required>
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="profile-imge" class="form-control-label">Profile Image:</label>
-                  <input type="text" class="form-control" name="profile_image" id="profile_image" placeholder="http://myimageurl.jpg">
+                  <input type="file"  class="form-control" name="profile_image" id="profile_image">
                 </div><!-- /.form-group -->
               </div>
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="username" class="form-control-label">Username/Storename:</label>
-                  <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username">
+                  <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" required>
                 </div><!-- /.form-group -->        
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
@@ -75,7 +74,8 @@
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
             </div><!-- /.row -->
-            <button type="button" class="btn btn-primary">Update Profile</button>
+            <input type="hidden" value="1" name="id">
+            <button type="submit" class="btn btn-primary">Update Profile</button>
           </form>
 
         </div><!-- /.col -->
