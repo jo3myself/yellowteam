@@ -61,7 +61,6 @@ module.exports = function(app) {
       });
     };
   });
-};
 
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
