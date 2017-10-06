@@ -19,7 +19,7 @@ module.exports = function(app) {
     if (req.query.category_search) {
       query.Category = req.query.category_search;
     }
-    app.Product.findAll({
+    db.Product.findAll({
       where: query,
       include: [db.User]
     }).then(function(dbProduct) {
@@ -33,16 +33,17 @@ module.exports = function(app) {
     console.log(req.body.productName);
     console.log(req.body.description);
     db.Product.create({
+      UserId: 2,
       productName: req.body.productName,
       category: req.body.category,
       price: req.body.price,
       description: req.body.description,
       imageURL: req.body.imageURL
     }).then(function(result) {
-  
       res.json(result);
     });
   });
+
   
   app.get("/api/search/:search", function(req, res) {
     if (req.params.search) {
@@ -59,6 +60,7 @@ module.exports = function(app) {
       });
     };
   });
+
 
   // Add a New user
   app.post("/user", function(req, res) {
@@ -131,5 +133,4 @@ module.exports = function(app) {
       res.json("");
     }); 
   });
-
 };
