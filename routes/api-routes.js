@@ -69,15 +69,15 @@ module.exports = function(app) {
     // Hash the password then save to DB
     bcrypt.hash(password, saltRounds).then(function(hash) {
       db.User.create({
-        name: req.body.first_name,
+        name: req.body.name,
         email: req.body.email,
         phone: req.body.phone_number,
         userName: req.body.user_name,
         password: hash,
-        profileImage: req.body.profile_image,
+        // profileImage: req.body.profile_image,
         location: req.body.location
       }).then(function(dbUser) {
-        res.json(dbUser);
+        res.render('store', {userInfo: dbUser});
       });
     });
   });
