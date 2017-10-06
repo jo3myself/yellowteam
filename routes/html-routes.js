@@ -61,7 +61,6 @@ module.exports = function(app) {
       });
     };
   });
-};
 
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
@@ -90,6 +89,5 @@ module.exports = function(app) {
       res.render("search", { productsSearched: results });
     });
   });
-
-
+  
 };

@@ -130,4 +130,19 @@ $('#userModal').on('show.bs.modal', function (event) {
 	var modal = $(this)
 	modal.find('.contact-title').text('New message to ' + recipient)
 	modal.find('.modal-body input').val(recipient)
-  })
+  });
+
+//This logic is for the contact user modal...
+$("#send_email").click(function(){      
+	to=$("#recipient-name").val();
+	subject= "New Message from Yellow Team!";
+	text=$("#message-content").val();
+	$("#message").text("Sending E-mail...Please wait");
+	$.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
+	if(data=="sent")
+	{
+		$("#message").empty().html("Email is been sent at "+to+" . Please check inbox!");
+	}
+
+});
+});
