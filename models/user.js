@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
   var User = sequelize.define("User", {
     name: {
       type: DataTypes.STRING,
@@ -12,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true,
       validate: {
+        isEmail: true,
         len: [6,128]
       }
     },
@@ -38,6 +40,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     location: {
       type: DataTypes.STRING,
+    },
+    status: {
+      type: DataTypes.ENUM('active', 'inactive'),
+      defaultValue: 'active'
     }
   });
 
@@ -48,6 +54,7 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
+
 
   return User;
 };

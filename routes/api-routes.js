@@ -44,13 +44,6 @@ module.exports = function(app) {
     });
   });
   
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 8b7c21c67bd2f069b987c9c71f3b5ffbd3f127e4
-=======
->>>>>>> origin
   app.get("/api/search/:search", function(req, res) {
     if (req.params.search) {
       db.Product.findAll({
@@ -67,16 +60,6 @@ module.exports = function(app) {
     };
   });
 
-  // Add a New user
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-    // Add a New user
->>>>>>> master
->>>>>>> 8b7c21c67bd2f069b987c9c71f3b5ffbd3f127e4
-=======
->>>>>>> origin
   app.post("/user", function(req, res) {
     // console.log("User Data:");
     // console.log(req.body);

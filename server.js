@@ -8,6 +8,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
+var passport = require("passport");
+var session = require("express-session");
+var env = require('dotenv').load();
 
 // Sets up the Express App
 // =============================================================
@@ -16,6 +19,7 @@ var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 var db = require("./models");
+var authRoute = require('./routes/auth.js')(app,passport);
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -37,6 +41,14 @@ app.use(express.static("public"));
 // =============================================================
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require('./config/passport/passport.js')(passport, db.user);
+
+
+// For Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
