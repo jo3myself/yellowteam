@@ -121,7 +121,6 @@ $(".input-number").keydown(function (e) {
 	});
 
 //This function is used for the contact user modal under the product view section
-
 $('#userModal').on('show.bs.modal', function (event) {
 	var button = $(event.relatedTarget) // Button that triggered the modal
 	var recipient = button.data('user') // Extract info from data-* attributes
