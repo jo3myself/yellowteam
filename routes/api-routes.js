@@ -14,51 +14,43 @@ const saltRounds = 10;
 // =============================================================
 module.exports = function(app) {
 
-  app.get("/api/products", function(req, res) {
-    var query = {};
-    if (req.query.category_search) {
-      query.Category = req.query.category_search;
-    }
-    app.Product.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function(dbProduct) {
-      res.json(dbProduct);
+
+  // get all products
+  app.get("/api/products/all", function(req, res) {
+    db.Product.findAll({}).then(function(results) {
+      res.json(results);
     });
   });
 
+  // get by category
+  app.get("/api/category/:category", function(req, res) {
+    db.Product.findAll({
+        where: {
+         category: req.params.category
+        }
+    }).then(function(results) {
+      res.json(results);
+
+
   app.post("/addProducts", function(req, res) {
-    console.log(req.body.category)
-    console.log(req.body.price);
-    console.log(req.body.productName);
-    console.log(req.body.description);
+    // console.log(req.body.category)
+    // console.log(req.body.price);
+    // console.log(req.body.productName);
+    // console.log(req.body.description);
     db.Product.create({
+      UserId: 2,
       productName: req.body.productName,
       category: req.body.category,
       price: req.body.price,
       description: req.body.description,
-      imageURL: req.body.imageURL
+      // imageURL: req.body.imageURL
+      UserId: 1
     }).then(function(result) {
-  
       res.json(result);
     });
   });
-  
-  app.get("/api/search/:search", function(req, res) {
-    if (req.params.search) {
-      db.Product.findAll({
-        where: {
-          $or: [
-            {productName: { like: '%' + req.params.search + '%' } },
-            {category: { like: '%' + req.params.search + '%' } }
-          ]
-        }
-      }).then(function(results) {
-        res.json(results);
-        // res.render("search", { productsSearched: data });
-      });
-    };
-  });
+
+
 
   app.post("/user", function(req, res) {
     // console.log("User Data:");
@@ -68,15 +60,15 @@ module.exports = function(app) {
     // Hash the password then save to DB
     bcrypt.hash(password, saltRounds).then(function(hash) {
       db.User.create({
-        name: req.body.first_name,
+        name: req.body.name,
         email: req.body.email,
         phone: req.body.phone_number,
         userName: req.body.user_name,
         password: hash,
-        profileImage: req.body.profile_image,
+        // profileImage: req.body.profile_image,
         location: req.body.location
       }).then(function(dbUser) {
-        res.json(dbUser);
+        res.render('store', {userInfo: dbUser});
       });
     });
   });
@@ -130,5 +122,4 @@ module.exports = function(app) {
       res.json("");
     }); 
   });
-
 };
