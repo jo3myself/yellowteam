@@ -44,7 +44,6 @@ module.exports = function(app) {
     res.render('store', {});
   });
 
-<<<<<<< HEAD
   app.get("/store", function(req, res) {
        res.render('store', {});
     });
@@ -54,8 +53,6 @@ module.exports = function(app) {
     });
 
   
-=======
->>>>>>> c8fb5fda20fd2da9f41f2e8cab9dc3ffbe44d55a
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
     if (req.params.search) {
@@ -74,9 +71,6 @@ module.exports = function(app) {
     };
   });
 
-<<<<<<< HEAD
-};
-=======
   app.get('/addProducts' , function (req, res) {
     res.render('addProducts', {});
   });
@@ -106,4 +100,3 @@ module.exports = function(app) {
   });
 
 };
->>>>>>> c8fb5fda20fd2da9f41f2e8cab9dc3ffbe44d55a

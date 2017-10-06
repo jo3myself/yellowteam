@@ -31,32 +31,6 @@ $('#carousel').on('slid', function (e) {
 
 });
 
-$.get("/api/products", function(data) {
-	var categories=[];
-	var category = [];
-	for (let i = 0; i < data.length; i++) {
-		categories.push(data[i].category); 
-	}
-    $.each(categories, function(i, elm){
-        if($.inArray(elm, category) === -1) category.push(elm);
-    });
-    console.log(category);
-	for (var l = 0; l < category.length; l++) {
-		var cat = $('<a class="dropdown-item" id="dropDownCategory" name="category" href="/?category_search=' + category[l] + '">' + category[l] + '</a>');
-		$(".searchDropDown").append(cat);
-	}
-});
-
-var url = window.location.search;
-var ProductCategory;
-if (url.indexOf("?category_search=") !== -1) {
-	ProductCategory = url.split("=")[1];
-	dropdownList(ProductCategory);
-}
-else {
-	dropdownList();
-}
-
 // when search button click, search for it
 $("#searchButton").click(function(event) {
 	event.preventDefault();
@@ -145,5 +119,17 @@ $(".input-number").keydown(function (e) {
 					e.preventDefault();
 			}
 	});
+
+//This function is used for the contact user modal under the product view section
+
+$('#userModal').on('show.bs.modal', function (event) {
+	var button = $(event.relatedTarget) // Button that triggered the modal
+	var recipient = button.data('user') // Extract info from data-* attributes
+	// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+	// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+	var modal = $(this)
+	modal.find('.contact-title').text('New message to ' + recipient)
+	modal.find('.modal-body input').val(recipient)
+  })
 
 
