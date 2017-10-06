@@ -31,32 +31,6 @@ $('#carousel').on('slid', function (e) {
 
 });
 
-$.get("/api/products", function(data) {
-	var categories=[];
-	var category = [];
-	for (let i = 0; i < data.length; i++) {
-		categories.push(data[i].category); 
-	}
-    $.each(categories, function(i, elm){
-        if($.inArray(elm, category) === -1) category.push(elm);
-    });
-    console.log(category);
-	for (var l = 0; l < category.length; l++) {
-		var cat = $('<a class="dropdown-item" id="dropDownCategory" name="category" href="/?category_search=' + category[l] + '">' + category[l] + '</a>');
-		$(".searchDropDown").append(cat);
-	}
-});
-
-var url = window.location.search;
-var ProductCategory;
-if (url.indexOf("?category_search=") !== -1) {
-	ProductCategory = url.split("=")[1];
-	dropdownList(ProductCategory);
-}
-else {
-	dropdownList();
-}
-
 // when search button click, search for it
 $("#searchButton").click(function(event) {
 	event.preventDefault();
