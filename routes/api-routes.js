@@ -30,7 +30,8 @@ module.exports = function(app) {
         }
     }).then(function(results) {
       res.json(results);
-
+    });
+  });
 
   app.post("/addProducts", function(req, res) {
     console.log(req.body.category)
