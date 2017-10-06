@@ -14,6 +14,7 @@ const saltRounds = 10;
 // =============================================================
 module.exports = function(app) {
 
+
   // get all products
   app.get("/api/products/all", function(req, res) {
     db.Product.findAll({}).then(function(results) {
@@ -29,8 +30,6 @@ module.exports = function(app) {
         }
     }).then(function(results) {
       res.json(results);
-    });
-  });
 
 
   app.post("/addProducts", function(req, res) {
@@ -39,18 +38,18 @@ module.exports = function(app) {
     console.log(req.body.productName);
     console.log(req.body.description);
     db.Product.create({
+      UserId: 2,
       productName: req.body.productName,
       category: req.body.category,
       price: req.body.price,
       description: req.body.description,
       imageURL: req.body.imageURL
     }).then(function(result) {
-  
       res.json(result);
     });
   });
-  
-  
+
+
 
   // Add a New user
   app.post("/user", function(req, res) {
@@ -123,5 +122,4 @@ module.exports = function(app) {
       res.json("");
     }); 
   });
-
 };
