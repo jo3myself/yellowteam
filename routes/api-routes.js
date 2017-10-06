@@ -33,17 +33,18 @@ module.exports = function(app) {
 
 
   app.post("/addProducts", function(req, res) {
-    console.log(req.body.category)
-    console.log(req.body.price);
-    console.log(req.body.productName);
-    console.log(req.body.description);
+    // console.log(req.body.category)
+    // console.log(req.body.price);
+    // console.log(req.body.productName);
+    // console.log(req.body.description);
     db.Product.create({
       UserId: 2,
       productName: req.body.productName,
       category: req.body.category,
       price: req.body.price,
       description: req.body.description,
-      imageURL: req.body.imageURL
+      // imageURL: req.body.imageURL
+      UserId: 1
     }).then(function(result) {
       res.json(result);
     });
