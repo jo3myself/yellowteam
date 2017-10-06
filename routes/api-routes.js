@@ -14,18 +14,23 @@ const saltRounds = 10;
 // =============================================================
 module.exports = function(app) {
 
-  app.get("/api/products", function(req, res) {
-    var query = {};
-    if (req.query.category_search) {
-      query.Category = req.query.category_search;
-    }
-    db.Product.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function(dbProduct) {
-      res.json(dbProduct);
+
+  // get all products
+  app.get("/api/products/all", function(req, res) {
+    db.Product.findAll({}).then(function(results) {
+      res.json(results);
     });
   });
+
+  // get by category
+  app.get("/api/category/:category", function(req, res) {
+    db.Product.findAll({
+        where: {
+         category: req.params.category
+        }
+    }).then(function(results) {
+      res.json(results);
+
 
   app.post("/addProducts", function(req, res) {
     console.log(req.body.category)
@@ -44,22 +49,6 @@ module.exports = function(app) {
     });
   });
 
-  
-  app.get("/api/search/:search", function(req, res) {
-    if (req.params.search) {
-      db.Product.findAll({
-        where: {
-          $or: [
-            {productName: { like: '%' + req.params.search + '%' } },
-            {category: { like: '%' + req.params.search + '%' } }
-          ]
-        }
-      }).then(function(results) {
-        res.json(results);
-        // res.render("search", { productsSearched: data });
-      });
-    };
-  });
 
 
   // Add a New user
