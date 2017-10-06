@@ -39,7 +39,6 @@ module.exports = function(app) {
       description: req.body.description,
       imageURL: req.body.imageURL
     }).then(function(result) {
-  
       res.json(result);
     });
   });
