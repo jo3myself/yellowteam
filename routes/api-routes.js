@@ -26,7 +26,6 @@ module.exports = function(app) {
       res.json(dbProduct);
     });
   });
-<<<<<<< HEAD
 
   app.post("/addProducts", function(req, res) {
     console.log(req.body.category)
@@ -34,6 +33,7 @@ module.exports = function(app) {
     console.log(req.body.productName);
     console.log(req.body.description);
     db.Product.create({
+      UserId: 2,
       productName: req.body.productName,
       category: req.body.category,
       price: req.body.price,
@@ -43,8 +43,7 @@ module.exports = function(app) {
       res.json(result);
     });
   });
-=======
->>>>>>> master
+
   
   app.get("/api/search/:search", function(req, res) {
     if (req.params.search) {
@@ -63,13 +62,7 @@ module.exports = function(app) {
   });
 
 
-<<<<<<< HEAD
-
-    // Add a New user
-
-=======
   // Add a New user
->>>>>>> master
   app.post("/user", function(req, res) {
     // console.log("User Data:");
     // console.log(req.body);
