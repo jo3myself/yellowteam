@@ -18,12 +18,40 @@ body {
   }
 
   #storeTitle {
-      padding-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 100px;
+    font-weight: bold;
+    padding-bottom: 30px;
+  }
+
+  .card {
+    padding: 10px 10px 40px 10px;
+    margin: 2%;
+  }
+
+  .card-title {
+    padding: 10px;
+  }
+
+  #main-contact {
+    padding: 20px;
+    font-size: 30px;
   }
 
   #productsHeader {
-      padding-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+      padding: 40px 20px 40px 20px;
       font-size: calc(2vw + 2vh + 1vmin);
+      background-color: #302F2F;
+      color: #fff;
+  }
+
+  .view-det {
+    position: absolute;
+    clear: both;
+    bottom: 2%;
+    left: 25%;
+
   }
   
   #productContent {
@@ -51,14 +79,52 @@ body {
     margin-top: 20px;
   }
 
+  #main-img {
+    height: 500px;
+    width: auto;
+    margin: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
   #item-main {
-    background-color: #DFDFDF;
-    border: 1px solid #eee;
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+  }
+
+  #product-title {
+    font-size: 45px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  .modal-title { 
+   margin: 0 auto;
+  }
+
+  .modal-titles {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .modal-results {
+    font-weight: normal!important;
+  }
+
+  .contact-title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 35px;
+    border-top: 2px solid black;
   }
 
   .center{
     width: 115px;
     padding-bottom: 10px;    
+  }
+
+  #details {
+    border: 3px solid #343a40;
+    font-size: 25px;
+    
   }
 
   #quantity {
@@ -67,6 +133,10 @@ body {
 
   #contactBtn {
     margin-top: 20px !important;
+  }
+
+  #message-text {
+    height: 200px;
   }
 
 

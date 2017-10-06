@@ -38,9 +38,11 @@ $("#searchButton").click(function(event) {
 	 window.location.href="/search/"+searchProduct;
 });
 
-// get the store title from the input
-var hiddenUser=$("#hiddenName").val();
-$("#storeTitle").html(hiddenUser)
+$("#contactBtn").click(function(event) {
+	event.preventDefault();
+	var quantity = $("#quantity").val();
+	var price = $("#price").val();
+});
 
 // Used for the quantity selector on product view
 //-----------------------------------------------
@@ -117,6 +119,18 @@ $(".input-number").keydown(function (e) {
 					e.preventDefault();
 			}
 	});
+
+//This function is used for the contact user modal under the product view section
+
+$('#userModal').on('show.bs.modal', function (event) {
+	var button = $(event.relatedTarget) // Button that triggered the modal
+	var recipient = button.data('user') // Extract info from data-* attributes
+	// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+	// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+	var modal = $(this)
+	modal.find('.contact-title').text('New message to ' + recipient)
+	modal.find('.modal-body input').val(recipient)
+  })
 
 
 // Custom form validation 
