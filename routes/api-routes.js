@@ -150,10 +150,11 @@ module.exports = function(app) {
         profileImage: files.profile_image.name
       }, {
         where: {
-          id: fields.idImage
+          id: fields.id
         }
-      }).then(function(dbUser) {    
-        res.json(dbUser);
+      }).then(function(dbUser) {  
+        // res.json(dbUser);
+        res.json({ updated: true });
       });
     });
 

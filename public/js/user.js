@@ -40,7 +40,7 @@ $(document).ready(function() {
     // get the form data
     var formData = {
       'profile_image'   : $('#profile_image').val('Image Here'),
-      'id'              : $('#idImage').val()
+      'id'              : $('#id').val()
     };
 
     // process the form
@@ -54,9 +54,10 @@ $(document).ready(function() {
       console.log(data); 
       // Show message that user has been updated
       $('.alert-image').removeClass('d-none');
+      // window.location.href = "/";
     });
 
-    // stop the form from submitting the normal way and refreshing the page
+    // // stop the form from submitting the normal way and refreshing the page
     event.preventDefault();
   });
 
