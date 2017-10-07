@@ -47,7 +47,6 @@ color: darkblue;
 margin: 5px;
 }
 
-
 .textArea {
   max-width: 100%;
 }
@@ -56,6 +55,6 @@ margin: 5px;
   margin: auto;
 }
 
-#add-products {
+#add-products-button {
   margin-bottom: 10px;
 }

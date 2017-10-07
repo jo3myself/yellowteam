@@ -13,7 +13,26 @@
 <!-- /.jumbotron -->
     
     <!-- Logo Placement and info section
+
 ================================================== -->
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+                {{this.User.profileImage}}
+                <p>Store Logo/Photo will go here</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+       <div class="card">
+           <div class="card-header">
+               <h3>Store Info</h3>
+           </div>
+            {{this.User.store-info}}
+            <p>Store info will go here</p>
+       </div>
+    </div>
+</div>
 
 <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container">

@@ -23,8 +23,8 @@
           </div><!-- /.card -->
 
           <div class="card card-product">
-            <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
-            <button type="button" class="btn btn-block btn-secondary">View Your Store</button>
+            <a href="/addProducts"><button class="btn btn-block btn-primary" id="add-products-button">Add Products</button></a>
+            <a href="/store"><button type="button" class="btn btn-block btn-secondary" id="store-button">View Your Store</button></a>
           </div><!-- /.card -->
 
           <div class="card card-product">
@@ -85,6 +85,10 @@
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
             </div><!-- /.row -->
+            <div class="form-group">
+                <label for="store-description">Store Info</label>
+                <textarea class="form-control" name="store-info" id="store-info" rows="10" placeholder="Enter Store Information Here"></textarea>
+            </div>
             <input type="hidden" value="1" id="id" name="id">
             <button id="update-profile" type="submit" class="btn btn-primary">Update Profile</button>
           </form>

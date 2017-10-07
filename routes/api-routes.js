@@ -56,7 +56,7 @@ module.exports = function(app) {
     });
 
     form.on('fileBegin', function (name, file){
-      file.path = path.basename(path.dirname('../')) + '/uploads/products/' + file.name;     
+      file.path = path.basename(path.dirname('../')) + file.name;     
     });
 
     form.on('end', function() {
