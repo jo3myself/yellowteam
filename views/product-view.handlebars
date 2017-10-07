@@ -25,23 +25,23 @@
           <p class="modal-titles">Name: <span class="modal-results">{{{product.User.name}}}</span></p>
           <p class="modal-titles">Phone Number: <span class="modal-results">{{{product.User.phone}}}</span></p>
           <p class="modal-titles">Email: <span class="modal-results">{{{product.User.email}}}</span></p>
-          <p class="modal-titles">Product Id: <span class="modal-results">{{{product.id}}}</span></p>
+          <p class="modal-titles">Product Id: <span class="modal-results" id="subject">{{{product.id}}}</span></p>
           <p class="modal-titles">Store Location: <span class="modal-results">{{{product.User.location}}}</span></p>
           <h4 class="contact-title text-center" id="userModalLabel">New message</h4>
         <form>
           <div class="form-group">
             <label for="recipient-name" class="form-control-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="to">
           </div>
           <div class="form-group">
             <label for="message-text" class="form-control-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control" id="content"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-primary" id="send_email">Send message</button>
       </div>
     </div>
   </div>
