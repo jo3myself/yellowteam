@@ -131,20 +131,3 @@ $('#userModal').on('show.bs.modal', function (event) {
 	modal.find('.contact-title').text('New message to ' + recipient)
 	modal.find('.modal-body input').val(recipient)
   })
-
-
-// Custom form validation 
-(function() {
-	"use strict";
-	window.addEventListener("load", function() {
-		var form = document.getElementById("needs-validation");
-		 form.addEventListener("submit", function(event) {
-			if (form.checkValidity() == false) {
-			  event.preventDefault();
-			  event.stopPropagation();
-			}
-			form.classList.add("was-validated");
-		  }, false);
-		}, false);
-}());
-
