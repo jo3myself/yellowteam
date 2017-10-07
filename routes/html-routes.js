@@ -94,4 +94,8 @@ module.exports = function(app) {
     res.render('sign-in', {});
   });
 
+  app.get("/register", function(req, res) {
+    res.render('register', {layout: 'clean.handlebars'});    
+  });
+
 };

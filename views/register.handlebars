@@ -1,0 +1,59 @@
+<section class="section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12" id="registerCard">
+        <div class="card card-login-register">
+          <div class="card-header">
+            <h3>Register</h3>
+          </div><!--/.card-header -->
+          <div class="card-body">
+
+            <form id="register-form" method="POST" enctype="multipart/form-data" action="/user">
+
+              <div class="form-group">
+                <label for="first-name" class="form-control-label">Name:</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+              </div><!-- /.form-group -->  
+
+              <div class="form-group">
+                <label for="email" class="form-control-label">Email:</label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
+              </div><!-- /.form-group -->
+
+              <div class="form-group">
+                <label for="phone-number" class="form-control-label">Phone Number:</label>
+                <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="555-555-5555" required>
+              </div><!-- /.form-group -->
+
+              <div class="form-group">
+                <label for="location" class="form-control-label">Location:</label>
+                <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA" required>
+              </div><!-- /.form-group -->
+
+              <div class="form-group">
+                <label for="username" class="form-control-label">Username/Storename:</label>
+                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" required>
+              </div><!-- /.form-group -->        
+
+              <div class="form-group">
+                <label for="password" class="form-control-label">Password:</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+              </div><!-- /.form-group -->
+
+              <div class="form-group">
+                <label for="profile-imge" class="form-control-label">Profile Image:</label>
+                <input type="file" class="form-control" name="profile_image" id="profile_image" required>
+              </div><!-- /.form-group -->
+
+              <button type="submit" class="btn btn-block btn-primary" id="registerSubmit">Register</button>
+
+            </form>
+
+          </div><!--/.card-body -->
+        </div><!--/.card -->
+      </div><!--/.col -->
+
+    </div><!--/.row -->
+  </div><!--/.container -->
+</section><!--/.section -->
