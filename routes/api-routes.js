@@ -16,50 +16,52 @@ var path = require('path');
 // =============================================================
 module.exports = function(app) {
 
-  app.get("/api/products", function(req, res) {
-    var query = {};
-    if (req.query.category_search) {
-      query.Category = req.query.category_search;
-    }
-    app.Product.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function(dbProduct) {
-      res.json(dbProduct);
+  // get all products
+  app.get("/api/products/all", function(req, res) {
+    db.Product.findAll({}).then(function(results) {
+      res.json(results);
     });
   });
 
-  app.post("/addProducts", function(req, res) {
-    console.log(req.body.category)
-    console.log(req.body.price);
-    console.log(req.body.productName);
-    console.log(req.body.description);
-    db.Product.create({
-      productName: req.body.productName,
-      category: req.body.category,
-      price: req.body.price,
-      description: req.body.description,
-      imageURL: req.body.imageURL
-    }).then(function(result) {
-  
-      res.json(result);
+  // get by category
+  app.get("/api/category/:category", function(req, res) {
+    db.Product.findAll({
+        where: {
+         category: req.params.category
+        }
+    }).then(function(results) {
+      res.json(results);
     });
   });
-  
-  app.get("/api/search/:search", function(req, res) {
-    if (req.params.search) {
-      db.Product.findAll({
-        where: {
-          $or: [
-            {productName: { like: '%' + req.params.search + '%' } },
-            {category: { like: '%' + req.params.search + '%' } }
-          ]
-        }
-      }).then(function(results) {
-        res.json(results);
-        // res.render("search", { productsSearched: data });
+
+  // Add a New Products
+  app.post("/addProducts", function(req, res) {
+    // Setup formidable
+    var form = new formidable.IncomingForm();
+
+    // Parse the form request
+    form.parse(req, function(err, fields, files) {
+      // Add Product to DB    
+      db.Product.create({
+        UserId: fields.userID,
+        productName: fields.productName,
+        category: fields.category,
+        price: fields.price,
+        description: fields.description,
+        imageURL: files.imageURL.name
+      }).then(function(dbProduct) {
+        dbProduct.added = true;      
+        res.render('addProducts', dbProduct );
       });
-    };
+    });
+
+    form.on('fileBegin', function (name, file){
+      file.path = path.basename(path.dirname('../')) + '/uploads/products/' + file.name;     
+    });
+
+    form.on('end', function() {
+      console.log('Thanks File Uploaded')
+    });
   });
 
   // Add a New user
@@ -71,15 +73,15 @@ module.exports = function(app) {
     // Hash the password then save to DB
     bcrypt.hash(password, saltRounds).then(function(hash) {
       db.User.create({
-        name: req.body.first_name,
+        name: req.body.name,
         email: req.body.email,
         phone: req.body.phone_number,
         userName: req.body.user_name,
         password: hash,
-        profileImage: req.body.profile_image,
+        // profileImage: req.body.profile_image,
         location: req.body.location
       }).then(function(dbUser) {
-        res.json(dbUser);
+        res.render('store', {userInfo: dbUser});
       });
     });
   });

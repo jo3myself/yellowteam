@@ -43,7 +43,7 @@ module.exports = function(app) {
   app.get("/store", function(req, res) {
     res.render('store', {});
   });
-
+  
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
     if (req.params.search) {
@@ -88,6 +88,10 @@ module.exports = function(app) {
     }).then(function(results) {
       res.render("search", { productsSearched: results });
     });
+  });
+
+  app.get("/sign-in", function(req, res) {
+    res.render('sign-in', {});
   });
 
 };
