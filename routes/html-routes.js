@@ -17,9 +17,9 @@ module.exports = function(app) {
     res.render('index', {});
   });
 
-  app.get("/user", function(req, res) {
-    res.render('user', {});
-  });
+  // app.get("/user/", function(req, res) {
+  //   res.render('user', {});
+  // });
 
   // search for stores by the store username and populate the store page with the results
   app.get("/store/:store", function(req, res) {
@@ -88,10 +88,6 @@ module.exports = function(app) {
     }).then(function(results) {
       res.render("search", { productsSearched: results });
     });
-  });
-
-  app.get("/sign-in", function(req, res) {
-    res.render('sign-in', {});
   });
 
 };
