@@ -17,7 +17,7 @@ module.exports = function(app) {
     res.render('index', {});
   });
 
-  app.get("/user", function(req, res) {
+  app.get("/edit-profile", function(req, res) {
     res.render('user', {});
   });
 
