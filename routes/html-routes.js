@@ -30,8 +30,7 @@ module.exports = function(app) {
             db.Product
         ]
       }).then(function(results) {
-        console.log(results.Products);
-        res.render('store', {userInfo: results});
+         res.render('store', {userInfo: results});
       });
     }
   });

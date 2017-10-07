@@ -42,6 +42,16 @@ $('#carousel').on('slid', function (e) {
  $('[id=carousel-selector-'+id+']').addClass('selected');
 });
 
+var showChar = 400;
+var ellipsestext = "...";
+$('.itemDesc').each(function() {
+	var content = $(this).html();
+	if(content.length > showChar) {
+		var c = content.substr(0, showChar);
+		var html = c + ellipsestext;
+		$(this).html(html);
+	}
+});
 
 });
 
