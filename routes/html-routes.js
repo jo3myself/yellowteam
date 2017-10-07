@@ -14,12 +14,14 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
+    console.log(req.body.user.id)
     res.render('index', {});
   });
 
-  // app.get("/user/", function(req, res) {
-  //   res.render('user', {});
-  // });
+
+  app.get("/edit-profile", function(req, res) {
+    res.render('user', {});
+  });
 
   // search for stores by the store username and populate the store page with the results
   app.get("/store/:store", function(req, res) {
