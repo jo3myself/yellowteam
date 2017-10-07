@@ -67,23 +67,36 @@ module.exports = function(app) {
   // Add a New user
   app.post("/user", function(req, res) {
     // console.log("User Data:");
-    // console.log(req.body);
+    console.log(req.body);
     const password = req.body.password;
 
-    // Hash the password then save to DB
-    bcrypt.hash(password, saltRounds).then(function(hash) {
+    // Setup formidable
+    var form = new formidable.IncomingForm();
+
+    // Parse the form request
+    form.parse(req, function(err, fields, files) {
+      console.log(fields); 
       db.User.create({
-        name: req.body.name,
-        email: req.body.email,
-        phone: req.body.phone_number,
-        userName: req.body.user_name,
-        password: hash,
-        // profileImage: req.body.profile_image,
-        location: req.body.location
+        name: fields.name,
+        email: fields.email,
+        phone: fields.phone_number,
+        userName: fields.user_name,
+        password:  fields.password,
+        profileImage: files.profile_image.name,
+        location: fields.location
       }).then(function(dbUser) {
         res.render('store', {userInfo: dbUser});
       });
     });
+
+    form.on('fileBegin', function(name, file) {
+      file.path = path.basename(path.dirname('../')) + '/uploads/users/' + file.name;     
+    });
+
+    form.on('end', function() {
+      console.log('Thanks File Uploaded');
+    });
+
   });
 
   // PUT route for Updating User.
@@ -165,6 +178,7 @@ module.exports = function(app) {
     form.on('end', function() {
       console.log('Thanks File Uploaded');
     });
+
   });
 
 };

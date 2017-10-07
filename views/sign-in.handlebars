@@ -35,7 +35,7 @@
           </div><!--/.card-header -->
           <div class="card-body">
 
-            <form id="register-form" method="POST" action="/user">
+            <form id="register-form" method="POST" enctype="multipart/form-data" action="/user">
 
               <div class="form-group">
                 <label for="first-name" class="form-control-label">Name:</label>
@@ -49,7 +49,7 @@
 
               <div class="form-group">
                 <label for="phone-number" class="form-control-label">Phone Number:</label>
-                <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555" required>
+                <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="555-555-5555" required>
               </div><!-- /.form-group -->
 
               <div class="form-group">
@@ -65,6 +65,11 @@
               <div class="form-group">
                 <label for="password" class="form-control-label">Password:</label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+              </div><!-- /.form-group -->
+
+              <div class="form-group">
+                <label for="profile-imge" class="form-control-label">Profile Image:</label>
+                <input type="file" class="form-control" name="profile_image" id="profile_image" required>
               </div><!-- /.form-group -->
 
               <button type="submit" class="btn btn-primary" id="registerSubmit">Register</button>
