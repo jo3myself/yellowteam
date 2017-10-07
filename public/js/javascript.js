@@ -1,5 +1,21 @@
  $(document).ready(function() {
-	 
+	
+	var from,to,subject,text;
+    $("#send_email").click(function(){      
+        to=$("#to").val();
+        subject=$("#subject").val();
+        text=$("#content").val();
+        // $("#message").text("Sending E-mail...Please wait");
+        $.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
+        if(data=="sent")
+        {
+            $('#userModal').modal('toggle');
+        }
+
+});
+    });
+
+
   // Opens Account Modal with appropriate tab selected
   $('.open-account-modal').on('click',function(e) {
     $('#account-modal').modal();
@@ -130,21 +146,8 @@ $('#userModal').on('show.bs.modal', function (event) {
 	var modal = $(this)
 	modal.find('.contact-title').text('New message to ' + recipient)
 	modal.find('.modal-body input').val(recipient)
-  })
+  });
 
 
-// Custom form validation 
-(function() {
-	"use strict";
-	window.addEventListener("load", function() {
-		var form = document.getElementById("needs-validation");
-		 form.addEventListener("submit", function(event) {
-			if (form.checkValidity() == false) {
-			  event.preventDefault();
-			  event.stopPropagation();
-			}
-			form.classList.add("was-validated");
-		  }, false);
-		}, false);
-}());
+
 
