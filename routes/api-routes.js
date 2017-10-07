@@ -30,7 +30,8 @@ module.exports = function(app) {
         }
     }).then(function(results) {
       res.json(results);
-
+    });
+  });
 
   app.post("/addProducts", function(req, res) {
     // console.log(req.body.category)
@@ -44,7 +45,6 @@ module.exports = function(app) {
       price: req.body.price,
       description: req.body.description,
       // imageURL: req.body.imageURL
-      UserId: 1
     }).then(function(result) {
       res.json(result);
     });
@@ -123,4 +123,5 @@ module.exports = function(app) {
       res.json("");
     }); 
   });
+
 };
