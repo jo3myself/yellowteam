@@ -7,7 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
-var bcrypt = require('bcrypt');
+// var bcrypt = require('bcrypt');
 const saltRounds = 10;
 var formidable = require('formidable');
 var path = require('path');  
@@ -61,28 +61,6 @@ module.exports = function(app) {
 
     form.on('end', function() {
       console.log('Thanks File Uploaded');
-    });
-  });
-
-  // Add a New user
-  app.post("/user", function(req, res) {
-    // console.log("User Data:");
-    // console.log(req.body);
-    const password = req.body.password;
-
-    // Hash the password then save to DB
-    bcrypt.hash(password, saltRounds).then(function(hash) {
-      db.User.create({
-        name: req.body.name,
-        email: req.body.email,
-        phone: req.body.phone_number,
-        userName: req.body.user_name,
-        password: hash,
-        // profileImage: req.body.profile_image,
-        location: req.body.location
-      }).then(function(dbUser) {
-        res.render('store', {userInfo: dbUser});
-      });
     });
   });
 
