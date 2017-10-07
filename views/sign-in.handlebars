@@ -8,20 +8,20 @@
             <h3>Login</h3>
           </div><!--/.card-header -->
           <div class="card-body">
-            <form method="get" action="">
+            <form method="POST" action="/sign-in">
               <div class="form-group">
                 <div class="form-group">
                   <label for="email">Email address:</label>
-                  <input type="email" class="form-control form-control-sm" id="email">
+                  <input type="email" name="email" class="form-control form-control-sm" id="email">
                 </div>
                 <div class="form-group">
                   <label for="pwd">Password:</label>
-                  <input type="password" class="form-control form-control-sm" id="pwd">
+                  <input type="password" name="password" class="form-control form-control-sm" id="pwd">
                 </div>
                 <div class="checkbox">
                   <label><input type="checkbox"> Remember me</label>
                 </div>
-                <a href="#" class="btn btn-primary" id="loginSubmit">Login</a>
+                <input class="btn btn-primary" type="submit" id="loginSubmit" value="Login">
               </div>
             </form>
           </div><!--/.card-body -->
@@ -35,9 +35,9 @@
           </div><!--/.card-header -->
           <div class="card-body">
 
-            <form id="register-form" method="POST" action="/user">
-
+            <form id="register-form" method="POST" action="/sign-up">
               <div class="form-group">
+                <div class="form-group">
                 <label for="first-name" class="form-control-label">Name:</label>
                 <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
               </div><!-- /.form-group -->  
@@ -48,8 +48,8 @@
               </div><!-- /.form-group -->
 
               <div class="form-group">
-                <label for="phone-number" class="form-control-label">Phone Number:</label>
-                <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555" required>
+                <label for="phone" class="form-control-label">Phone Number:</label>
+                <input type="text" class="form-control" name="phone" id="phone_number" placeholder="555-555-5555" required>
               </div><!-- /.form-group -->
 
               <div class="form-group">
@@ -59,15 +59,17 @@
 
               <div class="form-group">
                 <label for="username" class="form-control-label">Username/Storename:</label>
-                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" required>
+                <input type="text" class="form-control" name="userName" id="username" placeholder="Username" required>
               </div><!-- /.form-group -->        
 
               <div class="form-group">
                 <label for="password" class="form-control-label">Password:</label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
               </div><!-- /.form-group -->
+              </div>
+              
 
-              <button type="submit" class="btn btn-primary" id="registerSubmit">Register</button>
+              <input type="submit" class="btn btn-primary" id="registerSubmit" value="Sign Up">
 
             </form>
 

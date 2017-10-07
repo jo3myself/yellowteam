@@ -1,7 +1,15 @@
-$(document).ready(function() {	
-	
+
+$(document).ready(function() {
+	 
+  // Opens Account Modal with appropriate tab selected
+  $('.open-account-modal').on('click',function(e) {
+    $('#account-modal').modal();
+    var tab = e.target.hash;
+    $('a[href="' + tab + '"]').tab('show');
+  });
+
 // to send email 
-var from,to,subject,text;
+var to,subject,text;
 $("#send_email").click(function(){      
 	to=$("#to").val();
 	subject=$("#subject").val();
@@ -12,14 +20,6 @@ $("#send_email").click(function(){
 	}
 	});
 });
-
-
-  // Opens Account Modal with appropriate tab selected
-  $('.open-account-modal').on('click',function(e) {
-    $('#account-modal').modal();
-    var tab = e.target.hash;
-    $('a[href="' + tab + '"]').tab('show');
-  });
 
   // Activates Carousel
 	$('.carousel').carousel();
@@ -53,7 +53,7 @@ $('.itemDesc').each(function() {
 	}
 });
 
-});
+});//end of document.ready
 
 // when search button click, search for it
 $("#searchButton").click(function(event) {
@@ -145,7 +145,6 @@ $(".input-number").keydown(function (e) {
  });
 
 //This function is used for the contact user modal under the product view section
-
 $('#userModal').on('show.bs.modal', function (event) {
 	var button = $(event.relatedTarget) // Button that triggered the modal
 	var recipient = button.data('user') // Extract info from data-* attributes
