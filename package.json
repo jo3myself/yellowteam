@@ -17,11 +17,8 @@
     "dotenv": "^4.0.0",
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
-<<<<<<< HEAD
     "express-session": "^1.15.6",
-=======
     "formidable": "^1.1.1",
->>>>>>> master
     "method-override": "^2.3.9",
     "mysql": "^2.14.1",
     "mysql2": "^1.4.2",
