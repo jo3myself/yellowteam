@@ -60,7 +60,7 @@ module.exports = function(app) {
     });
 
     form.on('end', function() {
-      console.log('Thanks File Uploaded')
+      console.log('Thanks File Uploaded');
     });
   });
 
@@ -88,40 +88,25 @@ module.exports = function(app) {
 
   // PUT route for Updating User.
   app.put("/user", function(req, res) {
-    // Setup formidable
-    var form = new formidable.IncomingForm();
 
-    // Parse the form request
-    form.parse(req, function(err, fields, files) {
-      const password = fields.password;
+    const password = req.body.password;
 
-      // Hash the password then save to DB
-      bcrypt.hash(password, saltRounds).then(function(hash) {
-        db.User.update({
-          name: fields.first_name,
-          email: fields.email,
-          phone: fields.phone_number,
-          userName: fields.user_name,
-          password: hash,
-          profileImage: files.profile_image.name,
-          location: fields.location
-        }, {
-          where: {
-            id: fields.id
-          }
-        }).then(function(dbUser) {
-          res.json(dbUser);
-        });
+    // Hash the password then save to DB
+    bcrypt.hash(password, saltRounds).then(function(hash) {
+      db.User.update({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone_number,
+        userName: req.body.user_name,
+        password: hash,
+        location: req.body.location
+      }, {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbUser) {
+        res.json(dbUser);
       });
-
-    });
-
-    form.on('fileBegin', function (name, file){
-      file.path = path.basename(path.dirname('../')) + '/uploads/products/' + file.name;     
-    });
-
-    form.on('end', function() {
-      console.log('Thanks File Uploaded')
     });
 
   });
@@ -150,6 +135,35 @@ module.exports = function(app) {
     }).catch(function (err) {
       res.json("");
     }); 
+  });
+
+  // Add a profile image
+  app.put("/profile-image", function(req, res) {
+    // Setup formidable
+    var form = new formidable.IncomingForm();
+
+    // Parse the form request
+    form.parse(req, function(err, fields, files) {
+
+      // Add profile image to DB    
+      db.User.update({
+        profileImage: files.profile_image.name
+      }, {
+        where: {
+          id: fields.idImage
+        }
+      }).then(function(dbUser) {    
+        res.json(dbUser);
+      });
+    });
+
+    form.on('fileBegin', function (name, file){
+      file.path = path.basename(path.dirname('../')) + '/uploads/users/' + file.name;     
+    });
+
+    form.on('end', function() {
+      console.log('Thanks File Uploaded');
+    });
   });
 
 };

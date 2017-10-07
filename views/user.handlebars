@@ -19,22 +19,39 @@
               <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
               <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
               <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
-            </ul>          
+            </ul>
           </div><!-- /.card -->
 
-          <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
-          <button type="button" class="btn btn-block btn-secondary">View Your Store</button>
+          <div class="card card-product">
+            <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
+            <button type="button" class="btn btn-block btn-secondary">View Your Store</button>
+          </div><!-- /.card -->
+
+          <div class="card card-product">
+            <form id="profile-image-form" method="POST" enctype="multipart/form-data" action="/profile-image?_method=PUT">
+              <div class="form-group">
+                <label for="profile-imge" class="form-control-label">Profile Image:</label>
+                <input type="file" class="form-control" name="profile_image" id="profile_image" required>
+              </div><!-- /.form-group -->
+              <input type="hidden" value="1" id="idImage" name="idImage">
+              <button id="update-profile-image" type="submit" class="btn btn-block btn-primary">Update Profile Image</button>
+            </form>
+
+            <div class="alert alert-success alert-imge d-none" role="alert">Your Profile image has been updated</div><!-- /.alert --> 
+          </div><!-- /.card -->
         </div><!-- /.col -->
 
         <div class="col-sm-12 col-lg-8">
           <h2 class="h5 text-uppercase">Edit User Profile</h2>
 
-          <form id="register-form" method="POST" enctype="multipart/form-data" action="/user?_method=PUT">
+          <div class="alert alert-success alert-profile d-none" role="alert">Your Profile has been updated</div><!-- /.alert --> 
+
+          <form id="edit-profile-form" method="POST" action="/user?_method=PUT">
             <div class="row">
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="first-name" class="form-control-label">First Name:</label>
-                  <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Name" required>
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
                 </div><!-- /.form-group -->  
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
@@ -55,12 +72,6 @@
                   <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA" required>
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="profile-imge" class="form-control-label">Profile Image:</label>
-                  <input type="file" class="form-control" name="profile_image" id="profile_image">
-                </div><!-- /.form-group -->
-              </div>
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="username" class="form-control-label">Username/Storename:</label>

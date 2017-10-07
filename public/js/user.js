@@ -1,35 +1,59 @@
 $(document).ready(function() {
 
-  // process the form
-  $('#register-form').submit(function(event) {
+  // Hide sucess alert on load
+  $('.alert-profile, .alert-image').addClass('d-none');
 
-  console.log('heljdof');
+  // process the edit-profile-form
+  $('#edit-profile-form').submit(function(event) {
 
     // get the form data
     var formData = {
-      'first_name'      : $('#first_name').val(),
+      'name'            : $('#name').val(),
       'email'           : $('#email').val(),
       'phone_number'    : $('#phone_number').val(),
       'user_name'       : $('#user_name').val(),
       'password'        : $('#password').val(),
-      'profile_image'   : $('#profile_image').val(),
       'location'        : $('#location').val(),
       'id'              : $('#id').val()
     };
 
     // process the form
     $.ajax({
-      type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-      url         : '/user', // the url where we want to POST
-      data        : formData, // our data object
-      dataType    : 'json', // what type of data do we expect back from the server
-      // encode      : true
-    })
-    // using the done promise callback
-    .done(function(data) {
+      type        : 'PUT',
+      url         : '/user',
+      data        : formData,
+      dataType    : 'json'
+    }).done(function(data) {
+      // log data to the console so we can see
+      // console.log(data); 
+      // Show message that user has been updated
+      $('.alert-profile').removeClass('d-none');
+    });
+
+    // stop the form from submitting the normal way and refreshing the page
+    event.preventDefault();
+  });
+
+  // process the profile-image-form
+  $('#profile-image-form').submit(function(event) {
+
+    // get the form data
+    var formData = {
+      'profile_image'   : $('#profile_image').val('Image Here'),
+      'id'              : $('#idImage').val()
+    };
+
+    // process the form
+    $.ajax({
+      type        : 'PUT',
+      url         : '/profile-image',
+      data        : formData,
+      dataType    : 'json'
+    }).done(function(data) {
       // log data to the console so we can see
       console.log(data); 
-      // here we will handle errors and validation messages
+      // Show message that user has been updated
+      $('.alert-image').removeClass('d-none');
     });
 
     // stop the form from submitting the normal way and refreshing the page
