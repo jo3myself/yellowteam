@@ -14,8 +14,10 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
+    console.log(req.session.passport.user);
     res.render('index', {});
   });
+
 
   app.get("/edit-profile", function(req, res) {
     res.render('user', {});
@@ -88,10 +90,6 @@ module.exports = function(app) {
     }).then(function(results) {
       res.render("search", { productsSearched: results });
     });
-  });
-
-  app.get("/sign-in", function(req, res) {
-    res.render('sign-in', {});
   });
 
 };
