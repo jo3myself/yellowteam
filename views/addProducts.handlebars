@@ -1,63 +1,69 @@
-<br>
-<div class="container-fluid">
-   <div class="row">
-        <div class="col-lg-6 col-md-9 col-sm-12" id="addProductsCard">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Add Products</h3>
-                </div>
-                    <div class="card-body">
-                        <form action="" method="post" id="needs-validation" novalidate>
-                                <div class="form-group">
-                                    <label for="productName">Product Name</label>
-                                    <input type="text" class="form-control" name="productName" id="product-name" placeholder="Product Name" required>
-                                    <div class="invalid-feedback">
-                                        <p>Please Enter a Product Name</p>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="category">Category (select one):</label>
-                                            <select class="form-control" id="product-category" class="custom-select" name="category">
-                                                <option selected>Choose a Category</option>
-                                                <option value="Arts, Crafts, Sewing">Arts, Crafts, Sewing</option>
-                                                <option value="Automotive">Automotive</option>
-                                                <option value="Beauty & Personal Care">Beauty & Personal Care</option>
-                                                <option value="Clothing, Jewelry, Shoes">Clothing, Jewelry, Shoes</option>
-                                                <option value="Collectibles & Fine Art">Collectibles & Fine Art</option>
-                                                <option value="Electronics">Electronics</option>
-                                                <option value="Home & Kitchen">Home & Kitchen</option>
-                                                <option value="Pet Supplies">Pet Supplies</option>
-                                                <option value="Sports & Outdoors">Sports & Outdoors</option>
-                                                <option value="Toys & Games">Toys & Games</option>
-                                                <option value="other">Other</option>
-                                                </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="price">Price</label>
-                                        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="product-price" placeholder="Enter Price" name="price" required>
-                                        <div class="invalid-feedback">
-                                            <p>Please Enter a Price</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group text-center">
-                                    <label for="description">Product Description</label>
-                                    <textarea name="description" id="product-description form-control-sm" cols="80" rows="10" class="textArea" name="description" required></textarea>
-                                    <div class="invalid-feedback">
-                                        <p>Please Enter a Description</p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <p>Product Image</p>
-                                    <input type="file" name="imageURL">
-                                </div>
-                                <button class="btn btn-primary float-right" id="addProduct">Add Product</button>
-                        </form>
-                    </div>    
-                </div>
-            </div>
-        </div>
-   </div>
-</div>
-<br>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12" id="addProductsCard">
+        <div class="card">
+          <div class="card-header">
+            <h3>Add Products</h3>
+          </div><!--/.card-header -->
+          <div class="card-body">
+           
+            {{#if this.added}}
+              <div class="alert alert-success" role="alert">The following product {{this.dataValues.productName}} has been added to your store</div><!-- /.alert -->
+            {{/if}}
+
+            <form action="/addProducts" enctype="multipart/form-data" method="POST">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" class="form-control" name="productName" id="product-name" placeholder="Example: Dell Computer" required>
+                  </div><!--/.form-group -->
+                </div><!-- /.col -->
+
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="custom-select" name="category" required style="display: block; width: 100%;">
+                      <option selected>Choose a Category</option>
+                      <option value="Books">Books</option>
+                      <option value="Movies">Movies</option>
+                      <option value="Computers">Computers</option>
+                      <option value="Smartphones">Smartphones</option>
+                      <option value="Tvs">Tv's</option>
+                      <option value="Toys">Toys</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div><!--/.form-group-->
+                </div><!-- /.col -->
+
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" id="product-price" placeholder="00.00" name="price" required>
+                  </div><!--/.form-group-->
+                </div><!-- /.col -->
+              </div><!--/.row -->
+
+              <div class="form-group">
+                <label for="description">Product Description</label>
+                <textarea class="form-control" id="product-description" rows="10" name="description" placeholder="Enter Product Description" required></textarea>
+              </div><!--/.form-group-->
+
+              <div class="form-group">
+                <div class="alert alert-secondary" role="alert">
+                  <label for="imageURL">Product Image</label>
+                  <input type="file" name="imageURL" class="form-control-file" id="image-url" required>  
+                </div><!--/.alert-->       
+              </div><!--/.form-group-->
+
+              <input type="hidden" value="1" name="userID">
+              <button type="submit" class="btn btn-primary text-uppercase" id="addProduct">Add Product</button>
+            </form>
+
+          </div><!--/.card-body -->
+        </div><!--/.card-->
+      </div><!--/.col-->
+    </div><!--/.row -->
+  </div><!--/.container-fluid -->
+</section><!--/.section -->
