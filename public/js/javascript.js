@@ -1,5 +1,4 @@
 $(document).ready(function() {
-<<<<<<< HEAD
 	 
   // Opens Account Modal with appropriate tab selected
   $('.open-account-modal').on('click',function(e) {
@@ -7,7 +6,6 @@ $(document).ready(function() {
     var tab = e.target.hash;
     $('a[href="' + tab + '"]').tab('show');
   });
-=======
   
   var from,to,subject,text;
     $("#send_email").click(function(){      
@@ -20,7 +18,6 @@ $(document).ready(function() {
         {
             $('#userModal').modal('toggle');
         }
->>>>>>> master
 
 });
     });
