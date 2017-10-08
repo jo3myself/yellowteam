@@ -6,13 +6,15 @@ $(document).ready(function() {
   // process the edit-profile-form
   $('#edit-profile-form').submit(function(event) {
 
+    $('.alert-profile, .alert-image').addClass('d-none');
+    
     // get the form data
     var formData = {
       'name'            : $('#name').val(),
       'email'           : $('#email').val(),
       'phone_number'    : $('#phone_number').val(),
       'user_name'       : $('#user_name').val(),
-      'password'        : $('#password').val(),
+      // 'password'        : $('#password').val(),
       'location'        : $('#location').val(),
       'id'              : $('#id').val()
     };

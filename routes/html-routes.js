@@ -27,7 +27,18 @@ module.exports = function(app) {
 
 
   app.get("/edit-profile", function(req, res) {
-    res.render('user', {});
+    if( req.isAuthenticated() ){
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+        include: [
+          db.Product
+        ]
+      }).then(function(dbUser) {
+         res.render('user', {user: dbUser});
+      });
+    }
   });
 
   // search for stores by the store username and populate the store page with the results
