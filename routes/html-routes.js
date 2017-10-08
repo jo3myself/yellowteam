@@ -71,11 +71,11 @@ module.exports = function(app) {
   });
 
   app.get('/addProducts' , function (req, res) {
-    console.log(req.session.passport.user);
-    console.log(req.isAuthenticated());
-    res.render('addProducts', {
-      userID: req.session.passport.user,
-    });
+    if( req.isAuthenticated() ){
+      res.render('addProducts', {
+        user: req.user,
+      });
+    }
   });
 
   // search for product with this Id and pass it to handlebars

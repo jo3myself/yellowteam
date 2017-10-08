@@ -69,9 +69,17 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 // For Passport
+app.use(session({ secret: 'keyboard cat',resave: false, saveUninitialized:false})); // session secret
 app.use(passport.initialize());
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.session()); // persistent login sessions
+app.use(function(req, res, next){
+  res.locals.isAuthenticated = req.isAuthenticated();
+  console.log(req.isAuthenticated());
+  console.log(req.user);
+  next();
+});
+
+
 
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
