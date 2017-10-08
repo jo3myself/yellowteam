@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    console.log(req.session.passport.user);
+    // console.log(req.session.passport.user);
     res.render('index', {});
   });
 
