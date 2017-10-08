@@ -1,9 +1,9 @@
 var authController = require('../controllers/controllers.js');
 
 module.exports = function(app, passport) {
-
    app.get('/sign-up', authController.signup);
    app.get('/sign-in', authController.signin);
+   app.get('/logout', authController.logout)
    
 
    app.post('/sign-up', passport.authenticate('local-signup', {
@@ -20,12 +20,12 @@ module.exports = function(app, passport) {
         failureRedirect: '/sign-in'
     }));
 
-    app.get('/', isLoggedIn, authController.user);
+    // app.get('/user', isLoggedIn, authController.user);
     
     app.get('/logout', authController.logout);
 
     function isLoggedIn(req, res, next) {
-        
+        console.log('redirect',req.isAuthenticated())
         if (req.isAuthenticated())
         
             return next();

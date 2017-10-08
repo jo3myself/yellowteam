@@ -14,8 +14,19 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    console.log(req.session.passport.user);
-    res.render('index', {});
+    // console.log(req);
+    if(req.isAuthenticated()) {
+      db.User.findOne({
+        where: {
+          id: req.session.passport.user
+        }
+      }).then(function(results) {
+        res.render('index', {loggedIn : req.isAuthenticated(), user: results});
+      })
+    }
+    else {
+      res.render('index', {loggedIn : req.isAuthenticated()});
+    }
   });
 
 
@@ -25,6 +36,7 @@ module.exports = function(app) {
 
   // search for stores by the store username and populate the store page with the results
   app.get("/store/:store", function(req, res) {
+    console.log(req.isAuthenticated());
     if (req.params.store) {
       db.User.findOne({
         where: {userName: req.params.store},
@@ -32,7 +44,6 @@ module.exports = function(app) {
             db.Product
         ]
       }).then(function(results) {
-        console.log(results.Products);
         res.render('store', {userInfo: results});
       });
     }

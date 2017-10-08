@@ -8,12 +8,11 @@ module.exports = function(passport, user) {
 
    //serialize
    passport.serializeUser(function(user, done) {
-       done(null, user.id); 
+        done(null, user.id); 
    });
    
    // deserialize user 
    passport.deserializeUser(function(id, done) {
-    
        User.findById(id).then(function(user) {
            if (user) {
                done(null, user.get());
@@ -69,15 +68,10 @@ module.exports = function(passport, user) {
                            return done(null, newUser);
 
                        }
-
                    });
-
                }
-
            });
-
        }
-
    ));
 
    //Local Strategy for comparing with existing user...
@@ -89,7 +83,6 @@ module.exports = function(passport, user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
        function(req, email, password, done) {
-           console.log("trying to signin");
            var User = user;
            var isValidPassword = function(userpass, password) {
                return bCrypt.compareSync(password, userpass);

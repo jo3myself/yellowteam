@@ -60,6 +60,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(methodOverride("_method"));
 
 // Sets up the Express app to handle handlebars
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -69,8 +70,8 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 // For Passport
+app.use(session({ secret: 'keyboard cat',saveUninitialized:true, resave: true})); // session secret
 app.use(passport.initialize());
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.session()); // persistent login sessions
 
 require("./routes/html-routes.js")(app);
