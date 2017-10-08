@@ -20,8 +20,8 @@ module.exports = function(app, passport) {
         failureRedirect: '/sign-in'
     }));
 
-    app.get('/', isLoggedIn, authController.user);
-    
+    // app.get('/', isLoggedIn, authController.user);
+
     app.get('/logout', authController.logout);
 
     function isLoggedIn(req, res, next) {

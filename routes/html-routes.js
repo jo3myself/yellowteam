@@ -14,7 +14,6 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    console.log(req.session.passport.user);
     res.render('index', {});
   });
 
@@ -64,7 +63,11 @@ module.exports = function(app) {
   });
 
   app.get('/addProducts' , function (req, res) {
-    res.render('addProducts', {});
+    console.log(req.session.passport.user);
+    console.log(req.isAuthenticated());
+    res.render('addProducts', {
+      userID: req.session.passport.user,
+    });
   });
 
   // search for product with this Id and pass it to handlebars
