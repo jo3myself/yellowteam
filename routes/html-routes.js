@@ -14,7 +14,15 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    res.render('index', {});
+    db.Product.findAll({
+      limit: 4,
+      where: {
+       category: 'Computers'
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render('index', { product: results} );
+    });
   });
 
 
