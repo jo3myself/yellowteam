@@ -7,7 +7,7 @@ $(document).ready(function() {
   $('#edit-profile-form').submit(function(event) {
 
     $('.alert-profile, .alert-image').addClass('d-none');
-    
+
     // get the form data
     var formData = {
       'name'            : $('#name').val(),
@@ -28,6 +28,9 @@ $(document).ready(function() {
     }).done(function(data) {
       // log data to the console so we can see
       // console.log(data); 
+      var newStoreName = $('#user_name').val();
+      $('#store-name').text(newStoreName);
+      $('#store-btn').attr('href', '/store/' + newStoreName );
       // Show message that user has been updated
       $('.alert-profile').removeClass('d-none');
     });
