@@ -50,9 +50,7 @@ module.exports = function(app) {
         description: fields.description,
         imageURL: files.imageURL.name
       }).then(function(dbProduct) {
-        dbProduct.added = true;      
-        // res.render('addProducts', dbProduct );
-        res.status(200);
+        res.redirect('/product/' + dbProduct.id );
       });
     });
 

@@ -44,11 +44,7 @@
         <div class="col-sm-12 col-lg-8">
           <h2 class="h5 text-uppercase">Add Products</h2>
 
-            {{#if this.added}}
-              <div class="alert alert-success" role="alert">The following product {{this.dataValues.productName}} has been added to your store</div><!-- /.alert -->
-            {{/if}}
-
-            <div class="alert alert-success alert-image d-none" role="alert">Your Profile has been updated</div><!-- /.alert --> 
+            <div class="alert alert-success alert-image d-none" role="alert">The following product {{this.productName}} has been added to your store</div><!-- /.alert --> 
 
             <form id="add-products-form" action="/addProducts" enctype="multipart/form-data" method="POST">
               <div class="row">
