@@ -1,98 +1,46 @@
-  <header class="page-header bg-secondary">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <a href="/store/{{user.userName}}" id="store-btn" class="btn btn-info float-right">View Store</a>
-          <h1 class="h4 text-uppercase"><span id="store-name">{{user.userName}}</span>'s Store</h1>
-        </div><!-- /.col-->
-      </div><!-- /.row-->
-    </div><!-- /.container-->
-  </header><!-- /.page-header -->
+<h2 class="h5 text-uppercase">Edit User Profile</h2>
 
-  <section class="section section-featured-products">
-    <div class="container">
-      <div class="row">
+<div class="alert alert-success alert-profile d-none" role="alert">Your Profile has been updated</div><!-- /.alert --> 
 
-        <div class="col-sm-12 col-lg-4 mb-3">
-          <h3 class="h5 text-uppercase">Edit Products</h3>
-          <div class="card card-product">
-            <ul class="list-group list-group-flush">
-              {{#each user.Products}}
-                <li class="list-group-item">{{this.productName}} <br><a href="#">Edit &rarr;</a></li>
-              {{/each}}
-            </ul>
-          </div><!-- /.card -->
-
-          <div class="card card-product">
-            <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
-          </div><!-- /.card -->
-
-          <div class="card card-product border-0">
-            <form id="profile-image-form" method="POST" enctype="multipart/form-data" action="/profile-image?_method=PUT">
-              <div class="form-group">
-                <label for="profile-imge" class="form-control-label">Profile Image:</label>
-                <div class="alert alert-secondary" role="alert">
-                  <input type="file" class="form-control-file" name="profile_image" id="profile_image" required> 
-                </div><!--/.alert-->       
-              </div><!--/.form-group-->
-              <input type="hidden" value="{{{user.id}}}" id="id" name="id">
-              <button id="update-profile-image" type="submit" class="btn btn-block btn-primary">Update Profile Image</button>
-            </form>
-
-            <div class="alert alert-success alert-imge d-none" role="alert">Your Profile image has been updated</div><!-- /.alert --> 
-          </div><!-- /.card -->
-        </div><!-- /.col -->
-
-        <div class="col-sm-12 col-lg-8">
-          <h2 class="h5 text-uppercase">Edit User Profile</h2>
-
-          <div class="alert alert-success alert-profile d-none" role="alert">Your Profile has been updated</div><!-- /.alert --> 
-
-          <form id="edit-profile-form" method="POST" action="/user?_method=PUT">
-            <div class="row">
-              <div class="col-sm-12 col-lg-6">
-                <div class="form-group">
-                  <label for="first-name" class="form-control-label">First Name:</label>
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{user.name}}" required>
-                </div><!-- /.form-group -->  
-              </div><!-- /.col -->
-              <div class="col-sm-12 col-lg-6">
-                <div class="form-group">
-                  <label for="email" class="form-control-label">Email:</label>
-                  <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{user.email}}" required>
-                </div><!-- /.form-group -->
-              </div><!-- /.col -->
-              <div class="col-sm-12 col-lg-6">
-                <div class="form-group">
-                  <label for="phone-number" class="form-control-label">Phone Number:</label>
-                  <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555" value="{{user.phone}}" required>
-                </div><!-- /.form-group -->
-              </div><!-- /.col -->
-              <div class="col-sm-12 col-lg-6">
-                <div class="form-group">
-                  <label for="location" class="form-control-label">Location:</label>
-                  <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA" value="{{user.location}}" required>
-                </div><!-- /.form-group -->
-              </div><!-- /.col -->
-              <div class="col-sm-12 col-lg-6">
-                <div class="form-group">
-                  <label for="username" class="form-control-label">Username/Storename:</label>
-                  <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" value="{{user.userName}}" required>
-                </div><!-- /.form-group -->        
-              </div><!-- /.col -->
-              <div class="col-sm-12 col-lg-6">
-                <div class="form-group">
-                  <label for="password" class="form-control-label">Password:</label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="{{user.password}}">
-                </div><!-- /.form-group -->
-              </div><!-- /.col -->
-            </div><!-- /.row -->
-            <input type="hidden" value="{{user.id}}" id="id" name="id">
-            <button id="update-profile" type="submit" class="btn btn-primary">Update Profile</button>
-          </form>
-
-        </div><!-- /.col -->
-
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  </section><!-- /.section -->
+<form id="edit-profile-form" method="POST" action="/user?_method=PUT">
+  <div class="row">
+    <div class="col-sm-12 col-lg-6">
+      <div class="form-group">
+        <label for="first-name" class="form-control-label">First Name:</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{user.name}}" required>
+      </div><!-- /.form-group -->  
+    </div><!-- /.col -->
+    <div class="col-sm-12 col-lg-6">
+      <div class="form-group">
+        <label for="email" class="form-control-label">Email:</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{user.email}}" required>
+      </div><!-- /.form-group -->
+    </div><!-- /.col -->
+    <div class="col-sm-12 col-lg-6">
+      <div class="form-group">
+        <label for="phone-number" class="form-control-label">Phone Number:</label>
+        <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555" value="{{user.phone}}" required>
+      </div><!-- /.form-group -->
+    </div><!-- /.col -->
+    <div class="col-sm-12 col-lg-6">
+      <div class="form-group">
+        <label for="location" class="form-control-label">Location:</label>
+        <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA" value="{{user.location}}" required>
+      </div><!-- /.form-group -->
+    </div><!-- /.col -->
+    <div class="col-sm-12 col-lg-6">
+      <div class="form-group">
+        <label for="username" class="form-control-label">Username/Storename:</label>
+        <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" value="{{user.userName}}" required>
+      </div><!-- /.form-group -->        
+    </div><!-- /.col -->
+    <div class="col-sm-12 col-lg-6">
+      <div class="form-group">
+        <label for="password" class="form-control-label">Password:</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="{{user.password}}">
+      </div><!-- /.form-group -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <input type="hidden" value="{{user.id}}" id="id" name="id">
+  <button id="update-profile" type="submit" class="btn btn-primary">Update Profile</button>
+</form>

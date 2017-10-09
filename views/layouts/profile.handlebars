@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YELLOW</title>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- bootstrap pooper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <!-- bootstrap javascript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <!-- Google Font (Ubuntu) -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <!-- Google Font (Josefin Sans) -->
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="/css/store.css" type="text/css" />
+</head>
+<body>
+
+  {{> nav }}
+
+  {{> user-header }}
+
+  <section class="section section-featured-products">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-12 col-lg-4 mb-3">
+          {{> user-sidebar }}
+        </div><!-- /.col -->
+
+        <div class="col-sm-12 col-lg-8">
+          {{{ body }}}
+        </div><!-- /.col -->
+
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </section><!-- /.section -->
+
+  {{> footer }}
+  
+<script type="text/javascript" src="/js/javascript.js"></script>
+<script type="text/javascript" src="/js/user.js"></script>
+</body>
+</html>
