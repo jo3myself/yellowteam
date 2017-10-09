@@ -1,18 +1,56 @@
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12" id="addProductsCard">
-        <div class="card">
-          <div class="card-header">
-            <h3>Add Products</h3>
-          </div><!--/.card-header -->
-          <div class="card-body">
-           
+  <header class="page-header bg-secondary">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <a href="/store/{{user.userName}}" id="store-btn" class="btn btn-info float-right">View Store</a>
+          <h1 class="h4 text-uppercase"><span id="store-name">{{user.userName}}</span>'s Store</h1>
+        </div><!-- /.col-->
+      </div><!-- /.row-->
+    </div><!-- /.container-->
+  </header><!-- /.page-header -->
+
+  <section class="section section-featured-products">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-12 col-lg-4 mb-3">
+          <h3 class="h5 text-uppercase">Edit Products</h3>
+          <div class="card card-product">
+            <ul class="list-group list-group-flush">
+              {{#each user.Products}}
+                <li class="list-group-item">{{this.productName}} <br><a href="#">Edit &rarr;</a></li>
+              {{/each}}
+            </ul>
+          </div><!-- /.card -->
+
+          <div class="card card-product">
+            <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
+          </div><!-- /.card -->
+
+          <div class="card card-product">
+            <form id="profile-image-form" method="POST" enctype="multipart/form-data" action="/profile-image?_method=PUT">
+              <div class="form-group">
+                <label for="profile-imge" class="form-control-label">Profile Image:</label>
+                <input type="file" class="form-control" name="profile_image" id="profile_image" required>
+              </div><!-- /.form-group -->
+              <input type="hidden" value="1" id="id" name="id">
+              <button id="update-profile-image" type="submit" class="btn btn-block btn-primary">Update Profile Image</button>
+            </form>
+
+            <div class="alert alert-success alert-imge d-none" role="alert">Your Profile image has been updated</div><!-- /.alert --> 
+          </div><!-- /.card -->
+        </div><!-- /.col -->
+
+        <div class="col-sm-12 col-lg-8">
+          <h2 class="h5 text-uppercase">Add Products</h2>
+
             {{#if this.added}}
               <div class="alert alert-success" role="alert">The following product {{this.dataValues.productName}} has been added to your store</div><!-- /.alert -->
             {{/if}}
 
-            <form action="/addProducts" enctype="multipart/form-data" method="POST">
+            <div class="alert alert-success alert-image d-none" role="alert">Your Profile has been updated</div><!-- /.alert --> 
+
+            <form id="add-products-form" action="/addProducts" enctype="multipart/form-data" method="POST">
               <div class="row">
                 <div class="col-sm-4">
                   <div class="form-group">
@@ -24,7 +62,7 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="category">Category</label>
-                    <select class="custom-select" name="category" required style="display: block; width: 100%;">
+                    <select class="custom-select" name="category" id="product-category" required style="display: block; width: 100%;">
                       <option selected>Choose a Category</option>
                       <option value="Books">Books</option>
                       <option value="Movies">Movies</option>
@@ -40,7 +78,10 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="text" class="form-control" id="product-price" placeholder="00.00" name="price" required>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="text" class="form-control" id="product-price" placeholder="00.00" name="price" required>
+                    </div>
                   </div><!--/.form-group-->
                 </div><!-- /.col -->
               </div><!--/.row -->
@@ -51,19 +92,18 @@
               </div><!--/.form-group-->
 
               <div class="form-group">
+                <label for="imageURL">Product Image</label>
                 <div class="alert alert-secondary" role="alert">
-                  <label for="imageURL">Product Image</label>
                   <input type="file" name="imageURL" class="form-control-file" id="image-url" required>  
                 </div><!--/.alert-->       
               </div><!--/.form-group-->
 
-              <input type="hidden" value="1" name="userID">
+              <input type="hidden" value="{{{user.id}}}" id="id" name="userID">
               <button type="submit" class="btn btn-primary text-uppercase" id="addProduct">Add Product</button>
             </form>
 
-          </div><!--/.card-body -->
-        </div><!--/.card-->
-      </div><!--/.col-->
-    </div><!--/.row -->
-  </div><!--/.container-fluid -->
-</section><!--/.section -->
+        </div><!-- /.col -->
+
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </section><!-- /.section -->

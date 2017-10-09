@@ -44,45 +44,21 @@
 
       <div class="row">
 
-        <div class="col-sm-6 col-lg-3">
-          <div class="card card-product">
-            <img src="http://via.placeholder.com/320x180" class="card-img-top"  alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Product Name</h6>
-              <a href="#">View Product &rarr;</a>
-            </div><!-- /.card-body -->
-          </div><!-- /.card -->
-        </div><!-- /.col -->
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="card card-product">
-            <img src="http://via.placeholder.com/320x180" class="card-img-top"  alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Product Name</h6>
-              <a href="#">View Product &rarr;</a>
-            </div><!-- /.card-body -->
-          </div><!-- /.card -->
-        </div><!-- /.col -->
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="card card-product">
-            <img src="http://via.placeholder.com/320x180" class="card-img-top"  alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Product Name</h6>
-              <a href="#">View Product &rarr;</a>
-            </div><!-- /.card-body -->
-          </div><!-- /.card -->
-        </div><!-- /.col -->
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="card card-product">
-            <img src="http://via.placeholder.com/320x180" class="card-img-top"  alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Product Name</h6>
-              <a href="#">View Product &rarr;</a>
-            </div><!-- /.card-body -->
-          </div><!-- /.card -->
-        </div><!-- /.col -->
+        {{#each product}}
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card card-product">
+              <a href="/product/{{this.id}}"><img class="card-img-top" src="/uploads/products/{{this.imageURL}}" alt="{{this.productName}}"></a>
+              <div class="card-body">
+                <h6 class="card-title">{{this.productName}}</h6>
+                <p>${{this.price}}</p>
+                <a href="/product/{{this.id}}" class="btn btn-info btn-sm">View Product &rarr;</a>
+              </div><!-- /.card-body -->
+              <div class="card-footer">
+                <small class="text-muted">User: <a href="/store/{{this.User.userName}}">{{this.User.userName}}</a></small>
+              </div><!-- /.card-footer -->
+            </div><!-- /.card -->
+          </div><!-- /.col -->
+        {{/each}}
 
       </div><!-- /.row -->
     </div><!-- /.container -->
