@@ -57,7 +57,7 @@ module.exports = function(app) {
     });
 
     form.on('fileBegin', function (name, file){
-      file.path = path.basename(path.dirname('../')) + file.name;     
+      file.path = path.basename(path.dirname('../')) + '/public/uploads/products/' + file.name;     
     });
 
     form.on('end', function() {
@@ -90,6 +90,26 @@ module.exports = function(app) {
 
     // });
 
+  });
+
+  // PUT route for updating products
+  app.put('/editProducts/:id', function(req, res) {
+    if(req.isAuthenticated()) {
+      db.Product.update({
+        productName: req.body.edited_product_name,
+        price: req.body.edited_price,
+        category: req.body.edited_category,
+        description: req.body.edited_description,
+        imageURL: req.body.edited_imageURL
+      }, {
+        where: {
+          Id: req.params.id
+        }
+      }).then(function(results) {
+        console.log(req.params.id);
+        res.json(results)
+      });
+    }
   });
   
   app.delete("/api/products/:id", function(req, res) {

@@ -1,0 +1,100 @@
+<header class="page-header bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a href="/store/{{{product.User.userName}}}" class="btn btn-info float-right">View Store</a>
+        <h1 class="h4 text-uppercase">{{{product.User.userName}}}'s Store</h1>
+      </div><!-- /.col-->
+    </div><!-- /.row-->
+  </div><!-- /.container-->
+</header><!-- /.page-header-->
+
+<section class="section">
+    <div class="container">
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>{{product.productName}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="/uploads/products/{{product.imageURL}}" alt="smileyface" class="img-fluid">
+                            <p>${{product.price}}</p>
+                            <p>{{product.description}}</p>
+                        </div><!--/.card-body-->
+                        <div class="card-footer">
+                             <small class="text-muted">Category: <a href="/category/{{product.category}}">{{product.category}}</a></small>
+                        </div><!-- /.card-footer -->
+                    </div><!--/.card-->
+                </div><!--/.card-->
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="text-uppercase">Edit Product</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="/editProducts/{{this.product.id}}?_method=PUT" method="POST" id="edit-products-form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                        <label for="edited-product-name">Product Name</label>
+                                        <input type="text" name="edited_product_name" id="edited-product-name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="edited-price">Price</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">$</span>
+                                            <input type="text" class="form-control" id="edited_price" placeholder="00.00" name="edited_price">    
+                                        </div> 
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="edited-category">Category</label>
+                                            <select class="custom-select" name="edited_category" id="edited_category" required style="display: block; width: 100%;">
+                                                <option selected>Choose a Category</option>
+                                                <option value="Books">Books</option>
+                                                <option value="Movies">Movies</option>
+                                                <option value="Computers">Computers</option>
+                                                <option value="Smartphones">Smartphones</option>
+                                                <option value="Tvs">Tv's</option>
+                                                <option value="Toys">Toys</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                    </div><!--/.form-group-->
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="edited-description">Product Description</label>
+                                                <textarea class="form-control" name="edited_description" id="edited-description" rows="10" placeholder="Enter Product Description"></textarea>
+                                        </div><!--/.form-group-->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imageURL">Product Image</label>
+                                        <div class="alert alert-secondary" role="alert">
+                                            <input type="file" name="edited_imageURL" class="form-control-file" id="image-url">  
+                                        </div><!--/.alert-->       
+                                 </div><!--/.form-group-->
+
+                                 <input type="hidden" value="{{{user.id}}}" id="id" name="userID">
+                                <button type="submit" class="btn btn-primary text-uppercase" id="editProduct">Edit Product</button> 
+                            </form><!--end of form-->
+                        </div><!--end of card-body-->
+                    </div><!--end of card--> 
+                </div>
+            </div>
+    </div>
+</section>
+
+
+   
+    
+
+
+

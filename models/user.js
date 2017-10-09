@@ -38,9 +38,6 @@ module.exports = function(sequelize, DataTypes) {
     profileImage: {
       type: DataTypes.STRING,
     },
-    storeLogo: {
-      type: DataTypes.STRING
-    },
     location: {
       type: DataTypes.STRING,
     },
