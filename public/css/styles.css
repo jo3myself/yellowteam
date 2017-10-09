@@ -57,3 +57,7 @@ margin: 5px;
 #addProductsCard {
   margin: auto;
 }
+
+#edited-description {
+  max-width: 100%;
+}

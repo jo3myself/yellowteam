@@ -154,3 +154,13 @@ $('#userModal').on('show.bs.modal', function (event) {
 	modal.find('.contact-title').text('New message to ' + recipient)
 	modal.find('.modal-body input').val(recipient)
   })
+
+// This function will show the price with 2 decimal places
+$('#product-price').on('keyup', function () {
+	var $input = $(this),
+		value = $input.val(),
+		number = parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+		
+	$input.siblings('.add-on').text('$' + number);
+
+});

@@ -133,6 +133,8 @@ body {
 
   #contactBtn {
     margin-top: 20px !important;
+    width: 100%;
+    white-space: normal;
   }
 
   #message-text {
@@ -171,4 +173,5 @@ body {
     background-color: lightgrey;
     width: auto;
 }
+
 

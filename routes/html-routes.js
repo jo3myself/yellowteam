@@ -25,7 +25,6 @@ module.exports = function(app) {
     });
   });
 
-
   app.get("/edit-profile", function(req, res) {
     if( req.isAuthenticated() ){
       db.User.findOne({
@@ -62,6 +61,8 @@ module.exports = function(app) {
   app.get("/store", function(req, res) {
     res.render('store', {});
   });
+
+  
   
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
@@ -120,4 +121,20 @@ module.exports = function(app) {
     });
   });
 
+
+   // Route to edit products
+   app.get('/editProducts/:id', function (req, res) {
+     if(req.isAuthenticated()) {
+       db.Product.findOne({
+         where: {
+           Id: req.params.id
+         },
+         include: [db.User]
+       }).then(function(results) {
+         res.render('editProducts', {product: results});
+         console.log("Success!!")
+       })
+     }
+   })
+   
 };
