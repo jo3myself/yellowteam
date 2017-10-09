@@ -50,7 +50,9 @@ module.exports = function(app) {
         description: fields.description,
         imageURL: files.imageURL.name
       }).then(function(dbProduct) {
-        res.redirect('/product/' + dbProduct.id );
+        dbProduct.added = true;      
+        // res.render('addProducts', dbProduct );
+        res.status(200);
       });
     });
 
@@ -105,7 +107,7 @@ module.exports = function(app) {
         }
       }).then(function(results) {
         console.log(req.params.id);
-        res.json(results)
+        res.redirect('/editProducts/' + req.params.id)
       });
     }
   });
@@ -151,13 +153,14 @@ module.exports = function(app) {
         where: {
           id: fields.id
         }
-      }).then(function(dbUser) { 
-        res.redirect('/store/' + req.user.userName );
+      }).then(function(dbUser) {  
+        // res.json(dbUser);
+        res.json({ updated: true });
       });
     });
 
     form.on('fileBegin', function (name, file){
-      file.path = path.basename(path.dirname('../')) + '/public/uploads/users/' + file.name;     
+      file.path = path.basename(path.dirname('../')) + '/uploads/users/' + file.name;     
     });
 
     form.on('end', function() {

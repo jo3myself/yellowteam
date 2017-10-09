@@ -2,7 +2,7 @@
 <div class="card card-product">
   <ul class="list-group list-group-flush">
     {{#each user.Products}}
-      <li class="list-group-item">{{this.productName}} <br><a href="#">Edit &rarr;</a></li>
+      <li class="list-group-item">{{this.productName}} <br><a href="/editProducts/{{this.id}}">Edit &rarr;</a></li>
     {{/each}}
   </ul>
 </div><!-- /.card -->
