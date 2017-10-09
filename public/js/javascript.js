@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	 
   // Opens Account Modal with appropriate tab selected
@@ -6,31 +7,22 @@ $(document).ready(function() {
     var tab = e.target.hash;
     $('a[href="' + tab + '"]').tab('show');
   });
-  
-  var from,to,subject,text;
-    $("#send_email").click(function(){      
-        to=$("#to").val();
-        subject=$("#subject").val();
-        text=$("#content").val();
-        // $("#message").text("Sending E-mail...Please wait");
-        $.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
-        if(data=="sent")
-        {
-            $('#userModal').modal('toggle');
-        }
 
+// to send email 
+var to,subject,text;
+$("#send_email").click(function(){      
+	to=$("#to").val();
+	subject=$("#subject").val();
+	text=$("#content").val();
+	$.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
+	if(data=="sent") {
+		$('#userModal').modal('toggle');
+	}
+	});
 });
-    });
-	
- // Opens Account Modal with appropriate tab selected
- $('.open-account-modal').on('click',function(e) {
-	 $('#account-modal').modal();
-	 var tab = e.target.hash;
-	 $('a[href="' + tab + '"]').tab('show');
- });
-	
- // Activates Carousel
- $('.carousel').carousel();
+
+  // Activates Carousel
+	$('.carousel').carousel();
 
 // handles the carousel thumbnails
 $('[id^=carousel-selector-]').click( function(){
@@ -50,6 +42,16 @@ $('#carousel').on('slid', function (e) {
  $('[id=carousel-selector-'+id+']').addClass('selected');
 });
 
+var showChar = 400;
+var ellipsestext = "...";
+$('.itemDesc').each(function() {
+	var content = $(this).html();
+	if(content.length > showChar) {
+		var c = content.substr(0, showChar);
+		var html = c + ellipsestext;
+		$(this).html(html);
+	}
+});
 
 });//end of document.ready
 

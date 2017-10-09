@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    console.log("This is the user ID: " + req.session.passport.user);
+    // console.log(req.session.passport.user);
     res.render('index', {});
   });
 
@@ -32,8 +32,7 @@ module.exports = function(app) {
             db.Product
         ]
       }).then(function(results) {
-        console.log(results.Products);
-        res.render('store', {userInfo: results});
+         res.render('store', {userInfo: results});
       });
     }
   });

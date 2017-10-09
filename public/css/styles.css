@@ -29,12 +29,14 @@ body {
 }
 
 .largeDIV {
-background-color:#89b6ff;
+background: rgba(137, 182, 255, 0.5);
 }
+
 .smallDIV {
-background-color:#bfd6fc;
+background: rgba(191, 214, 252, 0.5);
 padding: 20px 15px 15px 15px;
 }
+
 .sm-picture {
 margin: 20px 10px 20px 15px;
 border: 3px solid white;
@@ -53,8 +55,11 @@ margin: 5px;
 
 #addProductsCard {
   margin: auto;
+<<<<<<< HEAD
 }
 
 #add-products-button {
   margin-bottom: 10px;
+=======
+>>>>>>> master
 }
