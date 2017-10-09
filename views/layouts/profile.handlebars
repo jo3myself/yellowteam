@@ -23,7 +23,23 @@
 
   {{> nav }}
 
-  {{{ body }}}
+  {{> user-header }}
+
+  <section class="section section-featured-products">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-12 col-lg-4 mb-3">
+          {{> user-sidebar }}
+        </div><!-- /.col -->
+
+        <div class="col-sm-12 col-lg-8">
+          {{{ body }}}
+        </div><!-- /.col -->
+
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </section><!-- /.section -->
 
   {{> footer }}
   

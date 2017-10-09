@@ -35,7 +35,7 @@ module.exports = function(app) {
           db.Product
         ]
       }).then(function(dbUser) {
-         res.render('user', {user: dbUser});
+         res.render('user', { user: dbUser, layout: 'profile.handlebars' });
       });
     }
   });
@@ -92,7 +92,7 @@ module.exports = function(app) {
           db.Product
         ]
       }).then(function(dbUser) {
-         res.render('addProducts', {user: dbUser});
+         res.render('addProducts', { user: dbUser, layout: 'profile.handlebars' });
       });
     }
   });
