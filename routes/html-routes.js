@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    console.log(req.session.passport.user);
+    console.log("This is the user ID: " + req.session.passport.user);
     res.render('index', {});
   });
 
@@ -46,9 +46,7 @@ module.exports = function(app) {
     res.render('store', {});
   });
 
-  app.get('/user', function(req, res) {
-    res.render('user', {});
-  });
+  
   
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
