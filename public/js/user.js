@@ -40,7 +40,7 @@ $(document).ready(function() {
   });
 
   // process the profile-image-form
-  $('#profile-image-form').submit(function(event) {
+  $('#profile-image-formxxx').submit(function(event) {
 
     // get the form data
     var formData = {

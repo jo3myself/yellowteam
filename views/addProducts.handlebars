@@ -27,13 +27,15 @@
             <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
           </div><!-- /.card -->
 
-          <div class="card card-product">
+          <div class="card card-product border-0">
             <form id="profile-image-form" method="POST" enctype="multipart/form-data" action="/profile-image?_method=PUT">
               <div class="form-group">
                 <label for="profile-imge" class="form-control-label">Profile Image:</label>
-                <input type="file" class="form-control" name="profile_image" id="profile_image" required>
-              </div><!-- /.form-group -->
-              <input type="hidden" value="1" id="id" name="id">
+                <div class="alert alert-secondary" role="alert">
+                  <input type="file" class="form-control-file" name="profile_image" id="profile_image" required> 
+                </div><!--/.alert-->       
+              </div><!--/.form-group-->
+              <input type="hidden" value="{{{user.id}}}" id="id" name="id">
               <button id="update-profile-image" type="submit" class="btn btn-block btn-primary">Update Profile Image</button>
             </form>
 
