@@ -66,7 +66,7 @@ $(document).ready(function() {
   });
 
   // process the adding products form
-  $('#add-products-formssss').submit(function(event) {
+  $('#add-products-forms').submit(function(event) {
 
     // get the form data
     var formData = {
@@ -80,10 +80,15 @@ $(document).ready(function() {
 
     // process the form
     $.ajax({
-      type        : 'POST',
+      method      : 'POST',
       url         : '/addProducts',
       data        : formData,
-      dataType    : 'json'
+      dataType    : 'json',
+      statusCode: {
+        200: function() {
+          alert( "page not found" );
+        }
+      }
     }).done(function(data) {
       // log data to the console so we can see
       console.log(data); 

@@ -51,7 +51,8 @@ module.exports = function(app) {
         imageURL: files.imageURL.name
       }).then(function(dbProduct) {
         dbProduct.added = true;      
-        res.render('addProducts', dbProduct );
+        // res.render('addProducts', dbProduct );
+        res.status(200);
       });
     });
 
