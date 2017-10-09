@@ -1,13 +1,13 @@
-<header class="page-header bg-secondary">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <a href="/store/{{user.userName}}" class="btn btn-info float-right">View Store</a>
-        <h1 class="h4 text-uppercase">{{user.name}}'s Store</h1>
-      </div><!-- /.col-->
-    </div><!-- /.row-->
-  </div><!-- /.container-->
-</header><!-- /.page-header -->
+  <header class="page-header bg-secondary">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <a href="/store/{{user.userName}}" id="store-btn" class="btn btn-info float-right">View Store</a>
+          <h1 class="h4 text-uppercase"><span id="store-name">{{user.userName}}</span>'s Store</h1>
+        </div><!-- /.col-->
+      </div><!-- /.row-->
+    </div><!-- /.container-->
+  </header><!-- /.page-header -->
 
   <section class="section section-featured-products">
     <div class="container">
@@ -17,9 +17,9 @@
           <h3 class="h5 text-uppercase">Edit Products</h3>
           <div class="card card-product">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
-              <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
-              <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
+              {{#each user.Products}}
+                <li class="list-group-item">{{this.productName}} <br><a href="#">Edit &rarr;</a></li>
+              {{/each}}
             </ul>
           </div><!-- /.card -->
 
@@ -48,7 +48,9 @@
               <div class="alert alert-success" role="alert">The following product {{this.dataValues.productName}} has been added to your store</div><!-- /.alert -->
             {{/if}}
 
-            <form action="/addProducts" enctype="multipart/form-data" method="POST">
+            <div class="alert alert-success alert-image d-none" role="alert">Your Profile has been updated</div><!-- /.alert --> 
+
+            <form id="add-products-form" action="/addProducts" enctype="multipart/form-data" method="POST">
               <div class="row">
                 <div class="col-sm-4">
                   <div class="form-group">
@@ -60,7 +62,7 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="category">Category</label>
-                    <select class="custom-select" name="category" required style="display: block; width: 100%;">
+                    <select class="custom-select" name="category" id="product-category" required style="display: block; width: 100%;">
                       <option selected>Choose a Category</option>
                       <option value="Books">Books</option>
                       <option value="Movies">Movies</option>
@@ -96,7 +98,7 @@
                 </div><!--/.alert-->       
               </div><!--/.form-group-->
 
-              <input type="hidden" value="{{{user.id}}}" name="userID">
+              <input type="hidden" value="{{{user.id}}}" id="id" name="userID">
               <button type="submit" class="btn btn-primary text-uppercase" id="addProduct">Add Product</button>
             </form>
 

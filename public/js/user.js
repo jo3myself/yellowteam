@@ -59,7 +59,36 @@ $(document).ready(function() {
       console.log(data); 
       // Show message that user has been updated
       $('.alert-image').removeClass('d-none');
-      // window.location.href = "/";
+    });
+
+    // // stop the form from submitting the normal way and refreshing the page
+    event.preventDefault();
+  });
+
+  // process the adding products form
+  $('#add-products-formssss').submit(function(event) {
+
+    // get the form data
+    var formData = {
+      'productName'   : $('#product-name').val(),
+      'category'      : $('#product-category').val(),
+      'price'         : $('#product-price').val(),
+      'description'   : $('#product-description').val(),
+      'imageURL'      : $('#image-url').val('Image Here'),
+      'UserId'        : $('#id').val()
+    };
+
+    // process the form
+    $.ajax({
+      type        : 'POST',
+      url         : '/addProducts',
+      data        : formData,
+      dataType    : 'json'
+    }).done(function(data) {
+      // log data to the console so we can see
+      console.log(data); 
+      // Show message that user has been updated
+      $('.alert-image').removeClass('d-none');
     });
 
     // // stop the form from submitting the normal way and refreshing the page

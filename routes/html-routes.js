@@ -81,10 +81,17 @@ module.exports = function(app) {
     };
   });
 
-  app.get('/addProducts' , function (req, res) {
+  app.get('/addProducts', function (req, res) {
     if( req.isAuthenticated() ){
-      res.render('addProducts', {
-        user: req.user,
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+        include: [
+          db.Product
+        ]
+      }).then(function(dbUser) {
+         res.render('addProducts', {user: dbUser});
       });
     }
   });
