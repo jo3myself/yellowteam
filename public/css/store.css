@@ -3,7 +3,6 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    padding-bottom: 40px;
     color: #5a5a5a;
   }
   hr {
@@ -24,14 +23,14 @@ body {
     padding-bottom: 30px;
   }
 
-  .card {
+  /* .card {
     padding: 10px 10px 40px 10px;
     margin: 2%;
   }
 
   .card-title {
     padding: 10px;
-  }
+  } */
 
   #main-contact {
     padding: 20px;
@@ -40,8 +39,8 @@ body {
 
   #productsHeader {
     font-family: 'Ubuntu', sans-serif;
-      padding: 40px 20px 40px 20px;
-      font-size: calc(2vw + 2vh + 1vmin);
+      padding: 15px 0;
+      /* font-size: calc(2vw + 2vh + 1vmin); */
       background-color: #302F2F;
       color: #fff;
   }

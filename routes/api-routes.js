@@ -7,7 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
-// var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');
 const saltRounds = 10;
 var formidable = require('formidable');
 var path = require('path');  
@@ -51,7 +51,8 @@ module.exports = function(app) {
         imageURL: files.imageURL.name
       }).then(function(dbProduct) {
         dbProduct.added = true;      
-        res.render('addProducts', dbProduct );
+        // res.render('addProducts', dbProduct );
+        res.status(200);
       });
     });
 
@@ -70,13 +71,14 @@ module.exports = function(app) {
     const password = req.body.password;
 
     // Hash the password then save to DB
-    bcrypt.hash(password, saltRounds).then(function(hash) {
+    // bcrypt.hash(password, saltRounds).then(function(hash) {
+
       db.User.update({
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone_number,
         userName: req.body.user_name,
-        password: hash,
+        // password: hash,
         location: req.body.location
       }, {
         where: {
@@ -85,7 +87,8 @@ module.exports = function(app) {
       }).then(function(dbUser) {
         res.json(dbUser);
       });
-    });
+
+    // });
 
   });
   

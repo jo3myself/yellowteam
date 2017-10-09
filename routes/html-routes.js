@@ -14,13 +14,31 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
-    // console.log(req.session.passport.user);
-    res.render('index', {});
+    db.Product.findAll({
+      limit: 4,
+      where: {
+       category: 'Computers'
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render('index', { product: results} );
+    });
   });
 
 
   app.get("/edit-profile", function(req, res) {
-    res.render('user', {});
+    if( req.isAuthenticated() ){
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+        include: [
+          db.Product
+        ]
+      }).then(function(dbUser) {
+         res.render('user', {user: dbUser});
+      });
+    }
   });
 
   // search for stores by the store username and populate the store page with the results
@@ -65,8 +83,19 @@ module.exports = function(app) {
     };
   });
 
-  app.get('/addProducts' , function (req, res) {
-    res.render('addProducts', {});
+  app.get('/addProducts', function (req, res) {
+    if( req.isAuthenticated() ){
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+        include: [
+          db.Product
+        ]
+      }).then(function(dbUser) {
+         res.render('addProducts', {user: dbUser});
+      });
+    }
   });
 
   // search for product with this Id and pass it to handlebars

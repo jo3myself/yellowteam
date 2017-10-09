@@ -2,7 +2,8 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h1 class="h4 text-uppercase">User Page</h1>
+          <a href="/store/{{user.userName}}" id="store-btn" class="btn btn-info float-right">View Store</a>
+          <h1 class="h4 text-uppercase"><span id="store-name">{{user.userName}}</span>'s Store</h1>
         </div><!-- /.col-->
       </div><!-- /.row-->
     </div><!-- /.container-->
@@ -16,15 +17,19 @@
           <h3 class="h5 text-uppercase">Edit Products</h3>
           <div class="card card-product">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
-              <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
-              <li class="list-group-item">Product Name <a href="#" class="float-right">Edit &rarr;</a></li>
+              {{#each user.Products}}
+                <li class="list-group-item">{{this.productName}} <br><a href="#">Edit &rarr;</a></li>
+              {{/each}}
             </ul>
           </div><!-- /.card -->
 
           <div class="card card-product">
+<<<<<<< HEAD
             <a href="/addProducts"><button class="btn btn-block btn-primary" id="add-products-button">Add Products</button></a>
             <a href="/store"><button type="button" class="btn btn-block btn-secondary" id="store-button">View Your Store</button></a>
+=======
+            <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
+>>>>>>> dabfa9e57b857ca6a537a1a972e1d43ce4d04e16
           </div><!-- /.card -->
 
           <div class="card card-product">
@@ -33,7 +38,7 @@
                 <label for="profile-imge" class="form-control-label">Profile Image:</label>
                 <input type="file" class="form-control" name="profile_image" id="profile_image" required>
               </div><!-- /.form-group -->
-              <input type="hidden" value="1" id="id" name="id">
+              <input type="hidden" value="{{user.id}}" id="id" name="id">
               <button id="update-profile-image" type="submit" class="btn btn-block btn-primary">Update Profile Image</button>
             </form>
 
@@ -51,45 +56,49 @@
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="first-name" class="form-control-label">First Name:</label>
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{user.name}}" required>
                 </div><!-- /.form-group -->  
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="email" class="form-control-label">Email:</label>
-                  <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{user.email}}" required>
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="phone-number" class="form-control-label">Phone Number:</label>
-                  <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555" required>
+                  <input type="text" class="form-control" nam="phone_number" id="phone_number" placeholder="555-555-5555" value="{{user.phone}}" required>
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="location" class="form-control-label">Location:</label>
-                  <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA" required>
+                  <input type="text" class="form-control" name="location" id="location" placeholder="Irvine, CA" value="{{user.location}}" required>
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="username" class="form-control-label">Username/Storename:</label>
-                  <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" required>
+                  <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" value="{{user.userName}}" required>
                 </div><!-- /.form-group -->        
               </div><!-- /.col -->
               <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                   <label for="password" class="form-control-label">Password:</label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="{{user.password}}">
                 </div><!-- /.form-group -->
               </div><!-- /.col -->
             </div><!-- /.row -->
+
             <div class="form-group">
                 <label for="store-description">Store Info</label>
                 <textarea class="form-control" name="store-info" id="store-info" rows="10" placeholder="Enter Store Information Here"></textarea>
             </div>
             <input type="hidden" value="1" id="id" name="id">
+            
+            <input type="hidden" value="{{user.id}}" id="id" name="id">
+
             <button id="update-profile" type="submit" class="btn btn-primary">Update Profile</button>
           </form>
 
