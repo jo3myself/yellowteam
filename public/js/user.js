@@ -40,7 +40,7 @@ $(document).ready(function() {
   });
 
   // process the profile-image-form
-  $('#profile-image-form').submit(function(event) {
+  $('#profile-image-formxxx').submit(function(event) {
 
     // get the form data
     var formData = {
@@ -66,7 +66,7 @@ $(document).ready(function() {
   });
 
   // process the adding products form
-  $('#add-products-forms').submit(function(event) {
+  $('#add-products-formxxx').submit(function(event) {
 
     // get the form data
     var formData = {
@@ -80,15 +80,10 @@ $(document).ready(function() {
 
     // process the form
     $.ajax({
-      method      : 'POST',
+      type        : 'POST',
       url         : '/addProducts',
       data        : formData,
-      dataType    : 'json',
-      statusCode: {
-        200: function() {
-          alert( "page not found" );
-        }
-      }
+      dataType    : 'json'
     }).done(function(data) {
       // log data to the console so we can see
       console.log(data); 
