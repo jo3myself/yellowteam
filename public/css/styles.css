@@ -6,6 +6,7 @@ body {
   margin-bottom: 55px;
 }
 .page-header {
+  color: #fff;
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -29,12 +30,14 @@ body {
 }
 
 .largeDIV {
-background-color:#89b6ff;
+background: rgba(137, 182, 255, 0.5);
 }
+
 .smallDIV {
-background-color:#bfd6fc;
+background: rgba(191, 214, 252, 0.5);
 padding: 20px 15px 15px 15px;
 }
+
 .sm-picture {
 margin: 20px 10px 20px 15px;
 border: 3px solid white;
@@ -47,7 +50,6 @@ color: darkblue;
 margin: 5px;
 }
 
-
 .textArea {
   max-width: 100%;
 }
@@ -56,3 +58,6 @@ margin: 5px;
   margin: auto;
 }
 
+#edited-description {
+  max-width: 100%;
+}

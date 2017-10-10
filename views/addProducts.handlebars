@@ -1,69 +1,55 @@
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12" id="addProductsCard">
-        <div class="card">
-          <div class="card-header">
-            <h3>Add Products</h3>
-          </div><!--/.card-header -->
-          <div class="card-body">
-           
-            {{#if this.added}}
-              <div class="alert alert-success" role="alert">The following product {{this.dataValues.productName}} has been added to your store</div><!-- /.alert -->
-            {{/if}}
+<h2 class="h5 text-uppercase">Add Products</h2>
 
-            <form action="/addProducts" enctype="multipart/form-data" method="POST">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="productName">Product Name</label>
-                    <input type="text" class="form-control" name="productName" id="product-name" placeholder="Example: Dell Computer" required>
-                  </div><!--/.form-group -->
-                </div><!-- /.col -->
+<div class="alert alert-success alert-image d-none" role="alert">The following product {{this.productName}} has been added to your store</div><!-- /.alert --> 
 
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="category">Category</label>
-                    <select class="custom-select" name="category" required style="display: block; width: 100%;">
-                      <option selected>Choose a Category</option>
-                      <option value="Books">Books</option>
-                      <option value="Movies">Movies</option>
-                      <option value="Computers">Computers</option>
-                      <option value="Smartphones">Smartphones</option>
-                      <option value="Tvs">Tv's</option>
-                      <option value="Toys">Toys</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div><!--/.form-group-->
-                </div><!-- /.col -->
+<form id="add-products-form" action="/addProducts" enctype="multipart/form-data" method="POST">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" name="productName" id="product-name" placeholder="Example: Dell Computer" required>
+      </div><!--/.form-group -->
+    </div><!-- /.col -->
 
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="text" class="form-control" id="product-price" placeholder="00.00" name="price" required>
-                  </div><!--/.form-group-->
-                </div><!-- /.col -->
-              </div><!--/.row -->
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select class="custom-select" name="category" id="product-category" required style="display: block; width: 100%;">
+          <option selected>Choose a Category</option>
+          <option value="Books">Books</option>
+          <option value="Movies">Movies</option>
+          <option value="Computers">Computers</option>
+          <option value="Smartphones">Smartphones</option>
+          <option value="Tvs">Tv's</option>
+          <option value="Toys">Toys</option>
+          <option value="other">Other</option>
+        </select>
+      </div><!--/.form-group-->
+    </div><!-- /.col -->
 
-              <div class="form-group">
-                <label for="description">Product Description</label>
-                <textarea class="form-control" id="product-description" rows="10" name="description" placeholder="Enter Product Description" required></textarea>
-              </div><!--/.form-group-->
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="price">Price</label>
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input type="text" class="form-control" id="product-price" placeholder="00.00" name="price" required>
+        </div>
+      </div><!--/.form-group-->
+    </div><!-- /.col -->
+  </div><!--/.row -->
 
-              <div class="form-group">
-                <div class="alert alert-secondary" role="alert">
-                  <label for="imageURL">Product Image</label>
-                  <input type="file" name="imageURL" class="form-control-file" id="image-url" required>  
-                </div><!--/.alert-->       
-              </div><!--/.form-group-->
+  <div class="form-group">
+    <label for="description">Product Description</label>
+    <textarea class="form-control" id="product-description" rows="10" name="description" placeholder="Enter Product Description" required></textarea>
+  </div><!--/.form-group-->
 
-              <input type="hidden" value="1" name="userID">
-              <button type="submit" class="btn btn-primary text-uppercase" id="addProduct">Add Product</button>
-            </form>
+  <div class="form-group">
+    <label for="imageURL">Product Image</label>
+    <div class="alert alert-secondary" role="alert">
+      <input type="file" name="imageURL" class="form-control-file" id="image-url" required>  
+    </div><!--/.alert-->       
+  </div><!--/.form-group-->
 
-          </div><!--/.card-body -->
-        </div><!--/.card-->
-      </div><!--/.col-->
-    </div><!--/.row -->
-  </div><!--/.container-fluid -->
-</section><!--/.section -->
+  <input type="hidden" value="{{{user.id}}}" id="id" name="userID">
+  <button type="submit" class="btn btn-primary text-uppercase" id="addProduct">Add Product</button>
+</form>

@@ -7,7 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
-// var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');
 const saltRounds = 10;
 var formidable = require('formidable');
 var path = require('path');  
@@ -51,12 +51,13 @@ module.exports = function(app) {
         imageURL: files.imageURL.name
       }).then(function(dbProduct) {
         dbProduct.added = true;      
-        res.render('addProducts', dbProduct );
+        // res.render('addProducts', dbProduct );
+        res.status(200);
       });
     });
 
     form.on('fileBegin', function (name, file){
-      file.path = path.basename(path.dirname('../')) + '/uploads/products/' + file.name;     
+      file.path = path.basename(path.dirname('../')) + '/public/uploads/products/' + file.name;     
     });
 
     form.on('end', function() {
@@ -70,13 +71,14 @@ module.exports = function(app) {
     const password = req.body.password;
 
     // Hash the password then save to DB
-    bcrypt.hash(password, saltRounds).then(function(hash) {
+    // bcrypt.hash(password, saltRounds).then(function(hash) {
+
       db.User.update({
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone_number,
         userName: req.body.user_name,
-        password: hash,
+        // password: hash,
         location: req.body.location
       }, {
         where: {
@@ -85,8 +87,29 @@ module.exports = function(app) {
       }).then(function(dbUser) {
         res.json(dbUser);
       });
-    });
 
+    // });
+
+  });
+
+  // PUT route for updating products
+  app.put('/editProducts/:id', function(req, res) {
+    if(req.isAuthenticated()) {
+      db.Product.update({
+        productName: req.body.edited_product_name,
+        price: req.body.edited_price,
+        category: req.body.edited_category,
+        description: req.body.edited_description,
+        imageURL: req.body.edited_imageURL
+      }, {
+        where: {
+          Id: req.params.id
+        }
+      }).then(function(results) {
+        console.log(req.params.id);
+        res.redirect('/editProducts/' + req.params.id)
+      });
+    }
   });
   
   app.delete("/api/products/:id", function(req, res) {

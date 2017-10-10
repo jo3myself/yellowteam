@@ -1,0 +1,27 @@
+<h3 class="h5 text-uppercase">Edit Products</h3>
+<div class="card card-product">
+  <ul class="list-group list-group-flush">
+    {{#each user.Products}}
+      <li class="list-group-item">{{this.productName}} <br><a href="/editProducts/{{this.id}}">Edit &rarr;</a></li>
+    {{/each}}
+  </ul>
+</div><!-- /.card -->
+
+<div class="card card-product">
+  <a href="/addProducts"><button class="btn btn-block btn-primary">Add Products</button></a>
+</div><!-- /.card -->
+
+<div class="card card-product border-0">
+  <form id="profile-image-form" method="POST" enctype="multipart/form-data" action="/profile-image?_method=PUT">
+    <div class="form-group">
+      <label for="profile-imge" class="form-control-label">Profile Image:</label>
+      <div class="alert alert-secondary" role="alert">
+        <input type="file" class="form-control-file" name="profile_image" id="profile_image" required> 
+      </div><!--/.alert-->       
+    </div><!--/.form-group-->
+    <input type="hidden" value="{{{user.id}}}" id="id" name="id">
+    <button id="update-profile-image" type="submit" class="btn btn-block btn-primary">Update Profile Image</button>
+  </form>
+
+  <div class="alert alert-success alert-imge d-none" role="alert">Your Profile image has been updated</div><!-- /.alert --> 
+</div><!-- /.card -->

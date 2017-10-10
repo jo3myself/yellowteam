@@ -1,141 +1,59 @@
-   <!-- Jumbotron
-================================================== -->
 
-<div class="jumbotron text-center" id="storeJumbotron">
-    <div class="container">
-        <h1 id="storeTitle">{{{product.User.userName}}}'s Store</h1>
-    </div>
-        
-</div>
-{{!-- Product Title --}}
-<h1 class="text-center" id="product-title">{{product.productName}}'s Store</h1>
+<header class="page-header bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a href="/store/{{{product.User.userName}}}" class="btn btn-info float-right">View Store</a>
+        <h1 class="h4 text-uppercase">{{{product.User.userName}}}'s Store</h1>
+      </div><!-- /.col-->
+    </div><!-- /.row-->
+  </div><!-- /.container-->
+</header><!-- /.page-header-->
 
-{{!-- Contact User Modal --}}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4"> 
+        <img src="/uploads/products/{{product.imageURL}}" class="img-fluid">
+      </div><!-- /.col -->
+      <div class="col-sm-8">
+        <h2>{{product.productName}}</h2>
+        <hr style="clear: both; width: 100%;">
+        <h3 class="text-uppercase h4">Product Details</h3>
+        <p>{{product.description}}</p>
+        <h3 id="price-header" class="text-uppercase h4">Price: ${{product.price}}</h3>
 
-<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-          <h1 class="modal-title">Contact Information</h1>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <p class="modal-titles">Name: <span class="modal-results">{{{product.User.name}}}</span></p>
-          <p class="modal-titles">Phone Number: <span class="modal-results">{{{product.User.phone}}}</span></p>
-          <p class="modal-titles">Email: <span class="modal-results">{{{product.User.email}}}</span></p>
-          <p class="modal-titles">Product Price: <span class="modal-results">${{{product.price}}}</span></p>
-          <p class="modal-titles">Product Id: <span class="modal-results" id="subject">{{{product.id}}}</span></p>
-          <p class="modal-titles">Store Location: <span class="modal-results">{{{product.User.location}}}</span></p>
-          <p id="message"></span></p>
+        <a href="/category/{{product.category}}" class="badge badge-secondary">{{product.category}}</a>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.section -->
 
-          <h4 class="contact-title text-center" id="userModalLabel">New message</h4>
+<section class="section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4 class="contact-title text-center text-uppercase" id="userModalLabel">{{{product.User.name}}} Contact Info</h4>
+        <p><strong>Name:</strong>  {{{product.User.name}}}<br>
+          <strong>Phone Number:</strong> {{{product.User.phone}}}<br>
+          <strong>Email:</strong> <a href="mailto:{{{product.User.email}}}">{{{product.User.email}}}</a></p>
+
+        <p><strong>Store Location:</strong> {{{product.User.location}}}</p>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <h4 class="contact-title text-center text-uppercase" id="userModalLabel">Send a Message to {{{product.User.name}}}</h4>
         <form>
           <div class="form-group">
             <label for="recipient-name" class="form-control-label">Recipient:</label>
-            <input type="text" class="form-control" id="to">
-          </div>
+            <input type="text" class="form-control" id="to" value="{{{product.User.email}}}">
+          </div><!-- /.form-group -->
           <div class="form-group">
             <label for="message-text" class="form-control-label">Message:</label>
             <textarea class="form-control" id="content"></textarea>
-          </div>
+          </div><!-- /.form-group -->
+          <button type="button" class="btn btn-info btn-block" id="send_email">Send message</button>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="send_email">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{!-- /.Modal --}}
-
-<!-- /.jumbotron -->
-<div class="container">    
-    <!-- main slider carousel -->
-    <div class="row">
-        <div class="col-md-12" id="slider">
-            <div class="col-md-12" id="carousel-bounding-box">
-                <div id="carousel" class="carousel slide" data-ride="carousel">
-                    <!-- main slider carousel items -->
-                    <div class="carousel-inner">
-                        <div class="active carousel-item text-center" data-slide-number="0">
-                            <img src="{{product.imageURL}}" class="img-fluid" id="main-img">
-                        </div>
-                    </div>
-
-                    {{!-- For Carousel which will be functioning at a later time... For now we are just going with one image --}}
-                    {{!-- <!-- main slider carousel nav controls --> 
-
-                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a> --}}
-                </div>
-            </div>
-
-        </div>
-    </div>   
-    <!-- thumb navigation carousel -->
-
-    {{!-- THumbnails used for the carousel may be implemented at a later time --}}
-
-    {{!-- <div class="col-md-12 center-block text-center" id="slider-thumbs">
-        
-        <!-- thumb navigation carousel items -->
-        <ul class="list-inline">
-
-            <li><a id="carousel-selector-0" class="selected">
-            <img src="{{product.imageURL}}" class="img-responsive">
-            </a></li>
-
-            <li> <a id="carousel-selector-1">
-            <img src="http://placehold.it/80x60&amp;text=two" class="img-responsive">
-            </a></li>
-
-            <li><a id="carousel-selector-2">
-            <img src="http://placehold.it/80x60&amp;text=three" class="img-responsive">
-            </a></li>
-
-            <li> <a id="carousel-selector-3">
-            <img src="http://placehold.it/80x60&amp;text=four" class="img-responsive">
-            </a></li>
-        </ul>
-        
-    </div>     --}}
-    <div class="row">
-        <div class="col-md-4 center-block" id="item-main">
-            <h3 id="price-header">Price: ${{product.price}}</h3>
-            <div class="center">
-                <h4 id="quantity">Quantity</h4>
-                <p></p>
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                            <span>-</span>
-                        </button>
-                    </span>
-                    <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                            <span>+</span>
-                        </button>
-                    </span>
-                </div>
-                <p></p>
-            </div>
-            <h4>Condition: New</h4>
-            <p><a class="btn btn-info btn-lg" id="contactBtn" data-toggle="modal" data-target="#userModal" data-user="{{{product.User.email}}}">Contact @{{{product.User.userName}}}</a>
-        </div>
-        <div class="col-md-8" id="details">
-            <h2 class="text-center">Details</h2>
-            <p>{{product.description}}</p>
-        </div>
-    </div>
-</div>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.section -->

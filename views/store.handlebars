@@ -1,39 +1,45 @@
+<header class="page-header bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a href="#" class="btn btn-info float-right">Contact Me</a>
+        <h1 class="h4 text-uppercase">{{{userInfo.userName}}}'s Store</h1>
+      </div><!-- /.col-->
+    </div><!-- /.row-->
+  </div><!-- /.container-->
+</header><!-- /.page-header-->
 
-<!-- Jumbotron
-================================================== -->
+<div id="productsHeader" class="text-center text-uppercase">
+  <h1 class="h4">Products</h1>
+</div><!-- /.productsHeader-->
 
-<div class="jumbotron text-center" id="storeJumbotron">
-    <div class="container">
-        <h1 id="storeTitle">{{{userInfo.userName}}}'s Store</h1>
-        <hr>
-        <p><a class="btn btn-info btn-lg" id="main-contact" href="#" role="button">Contact Me</a></p>
-    </div>    
-</div>
+<section class="section">
+  <div class="container">
+    <div class="row">
 
 <!-- /.jumbotron -->
     
     <!-- Logo Placement and info section
+
 ================================================== -->
 
-<!-- Wrap the rest of the page in another container to center all the content. -->
-<div class="container">
-    <!-- Product Grid -->
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1 id="productsHeader">Products</h1>
-        </div>
-    </div>
-    <div class="row" id="productContent">
-        {{#each userInfo.Products}}
-        <div class="card center-block" style="width: 20rem;">
-            <img class="card-img-top img-fluid card-img" src="{{{imageURL}}}" alt="Card image cap">
-            <div class="card-block">
-                <h3 class="card-title">{{{productName}}}</h3>
-                <a href="../product/{{{id}}}" class="btn btn-info btn-lg view-det">View details &raquo;</a>
-            </div>
-        </div>
-        {{/each}}
-    </div>
-    <!-- /.row -->
-</div> 
-<!-- /.container -->
+      {{#each userInfo.Products}}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card card-product">
+            <a href="/product/{{this.id}}"><img class="card-img-top" src="/uploads/products/{{this.imageURL}}" alt="{{this.productName}}"></a>
+            <div class="card-body">
+              <h6 class="card-title">{{this.productName}}</h6>
+              <p>${{this.price}}</p>
+              <a href="/product/{{this.id}}" class="btn btn-info btn-sm">View Product &rarr;</a>
+            </div><!-- /.card-body -->
+            <div class="card-footer">
+              <small class="text-muted">Category: <a href="/category/{{this.category}}">{{this.category}}</a></small>
+            </div><!-- /.card-footer -->
+          </div><!-- /.card -->
+        </div><!-- /.col -->
+      {{/each}}
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.section -->
+

@@ -15,23 +15,30 @@ module.exports = function(app) {
   // index route loads .html
   app.get("/", function(req, res) {
     // console.log(req);
-    if(req.isAuthenticated()) {
-      db.User.findOne({
-        where: {
-          id: req.session.passport.user
-        }
-      }).then(function(results) {
-        res.render('index', {loggedIn : req.isAuthenticated(), user: results});
-      })
-    }
-    else {
-      res.render('index', {loggedIn : req.isAuthenticated()});
-    }
+    db.Product.findAll({
+      limit: 4,
+      where: {
+       category: 'Computers'
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.render('index', { product: results} );
+    });
   });
 
-
   app.get("/edit-profile", function(req, res) {
-    res.render('user', {});
+    if( req.isAuthenticated() ){
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+        include: [
+          db.Product
+        ]
+      }).then(function(dbUser) {
+         res.render('user', { user: dbUser, layout: 'profile.handlebars' });
+      });
+    }
   });
 
   // search for stores by the store username and populate the store page with the results
@@ -44,7 +51,7 @@ module.exports = function(app) {
             db.Product
         ]
       }).then(function(results) {
-        res.render('store', {userInfo: results});
+         res.render('store', {userInfo: results});
       });
     }
   });
@@ -56,6 +63,8 @@ module.exports = function(app) {
   app.get("/store", function(req, res) {
     res.render('store', {});
   });
+
+  
   
   // do the search and pass the data to search handlebars
   app.get("/search/:search", function(req, res) {
@@ -75,8 +84,19 @@ module.exports = function(app) {
     };
   });
 
-  app.get('/addProducts' , function (req, res) {
-    res.render('addProducts', {});
+  app.get('/addProducts', function (req, res) {
+    if( req.isAuthenticated() ){
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+        include: [
+          db.Product
+        ]
+      }).then(function(dbUser) {
+         res.render('addProducts', { user: dbUser, layout: 'profile.handlebars' });
+      });
+    }
   });
 
   // search for product with this Id and pass it to handlebars
@@ -103,4 +123,20 @@ module.exports = function(app) {
     });
   });
 
+
+   // Route to edit products
+   app.get('/editProducts/:id', function (req, res) {
+     if(req.isAuthenticated()) {
+       db.Product.findOne({
+         where: {
+           Id: req.params.id
+         },
+         include: [db.User]
+       }).then(function(results) {
+         res.render('editProducts', {product: results});
+         console.log("Success!!")
+       })
+     }
+   })
+   
 };
