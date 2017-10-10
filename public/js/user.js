@@ -14,7 +14,7 @@ $(document).ready(function() {
       'email'           : $('#email').val(),
       'phone_number'    : $('#phone_number').val(),
       'user_name'       : $('#user_name').val(),
-      // 'password'        : $('#password').val(),
+      'password'        : $('#password').val(),
       'location'        : $('#location').val(),
       'id'              : $('#id').val()
     };
