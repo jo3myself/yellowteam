@@ -7,8 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
+var bCrypt = require('bcrypt-nodejs');
 var formidable = require('formidable');
 var path = require('path');  
 
@@ -50,9 +49,7 @@ module.exports = function(app) {
         description: fields.description,
         imageURL: files.imageURL.name
       }).then(function(dbProduct) {
-        dbProduct.added = true;      
-        // res.render('addProducts', dbProduct );
-        res.status(200);
+        res.redirect('/product/' + dbProduct.id );
       });
     });
 
@@ -67,18 +64,26 @@ module.exports = function(app) {
 
   // PUT route for Updating User.
   app.put("/user", function(req, res) {
+    
+    var password = req.body.password;
 
-    const password = req.body.password;
-
-    // Hash the password then save to DB
-    // bcrypt.hash(password, saltRounds).then(function(hash) {
+    db.User.findOne({
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbUser) {
+      // Checks if password input matches hash in DB
+      if( password !== dbUser.password ) {
+        // Hash the password then save to DB
+        password = bCrypt.hashSync(password);
+      }
 
       db.User.update({
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone_number,
         userName: req.body.user_name,
-        // password: hash,
+        password: password,
         location: req.body.location
       }, {
         where: {
@@ -88,7 +93,7 @@ module.exports = function(app) {
         res.json(dbUser);
       });
 
-    // });
+    });
 
   });
 
@@ -154,13 +159,12 @@ module.exports = function(app) {
           id: fields.id
         }
       }).then(function(dbUser) {  
-        // res.json(dbUser);
-        res.json({ updated: true });
+        res.redirect('/store/' + req.user.userName );
       });
     });
 
     form.on('fileBegin', function (name, file){
-      file.path = path.basename(path.dirname('../')) + '/uploads/users/' + file.name;     
+      file.path = path.basename(path.dirname('../')) + '/public/uploads/users/' + file.name;     
     });
 
     form.on('end', function() {
