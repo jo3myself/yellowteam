@@ -8,7 +8,8 @@ module.exports = function(app, passport) {
 
    app.post('/sign-up', passport.authenticate('local-signup', {
         successRedirect: '/edit-profile',
-        failureRedirect: '/sign-in'
+        failureRedirect: '/sign-in',
+        failureFlash:true
     }));
 
     // app.post('/sign-in', (req, res, next) => {
@@ -17,7 +18,8 @@ module.exports = function(app, passport) {
     // })
     app.post('/sign-in', passport.authenticate('local-signin', {
         successRedirect: '/edit-profile',
-        failureRedirect: '/sign-in'
+        failureRedirect: '/sign-in',
+        failureFlash:true
     }));
 
     // app.get('/user', isLoggedIn, authController.user);
