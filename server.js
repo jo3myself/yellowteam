@@ -9,6 +9,7 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 var passport = require("passport");
+var flash = require("connect-flash");
 var session = require("express-session");
 var env = require('dotenv').load();
 
@@ -17,6 +18,8 @@ var env = require('dotenv').load();
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+
+app.use(flash());
 
 var nodemailer = require("nodemailer");
 var smtpTransport = nodemailer.createTransport({
@@ -60,6 +63,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(methodOverride("_method"));
 
 // Sets up the Express app to handle handlebars
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 

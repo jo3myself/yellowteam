@@ -1,18 +1,17 @@
 var exports = module.exports = {}
 
 exports.signup = function(req, res) {
-    console.log("Showing sign up page from auth.js")
-   res.render('sign-in');
+   res.render('sign-in', {error: req.flash("error")[0]});
 
 }
 
 exports.signin = function(req, res) {
-    console.log("Showing sign in page from auth.js")
-    res.render('sign-in');
+    res.render('sign-in', {error: req.flash("error")[0]});
     
 }
 
 exports.user = function(req, res) {
+    console.log(req)
     res.render('user');
 }
 

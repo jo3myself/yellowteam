@@ -8,12 +8,11 @@ module.exports = function(passport, user) {
 
    //serialize
    passport.serializeUser(function(user, done) {
-       done(null, user.id); 
+        done(null, user.id); 
    });
    
    // deserialize user 
    passport.deserializeUser(function(id, done) {
-    
        User.findById(id).then(function(user) {
            if (user) {
                done(null, user.get());
@@ -44,9 +43,7 @@ module.exports = function(passport, user) {
            }).then(function(user) {
                if (user) {
                     console.log("User Exists");
-                   return done(null, false, {
-                       message: 'That email is already taken'
-                   });
+                   return done(null, false, req.flash('error', 'That email is already taken'));
                } 
                else {
                    var userPassword = generateHash(password);
@@ -69,15 +66,10 @@ module.exports = function(passport, user) {
                            return done(null, newUser);
 
                        }
-
                    });
-
                }
-
            });
-
        }
-
    ));
 
    //Local Strategy for comparing with existing user...
@@ -89,7 +81,6 @@ module.exports = function(passport, user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
        function(req, email, password, done) {
-           console.log("trying to signin");
            var User = user;
            var isValidPassword = function(userpass, password) {
                return bCrypt.compareSync(password, userpass);
@@ -103,24 +94,18 @@ module.exports = function(passport, user) {
 
                if (!user) {
     
-                   return done(null, false, {
-                       message: 'Email does not exist'
-                   });
+                   return done(null, false, req.flash('error', 'Email does not exist'));
                }
                if (!isValidPassword(user.password, password)) {
 
-                   return done(null, false, {
-                       message: 'Incorrect password.'
-                   });
+                   return done(null, false, req.flash('error', 'Incorrect Password'));
                }
                var userinfo = user.get();
                return done(null, userinfo);
     
            }).catch(function(err) {
                console.log("Error:", err);
-               return done(null, false, {
-                   message: 'Something went wrong with your Signin'
-               });   
+               return done(null, false, req.flash('error', 'Something went wrong with your sign in'));   
            });
        } 
    ));   
