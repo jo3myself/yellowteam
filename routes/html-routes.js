@@ -18,7 +18,7 @@ module.exports = function(app) {
     db.Product.findAll({
       limit: 4,
       where: {
-       category: 'Computers'
+       category: 'Smartphones'
       },
       include: [db.User]
     }).then(function(results) {
