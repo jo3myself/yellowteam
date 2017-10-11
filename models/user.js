@@ -40,11 +40,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     location: {
       type: DataTypes.STRING,
-    },
-    storeInfo: {
-      type: DataTypes.STRING
     }
-
   });
 
   User.associate = function(models) {
