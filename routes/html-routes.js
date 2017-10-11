@@ -26,20 +26,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/edit-profile", function(req, res) {
-    if( req.isAuthenticated() ){
-      db.User.findOne({
-        where: {
-        id: req.user.id 
-      },
-        include: [
-          db.Product
-        ]
-      }).then(function(dbUser) {
-         res.render('user', { user: dbUser, layout: 'profile.handlebars' });
-      });
-    }
-  });
 
   // search for stores by the store username and populate the store page with the results
   app.get("/store/:store", function(req, res) {
@@ -84,21 +70,6 @@ module.exports = function(app) {
     };
   });
 
-  app.get('/addProducts', function (req, res) {
-    if( req.isAuthenticated() ){
-      db.User.findOne({
-        where: {
-        id: req.user.id 
-      },
-        include: [
-          db.Product
-        ]
-      }).then(function(dbUser) {
-         res.render('addProducts', { user: dbUser, layout: 'profile.handlebars' });
-      });
-    }
-  });
-
   // search for product with this Id and pass it to handlebars
   app.get("/product/:id", function(req, res) {
     db.Product.findOne({
@@ -122,21 +93,5 @@ module.exports = function(app) {
       res.render("search", { productsSearched: results });
     });
   });
-
-
-   // Route to edit products
-   app.get('/editProducts/:id', function (req, res) {
-     if(req.isAuthenticated()) {
-       db.Product.findOne({
-         where: {
-           Id: req.params.id
-         },
-         include: [db.User]
-       }).then(function(results) {
-         res.render('editProducts', {product: results});
-         console.log("Success!!")
-       })
-     }
-   })
    
 };
