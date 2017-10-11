@@ -14,10 +14,11 @@ module.exports = function(app) {
 
   // index route loads .html
   app.get("/", function(req, res) {
+    // console.log(req);
     db.Product.findAll({
       limit: 4,
       where: {
-       category: 'Computers'
+       category: 'Smartphones'
       },
       include: [db.User]
     }).then(function(results) {
@@ -42,6 +43,7 @@ module.exports = function(app) {
 
   // search for stores by the store username and populate the store page with the results
   app.get("/store/:store", function(req, res) {
+    console.log(req.isAuthenticated());
     if (req.params.store) {
       db.User.findOne({
         where: {userName: req.params.store},
