@@ -1,15 +1,14 @@
-<header class="page-header bg-secondary">
+<header class="page-header bg-dark">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <a href="#" class="btn btn-info float-right">Contact Me</a>
         <h1 class="h4 text-uppercase">{{{userInfo.userName}}}'s Store</h1>
       </div><!-- /.col-->
     </div><!-- /.row-->
   </div><!-- /.container-->
 </header><!-- /.page-header-->
 
-<div id="productsHeader" class="text-center text-uppercase">
+<div id="productsHeader" class="text-center text-uppercase bg-secondary">
   <h1 class="h4">Products</h1>
 </div><!-- /.productsHeader-->
 
@@ -28,9 +27,9 @@
           <div class="card card-product">
             <a href="/product/{{this.id}}"><img class="card-img-top" src="/uploads/products/{{this.imageURL}}" alt="{{this.productName}}"></a>
             <div class="card-body">
-              <h6 class="card-title">{{this.productName}}</h6>
+              <h6 class="card-title truncate">{{this.productName}}</h6>
               <p>${{this.price}}</p>
-              <a href="/product/{{this.id}}" class="btn btn-info btn-sm">View Product &rarr;</a>
+              <a href="/product/{{this.id}}" class="btn btn-primary btn-sm">View Product &rarr;</a>
             </div><!-- /.card-body -->
             <div class="card-footer">
               <small class="text-muted">Category: <a href="/category/{{this.category}}">{{this.category}}</a></small>

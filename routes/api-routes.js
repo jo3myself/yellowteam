@@ -100,20 +100,35 @@ module.exports = function(app) {
   // PUT route for updating products
   app.put('/editProducts/:id', function(req, res) {
     if(req.isAuthenticated()) {
-      db.Product.update({
-        productName: req.body.edited_product_name,
-        price: req.body.edited_price,
-        category: req.body.edited_category,
-        description: req.body.edited_description,
-        imageURL: req.body.edited_imageURL
-      }, {
-        where: {
-          Id: req.params.id
-        }
-      }).then(function(results) {
-        console.log(req.params.id);
-        res.redirect('/editProducts/' + req.params.id)
+      // Setup formidable
+      var form = new formidable.IncomingForm();
+
+      // Parse the form request
+      form.parse(req, function(err, fields, files) {
+        db.Product.update({
+          productName: fields.edited_product_name,
+          price: fields.edited_price,
+          category: fields.edited_category,
+          description: fields.edited_description,
+          imageURL: files.edited_imageURL.name
+        }, {
+          where: {
+            Id: req.params.id
+          }
+        }).then(function(results) {
+          console.log(req.params.id);
+          res.redirect('/editProducts/' + req.params.id)
+        });
       });
+
+      form.on('fileBegin', function (name, file){
+        file.path = path.basename(path.dirname('../')) + '/public/uploads/products/' + file.name;     
+      });
+  
+      form.on('end', function() {
+        console.log('Thanks File Uploaded');
+      });
+
     }
   });
   
