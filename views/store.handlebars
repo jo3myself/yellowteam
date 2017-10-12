@@ -8,19 +8,18 @@
   </div><!-- /.container-->
 </header><!-- /.page-header-->
 
-<div id="productsHeader" class="text-center text-uppercase bg-secondary">
-  <h1 class="h4">Products</h1>
-</div><!-- /.productsHeader-->
+<div class="featured-banner" style="background-image: url('/uploads/users/{{{userInfo.profileImage}}}');"></div><!-- /.featured-banner -->
 
 <section class="section">
-  <div class="container">
+  <div class="container container-store">
+
     <div class="row">
+      <div id="productsHeader" class="text-center text-uppercase bg-secondary col-sm-12">
+        <h1 class="h4">Products</h1>
+      </div><!-- /.productsHeader-->
+    </div><!--/.row -->
 
-<!-- /.jumbotron -->
-    
-    <!-- Logo Placement and info section
-
-================================================== -->
+    <div class="row">
 
       {{#each userInfo.Products}}
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -39,6 +38,7 @@
       {{/each}}
 
     </div><!-- /.row -->
+
   </div><!-- /.container -->
 </section><!-- /.section -->
 
