@@ -13,7 +13,7 @@
     <div class="container">
              <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <div class="card" style="width: 20rem;">
+                    <div class="card card-product">
                         <img class="card-img-top" src="/uploads/products/{{product.imageURL}}" alt="smileyface" class="img-fluid">
                         <div class="card-block">
                             <h4 class="card-title">{{product.productName}}</h4>
@@ -28,6 +28,22 @@
                              <small class="text-muted">Category: <a href="/category/{{product.category}}">{{product.category}}</a></small>
                         </div><!-- /.card-footer -->
                     </div><!--/.card-->
+
+                <div class="card card-product">
+                    <div class="card-header">
+                        <h3 class="h5 text-uppercase">Product Image</h3>
+                    </div><!-- /.card-header -->
+                    <form id="product-image-form" method="POST" enctype="multipart/form-data" action="/product-image?_method=PUT">
+                        <div class="form-group mb-0">
+                            <div class="alert alert-secondary mb-0 rounded-0" role="alert">
+                                <input type="file" name="edited_imageURL" class="form-control-file" id="image-url" required>
+                            </div><!--/.alert-->       
+                        </div><!--/.form-group-->
+                        <input type="hidden" value="{{product.id}}" id="id" name="id">
+                        <button id="update-profile-image" type="submit" class="btn btn-block btn-primary rounded-0">Update Product Image</button>
+                    </form>
+                </div><!-- /.card -->
+
                 </div><!--/.card-->
 
                 <div class="col-md-8 col-sm-12">
@@ -36,7 +52,7 @@
                             <h4 class="text-uppercase">Edit Product</h4>
                         </div>
                         <div class="card-body">
-                            <form action="/editProducts/{{this.product.id}}?_method=PUT" method="POST" id="edit-products-form" enctype="multipart/form-data">
+                            <form action="/editProducts/{{this.product.id}}?_method=PUT" method="POST" id="edit-products-form">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -77,14 +93,7 @@
                                         </div><!--/.form-group-->
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="imageURL">Product Image</label>
-                                        <div class="alert alert-secondary" role="alert">
-                                            <input type="file" name="edited_imageURL" class="form-control-file" id="image-url" value="{{product.imageURL}}" required>  
-                                        </div><!--/.alert-->       
-                                 </div><!--/.form-group-->
 
-                                 <input type="hidden" value="{{{user.id}}}" id="id" name="userID">
                                 <button type="submit" class="btn btn-primary text-uppercase" id="editProduct">Edit Product</button> 
                             </form><!--end of form-->
                         </div><!--end of card-body-->
