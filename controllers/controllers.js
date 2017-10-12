@@ -1,15 +1,13 @@
 var exports = module.exports = {}
 
 exports.signup = function(req, res) {
-    console.log("Showing sign up page from auth.js")
-   res.render('sign-in');
+    res.render('sign-in');
 
 }
 
 exports.signin = function(req, res) {
-    console.log("Showing sign in page from auth.js")
     res.render('sign-in');
-    
+
 }
 
 exports.user = function(req, res) {
@@ -17,7 +15,7 @@ exports.user = function(req, res) {
 }
 
 exports.logout = function(req, res) {
-       req.session.destroy(function(err) {
-           res.redirect('/');
-       });
+    req.session.destroy(function(err) {
+        res.redirect('/');
+    });
 }
