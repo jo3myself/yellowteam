@@ -1,8 +1,8 @@
-<header class="page-header bg-secondary">
+<header class="page-header bg-dark">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <a href="/store/{{{product.User.userName}}}" class="btn btn-info float-right">View Store</a>
+        <a href="/store/{{{product.User.userName}}}" class="btn float-right btn-primary">View Store</a>
         <h1 class="h4 text-uppercase">{{{product.User.userName}}}'s Store</h1>
       </div><!-- /.col-->
     </div><!-- /.row-->
@@ -34,19 +34,19 @@
                             <h4 class="text-uppercase">Edit Product</h4>
                         </div>
                         <div class="card-body">
-                            <form action="/editProducts/{{this.product.id}}?_method=PUT" method="POST" id="edit-products-form">
+                            <form action="/editProducts/{{this.product.id}}?_method=PUT" method="POST" id="edit-products-form" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                         <label for="edited-product-name">Product Name</label>
-                                        <input type="text" name="edited_product_name" id="edited-product-name" class="form-control">
+                                        <input type="text" name="edited_product_name" id="edited-product-name" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="edited-price">Price</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control" id="edited_price" placeholder="00.00" name="edited_price">    
+                                            <input type="text" class="form-control" id="edited_price" placeholder="00.00" name="edited_price" required>    
                                         </div> 
                                 </div>
                                 </div>
@@ -54,7 +54,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="edited-category">Category</label>
-                                            <select class="custom-select" name="edited_category" id="edited_category" required style="display: block; width: 100%;">
+                                            <select class="custom-select" name="edited_category" id="edited_category" style="display: block; width: 100%;" required>
                                                 <option selected>Choose a Category</option>
                                                 <option value="Books">Books</option>
                                                 <option value="Movies">Movies</option>
@@ -71,14 +71,14 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="edited-description">Product Description</label>
-                                                <textarea class="form-control" name="edited_description" id="edited-description" rows="10" placeholder="Enter Product Description"></textarea>
+                                                <textarea class="form-control" name="edited_description" id="edited-description" rows="10" placeholder="Enter Product Description" required></textarea>
                                         </div><!--/.form-group-->
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="imageURL">Product Image</label>
                                         <div class="alert alert-secondary" role="alert">
-                                            <input type="file" name="edited_imageURL" class="form-control-file" id="image-url">  
+                                            <input type="file" name="edited_imageURL" class="form-control-file" id="image-url" required>  
                                         </div><!--/.alert-->       
                                  </div><!--/.form-group-->
 

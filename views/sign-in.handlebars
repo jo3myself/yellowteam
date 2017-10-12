@@ -1,5 +1,10 @@
 <section class="section">
   <div class="container">
+    {{#if error}}
+      <div class="alert alert-danger col-md-12" role="alert">
+        <strong>{{error}}!</strong>
+      </div> 
+      {{/if}} 
     <div class="row">
 
       <div class="col-md-6" id="loginCard">
@@ -17,9 +22,6 @@
                 <div class="form-group">
                   <label for="pwd">Password:</label>
                   <input type="password" name="password" class="form-control form-control-sm" id="pwd">
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox"> Remember me</label>
                 </div>
                 <input class="btn btn-primary" type="submit" id="loginSubmit" value="Login">
               </div>

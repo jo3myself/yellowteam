@@ -9,14 +9,16 @@ $(document).ready(function() {
   });
 
 // to send email 
+$('.alert-profile, .alert-image').addClass('d-none');
 var to,subject,text;
 $("#send_email").click(function(){      
 	to=$("#to").val();
 	subject=$("#subject").val();
 	text=$("#content").val();
-	$.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
+	$.get("https://stormy-wave-49060.herokuapp.com/send",{to:to,subject:subject,text:text},function(data){
 	if(data=="sent") {
-		$('#userModal').modal('toggle');
+		$('.alert-profile').removeClass('d-none');
+		$('#content').val("");
 	}
 	});
 });
@@ -154,13 +156,3 @@ $('#userModal').on('show.bs.modal', function (event) {
 	modal.find('.contact-title').text('New message to ' + recipient)
 	modal.find('.modal-body input').val(recipient)
   })
-
-// This function will show the price with 2 decimal places
-$('#product-price').on('keyup', function () {
-	var $input = $(this),
-		value = $input.val(),
-		number = parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-		
-	$input.siblings('.add-on').text('$' + number);
-
-});

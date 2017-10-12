@@ -49,9 +49,9 @@
             <div class="card card-product">
               <a href="/product/{{this.id}}"><img class="card-img-top" src="/uploads/products/{{this.imageURL}}" alt="{{this.productName}}"></a>
               <div class="card-body">
-                <h6 class="card-title">{{this.productName}}</h6>
+                <h6 class="card-title truncate">{{this.productName}}</h6>
                 <p>${{this.price}}</p>
-                <a href="/product/{{this.id}}" class="btn btn-info btn-sm">View Product &rarr;</a>
+                <a href="/product/{{this.id}}" class="btn btn-primary btn-sm">View Product &rarr;</a>
               </div><!-- /.card-body -->
               <div class="card-footer">
                 <small class="text-muted">User: <a href="/store/{{this.User.userName}}">{{this.User.userName}}</a></small>
