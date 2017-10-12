@@ -79,3 +79,13 @@ margin: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.featured-banner {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+}
+.container-store {
+  background-color: #fff;
+  margin-top: -200px;
+}
