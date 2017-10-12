@@ -143,6 +143,17 @@ module.exports = function(app) {
     });
   });
 
+  app.delete("/products/delete/:id", function(req, res) {
+    db.Product.destroy({
+      where: {
+        id: req.params.id
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.redirect("/edit-profile");
+    });
+  });
+
   app.get("/api/login", function(req, res) {
     db.User.findOne({
       where: {
