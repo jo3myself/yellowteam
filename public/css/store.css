@@ -39,10 +39,9 @@ body {
 
   #productsHeader {
     font-family: 'Ubuntu', sans-serif;
-      padding: 15px 0;
-      /* font-size: calc(2vw + 2vh + 1vmin); */
-      background-color: #302F2F;
-      color: #fff;
+    padding: 15px 0;
+    color: #fff;
+    margin-bottom: 25px;
   }
 
   .view-det {
