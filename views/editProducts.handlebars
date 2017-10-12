@@ -12,23 +12,25 @@
 <section class="section">
     <div class="container">
              <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>{{product.productName}}</h4>
-                        </div>
-                        <div class="card-body">
-                            <img src="/uploads/products/{{product.imageURL}}" alt="smileyface" class="img-fluid">
+                <div class="col-md-4 col-sm-12">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="/uploads/products/{{product.imageURL}}" alt="smileyface" class="img-fluid">
+                        <div class="card-block">
+                            <h4 class="card-title">{{product.productName}}</h4>
                             <p>${{product.price}}</p>
+                        </div><!--/.card-block--> 
+
+                        <div class="card-block">
                             <p>{{product.description}}</p>
-                        </div><!--/.card-body-->
+                        </div><!--/.card-block-->
+                    
                         <div class="card-footer">
                              <small class="text-muted">Category: <a href="/category/{{product.category}}">{{product.category}}</a></small>
                         </div><!-- /.card-footer -->
                     </div><!--/.card-->
                 </div><!--/.card-->
 
-                <div class="col-md-6">
+                <div class="col-md-8 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="text-uppercase">Edit Product</h4>
@@ -39,14 +41,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                         <label for="edited-product-name">Product Name</label>
-                                        <input type="text" name="edited_product_name" id="edited-product-name" class="form-control" required>
+                                        <input type="text" name="edited_product_name" id="edited-product-name" class="form-control" value="{{product.productName}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="edited-price">Price</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control" id="edited_price" placeholder="00.00" name="edited_price" required>    
+                                            <input type="text" class="form-control" id="edited_price" placeholder="00.00" name="edited_price" value="{{product.price}}">    
                                         </div> 
                                 </div>
                                 </div>
@@ -78,7 +80,7 @@
                                 <div class="form-group">
                                     <label for="imageURL">Product Image</label>
                                         <div class="alert alert-secondary" role="alert">
-                                            <input type="file" name="edited_imageURL" class="form-control-file" id="image-url" required>  
+                                            <input type="file" name="edited_imageURL" class="form-control-file" id="image-url" value="{{product.imageURL}}" required>  
                                         </div><!--/.alert-->       
                                  </div><!--/.form-group-->
 
