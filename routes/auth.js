@@ -1,4 +1,5 @@
 var authController = require('../controllers/controllers.js');
+var db = require("../models");
 
 module.exports = function(app, passport) {
    app.get('/sign-up', authController.signup);
@@ -23,8 +24,47 @@ module.exports = function(app, passport) {
     }));
 
     // app.get('/user', isLoggedIn, authController.user);
-    
-    // app.get('/', isLoggedIn, authController.user);
+
+    // Route once you login
+    app.get("/edit-profile", isLoggedIn, function(req, res) {
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+      include: [
+        db.Product
+      ]
+      }).then(function(dbUser) {
+          res.render('user', { user: dbUser, layout: 'profile.handlebars' });
+      });
+    });
+
+    // Route to add products
+    app.get('/addProducts', isLoggedIn, function (req, res) {
+      db.User.findOne({
+        where: {
+        id: req.user.id 
+      },
+        include: [
+          db.Product
+        ]
+      }).then(function(dbUser) {
+          res.render('addProducts', { user: dbUser, layout: 'profile.handlebars' });
+      });
+    });
+
+    // Route to edit products
+    app.get('/editProducts/:id', isLoggedIn, function (req, res) {
+      db.Product.findOne({
+        where: {
+          Id: req.params.id
+        },
+        include: [db.User]
+      }).then(function(results) {
+        res.render('editProducts', {product: results});
+        console.log("Success!!")
+      });
+    });
 
     app.get('/logout', authController.logout);
 
