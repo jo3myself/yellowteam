@@ -37,4 +37,4 @@ Overall, YellowStore serves as a virtual store that allows anyone to upload thei
 
 ### Link
 
-[YellowStore](https://stormy-wave-49060.herokuapp.com/ "YellowStore")
+[https://stormy-wave-49060.herokuapp.com/](https://stormy-wave-49060.herokuapp.com/ "YellowStore")
