@@ -85,6 +85,10 @@
                                  <input type="hidden" value="{{{user.id}}}" id="id" name="userID">
                                 <button type="submit" class="btn btn-primary text-uppercase" id="editProduct">Edit Product</button> 
                             </form><!--end of form-->
+                            <form action="/products/{{this.product.id}}?_method=DELETE" method="POST">
+                            <p></p>
+                            <button type="submit" class="btn btn-danger text-uppercase" id="deleteProduct">Delete</button> 
+                            </form>
                         </div><!--end of card-body-->
                     </div><!--end of card--> 
                 </div>
