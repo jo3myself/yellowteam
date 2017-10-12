@@ -12,41 +12,59 @@
 <section class="section">
     <div class="container">
              <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>{{product.productName}}</h4>
-                        </div>
-                        <div class="card-body">
-                            <img src="/uploads/products/{{product.imageURL}}" alt="smileyface" class="img-fluid">
+                <div class="col-md-4 col-sm-12">
+                    <div class="card card-product">
+                        <img class="card-img-top" src="/uploads/products/{{product.imageURL}}" alt="smileyface" class="img-fluid">
+                        <div class="card-block">
+                            <h4 class="card-title">{{product.productName}}</h4>
                             <p>${{product.price}}</p>
+                        </div><!--/.card-block--> 
+
+                        <div class="card-block">
                             <p>{{product.description}}</p>
-                        </div><!--/.card-body-->
+                        </div><!--/.card-block-->
+                    
                         <div class="card-footer">
                              <small class="text-muted">Category: <a href="/category/{{product.category}}">{{product.category}}</a></small>
                         </div><!-- /.card-footer -->
                     </div><!--/.card-->
+
+                <div class="card card-product">
+                    <div class="card-header">
+                        <h3 class="h5 text-uppercase">Product Image</h3>
+                    </div><!-- /.card-header -->
+                    <form id="product-image-form" method="POST" enctype="multipart/form-data" action="/product-image?_method=PUT">
+                        <div class="form-group mb-0">
+                            <div class="alert alert-secondary mb-0 rounded-0" role="alert">
+                                <input type="file" name="edited_imageURL" class="form-control-file" id="image-url" required>
+                            </div><!--/.alert-->       
+                        </div><!--/.form-group-->
+                        <input type="hidden" value="{{product.id}}" id="id" name="id">
+                        <button id="update-profile-image" type="submit" class="btn btn-block btn-primary rounded-0">Update Product Image</button>
+                    </form>
+                </div><!-- /.card -->
+
                 </div><!--/.card-->
 
-                <div class="col-md-6">
+                <div class="col-md-8 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="text-uppercase">Edit Product</h4>
                         </div>
                         <div class="card-body">
-                            <form action="/editProducts/{{this.product.id}}?_method=PUT" method="POST" id="edit-products-form" enctype="multipart/form-data">
+                            <form action="/editProducts/{{this.product.id}}?_method=PUT" method="POST" id="edit-products-form">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                         <label for="edited-product-name">Product Name</label>
-                                        <input type="text" name="edited_product_name" id="edited-product-name" class="form-control" required>
+                                        <input type="text" name="edited_product_name" id="edited-product-name" class="form-control" value="{{product.productName}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="edited-price">Price</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control" id="edited_price" placeholder="00.00" name="edited_price" required>    
+                                            <input type="text" class="form-control" id="edited_price" placeholder="00.00" name="edited_price" value="{{product.price}}">    
                                         </div> 
                                 </div>
                                 </div>
@@ -54,7 +72,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="edited-category">Category</label>
-                                            <select class="custom-select" name="edited_category" id="edited_category" style="display: block; width: 100%;" required>
+                                            <select class="custom-select" name="edited_category" id="edited_category" style="display: block; width: 100%;">
                                                 <option selected>Choose a Category</option>
                                                 <option value="Books">Books</option>
                                                 <option value="Movies">Movies</option>
@@ -71,19 +89,13 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="edited-description">Product Description</label>
-                                                <textarea class="form-control" name="edited_description" id="edited-description" rows="10" placeholder="Enter Product Description" required></textarea>
+                                                <textarea class="form-control" name="edited_description" id="edited-description" rows="10" placeholder="Enter Product Description">{{product.description}}</textarea>
                                         </div><!--/.form-group-->
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="imageURL">Product Image</label>
-                                        <div class="alert alert-secondary" role="alert">
-                                            <input type="file" name="edited_imageURL" class="form-control-file" id="image-url" required>  
-                                        </div><!--/.alert-->       
-                                 </div><!--/.form-group-->
 
-                                 <input type="hidden" value="{{{user.id}}}" id="id" name="userID">
-                                <button type="submit" class="btn btn-primary text-uppercase" id="editProduct">Edit Product</button> 
+                                <button type="submit" value="edit" class="btn btn-primary text-uppercase" id="editProduct">Edit Product</button> 
+                                <button type="submit" formaction="/products/delete/{{{this.product.id}}}?_method=DELETE" class="btn btn-danger text-uppercase" id="deleteProduct">Delete</button> 
                             </form><!--end of form-->
                             <form action="/products/{{this.product.id}}?_method=DELETE" method="POST">
                             <p></p>
@@ -95,10 +107,3 @@
             </div>
     </div>
 </section>
-
-
-   
-    
-
-
-
